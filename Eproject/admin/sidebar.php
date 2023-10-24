@@ -46,8 +46,8 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
            
-        <a class="collapse-item" href="branchlist.php"> List</a>
-                        <a class="collapse-item" href="addbranch.php">Add </a>
+        <a class="collapse-item" href="agentlist.php"> List</a>
+                        <a class="collapse-item" href="agentadd.php">Add </a>
         </div>
     </div>
 </li>
@@ -62,8 +62,8 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="branchlist.php"> List</a>
-                        <a class="collapse-item" href="addbranch.php">Add </a>
+                    <a class="collapse-item" href="rolelist.php"> List</a>
+                        <a class="collapse-item" href="roleadd.php">Add </a>
                     </div>
                 </div>
             </li>
@@ -85,7 +85,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                       
                         <a class="collapse-item" href="branchlist.php"> List</a>
-                        <a class="collapse-item" href="addbranch.php">Add </a>
+                        <a class="collapse-item" href="branchadd.php">Add </a>
                     </div>
                 </div>
             </li>
