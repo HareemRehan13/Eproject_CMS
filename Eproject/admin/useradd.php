@@ -1,11 +1,19 @@
+
 <?php
 include('connection.php');
-$select_q ='SELECT * FROM `tbl_user`';
+$select_q ='SELECT * FROM `tbl_role`';
 $run_q = mysqli_query($conn, $select_q);
 
+if(isset($_POST['btnsubmit'])){
+$u_name = $_POST['u_name'];
+$u_email = $_POST['u_email'];
+$r_name = $_POST['r_name'];
+$u_pass= $_POST['u_pass'];
 
+$insert_q ="INSERT INTO `tbl_user`( `u_name`, `u_email`, `r_id`, `password`) VALUES ('$u_name ','$u_email','$r_name ','$u_pass')";
+$run = mysqli_query($conn, $insert_q);
+}
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -63,9 +71,8 @@ $run_q = mysqli_query($conn, $select_q);
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Maintain Products</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        <h1 class="h3 mb-0 text-gray-800">Add User</h1>
+                        <a href="userlist.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">  Users List</a>
                     </div>
 
                 
@@ -75,35 +82,29 @@ $run_q = mysqli_query($conn, $select_q);
            <div class="container">
             <form method="POST" enctype="multipart/form-data">
   <div class="mb-3">
-    <label  class="form-label">Product Name</label>
-    <input type="text" class="form-control" name="p_name">
+    <label  class="form-label">User Name</label>
+    <input type="text" class="form-control" name="u_name">
   
   </div>
   <div class="mb-3">
-    <label  class="form-label">Description</label>
-    <input type="text" class="form-control" name="p_des">
+    <label  class="form-label">User Email</label>
+    <input type="email" class="form-control" name="u_email">
   </div>
+ 
   <div class="mb-3">
-    <label  class="form-label">Price</label>
-    <input type="text" class="form-control" name="p_price">
+    <label  class="form-label">Role</label>
     
-  </div>
-  <div class="mb-3">
-    <label  class="form-label">Image</label>
-      <img src="<?php echo $row['p_img'];?>" width="50" height="50" alt="">
-    <input type="file" class="form-control" name="p_img"> 
-  </div>
-  <div class="mb-3">
-    <label  class="form-label">Category</label>
-    
-    <select class="form-control" name="c_name">
+    <select class="form-control" name="r_name">
    <?php while ($row = mysqli_fetch_array($run_q)) { ?>
-      <option value="<?php echo $row['c_id']; ?>"><?php echo $row['c_name']; ?></option>
+      <option value="<?php echo $row['r_id']; ?>"><?php echo $row['r_name']; ?></option>
 
    <?php } ?>
 </select>
+  </div>
 
-
+  <div class="mb-3">
+    <label  class="form-label">Password</label>
+    <input type="text" class="form-control" name="u_pass">
     
   </div>
   <button type="submit" class="btn btn-primary" name="btnsubmit">Submit</button>
