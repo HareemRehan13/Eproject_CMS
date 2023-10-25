@@ -1,11 +1,25 @@
 <?php
 include('connection.php');
-$select_q ='SELECT * FROM `tbl_branch`';
-$run_q = mysqli_query($conn, $select_q);
-
-
+$fetch_q="SELECT * FROM `tbl_branch`";
+$run_q=mysqli_query($conn,$fetch_q);
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    if(isset($_POST['btnsubmit'])){
+        $productname = $_POST[''];
+        $productdescription = $_POST['p_des'];
+        $productprice = $_POST['p_price'];
+        $categoryid=$_POST['c_id'];
+       /* $userimg_name = $_FILES['p_img']['name'];
+        $userimg_tempname = $_FILES['p_img']['tmp_name'];
+        $userimg_path = 'image/' . $userimg_name;
+        move_uploaded_file($userimg_tempname, $userimg_path);*/
+        $insert_q = "INSERT INTO `tbl_product`( `p_name`, `p_des`, `p_price`, `p_img`, `c_id`) VALUES ('$productname','$productdescription','$productprice', '$userimg_path','$categoryid')";
+        $run_q = mysqli_query($conn, $insert_q);
+        if($run_q){
+            header('location: index.php');
+        }
+}
+}
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +31,6 @@ $run_q = mysqli_query($conn, $select_q);
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <title>SB Admin 2 - Dashboard</title>
 
@@ -29,12 +42,7 @@ $run_q = mysqli_query($conn, $select_q);
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <style>
-    .bg-gradient-primary {
-    background-color: #3a3b45;
-    background-image: linear-gradient(178deg,#000 10%,#3a3b45 100%);
-}
-    </style>
+
 </head>
 
 <body id="page-top">
@@ -43,7 +51,7 @@ $run_q = mysqli_query($conn, $select_q);
     <div id="wrapper">
 
         <!-- Sidebar -->
-       <?php include('sidebar.php')?>
+       <?php include ('sidebar.php') ;?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -53,66 +61,64 @@ $run_q = mysqli_query($conn, $select_q);
             <div id="content">
 
                 <!-- Topbar -->
-                <?php include('topbar.php')?>
-
+                <?php include ('topbar.php') ;?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                 
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Maintain Products</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        <h1 class="h3 mb-0 text-gray-800">product</h1>
+                        
                     </div>
 
-                
+                    <form method="POST" enctype="multipart/form-data">
+  <div class="mb-3">
+    <label  class="form-label">product Name</label>
+    <input type="text" class="form-control" name="p_name">
+    
+  </div>
+  <div class="mb-3">
+    <label class="form-label">product description</label>
+    <input type="text" class="form-control"  name="p_des" >
+    <div  class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">product price</label>
+    <input type="number" class="form-control" name="p_price" >
+  </div>
+    <div class="mb-3">
+    <label class="form-label"> product image</label>
+    <input type="file" class="form-control" name="p_img" >
+    </div>
+    <div class="mb-3">
+    <label class="form-label">product category</label>
+<select name="c_id" id=""   class="form-control" >
+    <?php while ($row=mysqli_fetch_array($run_q)) {?>
+      <option value="<?php echo $row['c_id'] ?>"><?php echo $row['c_name'] ?></option>
+   <?php }  ?>
+
+</select>
+  </div>
+  <button type="submit" name="btnsubmit" class="btn btn-danger">submit</button>
+
+</form>
+
+                </div>
                 <!-- /.container-fluid -->
 
             </div>
-           <div class="container">
-            <form method="POST" enctype="multipart/form-data">
-  <div class="mb-3">
-    <label  class="form-label">Branch Address</label>
-    <input type="text" class="form-control" name="b_address" required>
-  
-  </div>
-  <div class="mb-3">
-    <label  class="form-label">Branch Contact</label>
-    <input type="tel" class="form-control" name="b_contact" required>
-  </div>
- <!-- <div class="mb-3">
-    <label  class="form-label">Price</label>
-    <input type="text" class="form-control" name="p_price">
-    
-  </div>
-  <div class="mb-3">
-    <label  class="form-label">Image</label>
-      <img src="<?php echo $row['p_img'];?>" width="50" height="50" alt="">
-    <input type="file" class="form-control" name="p_img"> 
-  </div>
-  <div class="mb-3">-->
-    <label  class="form-label">Category</label>
-    
-    <select class="form-control" name="c_name">
-   <?php while ($row = mysqli_fetch_array($run_q)) { ?>
-      <option value="<?php echo $row['c_id']; ?>"><?php echo $row['c_name']; ?></option>
-
-   <?php } ?>
-</select>
-
-
-    
-  </div>
-  <button type="submit" class="btn btn-primary" name="btnsubmit">Submit</button>
-</form>
-  </div>
             <!-- End of Main Content -->
 
             <!-- Footer -->
-       <?php include('footer.php')?>
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2021</span>
+                    </div>
+                </div>
+            </footer>
             <!-- End of Footer -->
 
         </div>
