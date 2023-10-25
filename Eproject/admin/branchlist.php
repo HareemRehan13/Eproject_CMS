@@ -69,11 +69,10 @@ $run_q = mysqli_query($conn, $select_q);
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Images</th>
+      <th>id</th>
+      <th>City id</th>
+      <th>Branch Address</th>
+      <th>Branch contact</th>
       <th>Edit</th>
       <th>Delete</th>
     </tr>
@@ -82,13 +81,13 @@ $run_q = mysqli_query($conn, $select_q);
     <?php while($row = mysqli_fetch_array($run_q)){?>
    
     <tr>
-    <td><?php echo $row['p_id'];?></td>
-      <td><?php echo $row['p_name'];?></td>
-      <td><?php echo $row['p_des'];?></td>
-      <td><?php echo $row['p_price'];?></td>
+    <td><?php echo $row['b_id'];?></td>
+      <td><?php echo $row['ci_id'];?></td>
+      <td><?php echo $row['b_address'];?></td>
+      <td><?php echo $row['b_contact'];?></td>
 
-      <td><img src="<?php echo $row['p_img'];?>" width="50" height="50" alt=""></td>
-      <div class="mb-3">
+      <!--<td><img src="<?php echo $row['p_img'];?>" width="50" height="50" alt=""></td>
+      <div class="mb-3">-->
  
 
 

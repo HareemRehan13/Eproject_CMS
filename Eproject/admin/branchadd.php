@@ -75,15 +75,15 @@ $run_q = mysqli_query($conn, $select_q);
            <div class="container">
             <form method="POST" enctype="multipart/form-data">
   <div class="mb-3">
-    <label  class="form-label">Product Name</label>
-    <input type="text" class="form-control" name="p_name">
+    <label  class="form-label">Branch Address</label>
+    <input type="text" class="form-control" name="b_address" required>
   
   </div>
   <div class="mb-3">
-    <label  class="form-label">Description</label>
-    <input type="text" class="form-control" name="p_des">
+    <label  class="form-label">Branch Contact</label>
+    <input type="tel" class="form-control" name="b_contact" required>
   </div>
-  <div class="mb-3">
+ <!-- <div class="mb-3">
     <label  class="form-label">Price</label>
     <input type="text" class="form-control" name="p_price">
     
@@ -93,7 +93,7 @@ $run_q = mysqli_query($conn, $select_q);
       <img src="<?php echo $row['p_img'];?>" width="50" height="50" alt="">
     <input type="file" class="form-control" name="p_img"> 
   </div>
-  <div class="mb-3">
+  <div class="mb-3">-->
     <label  class="form-label">Category</label>
     
     <select class="form-control" name="c_name">
