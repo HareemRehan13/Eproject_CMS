@@ -1,11 +1,29 @@
 <?php
 include('connection.php');
-$select_q ='SELECT * FROM `tbl_branch`';
+$id = $_GET['id'];
+
+$select_q ='SELECT * FROM `tbl_city`';
 $run_q = mysqli_query($conn, $select_q);
 
- 
-    
+$fetch_selected_r ="SELECT * FROM `tbl_branch` WHERE b_id = $id";
+$run_query = mysqli_query($conn,$fetch_selected_r );
+$row = mysqli_fetch_array($run_query);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['btnsubmit'])) {
+        $branchaddress = $_POST['b_address'];
+        $branchcontact = $_POST['b_contact'];
+        $city = $_POST['ci_id'];
+        $insert_q = "INSERT INTO `tbl_branch`( `b_address`, `b_contact`, `ci_id`) VALUES ('$branchaddress','$branchcontact','$city')";
+        $run_q = mysqli_query($conn, $insert_q);
+        if ($run_q) {
+            header('location: branchlist.php');
+       }
+    }
+}
+
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -61,52 +79,51 @@ $run_q = mysqli_query($conn, $select_q);
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">View Products</h1>
-                        <a href="maintainproducts.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Add Product</a>
+                        <h1 class="h3 mb-0 text-gray-800">Update Users</h1>
+                        <a href="useradd.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Add User</a>
                     </div>
 
-<div class="container">
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>city</th>
-      <th>Address</th>
-      <th>Price</th>
-      <th>ContactNo</th>
-      <th>Edit</th>
-      <th>Delete</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php while($row = mysqli_fetch_array($run_q)){?>
-   
-    <tr>
-    <td><?php echo $row['b_id'];?></td>
-      <td><?php echo $row['ci_id'];?></td>
-      <td><?php echo $row['b_address'];?></td>
-      <td><?php echo $row['b_contact'];?></td>
 
-      <!-- <td><img src="<?php echo $row['p_img'];?>" width="50" height="50" alt=""></td> -->
-      <div class="mb-3">
- 
-
-
-    
-  </div>
-      <td><a href="editbranch.php?id=<?php echo $row['p_id'];?>" class="btn btn-success">Edit</a></td>
-      <td><a href="deletebranch.php?id=<?php echo $row['p_id'];?>" class="btn btn-danger">Delete</a></td>
-    
-
-    </tr>
-  <?php } ?>
-  </tbody>
-</table>
-</div>
                 </div>
                 <!-- /.container-fluid -->
+                <div class="container-fluid">
 
-            </div>
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Branch</h1>
+    <a href="userlist.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">  Users List</a>
+</div>
+
+
+<!-- /.container-fluid -->
+
+<form method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label class="form-label"> Branch Address </label>
+        <input type="text" class="form-control"  value ="<?php echo $row['b_address']; ?>"name="b_address" required>
+
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Branch Contact</label>
+        <input type="tel" class="form-control" value ="<?php echo $row['b_contact']; ?>"  name="b_contact" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">City</label>
+        <select name="city" id="" class="form-control">
+            <?php while ($row = mysqli_fetch_array($run_q)) { ?>
+                <option value="<?php echo $row['ci_id'] ?>">
+                    <?php echo $row['ci_name'] ?>
+                </option>
+            <?php } ?>
+
+        </select>
+    </div>
+    <button type="submit" name="btnsubmit" class="btn btn-danger">submit</button>
+
+</form>
+
+</div>
+
             <!-- End of Main Content -->
 
             <!-- Footer -->
@@ -164,3 +181,6 @@ $run_q = mysqli_query($conn, $select_q);
 </body>
 
 </html>
+
+
+

@@ -87,12 +87,7 @@ $run_q = mysqli_query($conn, $select_q);
       <td><?php echo $row['u_email'];?></td>
       <td><?php echo $row['r_id'];?></td>
       <td><?php echo $row['password'];?></td>
-    
-      <div class="mb-3">
- 
-
-
-    
+      <div class="mb-3"> 
   </div>
       <td><a href="edituser.php?id=<?php echo $row['u_id'];?>" class="btn btn-success">Edit</a></td>
       <td><a href="deleteuser.php?id=<?php echo $row['u_id'];?>" class="btn btn-danger">Delete</a></td>
