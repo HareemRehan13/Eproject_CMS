@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 21, 2023 at 07:40 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Oct 25, 2023 at 10:21 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `courier`
+-- Database: `couriers`
 --
 
 -- --------------------------------------------------------
@@ -31,8 +31,9 @@ CREATE TABLE `tbl_agent` (
   `a_id` int(11) NOT NULL,
   `u_id` int(11) NOT NULL,
   `a_contact` int(11) NOT NULL,
-  `b_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `b_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -44,8 +45,9 @@ CREATE TABLE `tbl_branch` (
   `b_id` int(11) NOT NULL,
   `ci_id` int(11) NOT NULL,
   `b_address` varchar(50) NOT NULL,
-  `b_contact` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `b_contact` int(11) NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -55,8 +57,9 @@ CREATE TABLE `tbl_branch` (
 
 CREATE TABLE `tbl_city` (
   `ci_id` int(11) NOT NULL,
-  `ci_name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `ci_name` varchar(50) NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -68,8 +71,9 @@ CREATE TABLE `tbl_company` (
   `co_id` int(11) NOT NULL,
   `co_desc` varchar(100) NOT NULL,
   `co_money` bigint(20) NOT NULL,
-  `co_name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `co_name` varchar(50) NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -80,8 +84,9 @@ CREATE TABLE `tbl_company` (
 CREATE TABLE `tbl_contact` (
   `con_id` int(11) NOT NULL,
   `u_id` int(11) NOT NULL,
-  `con_msg` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `con_msg` varchar(50) NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -107,8 +112,9 @@ CREATE TABLE `tbl_courier` (
   `parcel_weight` bigint(20) NOT NULL,
   `cou_desc` varchar(100) NOT NULL,
   `delivery_charges` bigint(20) NOT NULL,
-  `total_charges` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `total_charges` bigint(20) NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -134,8 +140,9 @@ CREATE TABLE `tbl_order` (
   `status` varchar(50) NOT NULL,
   `locationfrom` int(11) NOT NULL,
   `location_to` int(11) NOT NULL,
-  `co_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `co_id` int(11) NOT NULL,
+  `status1` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -146,8 +153,9 @@ CREATE TABLE `tbl_order` (
 CREATE TABLE `tbl_pricing` (
   `p_id` int(11) NOT NULL,
   `p_parameter` varchar(50) NOT NULL,
-  `p_price` int(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `p_price` int(20) NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -157,8 +165,9 @@ CREATE TABLE `tbl_pricing` (
 
 CREATE TABLE `tbl_role` (
   `r_id` int(11) NOT NULL,
-  `r_name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `r_name` varchar(50) NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -171,8 +180,9 @@ CREATE TABLE `tbl_user` (
   `u_name` varchar(50) NOT NULL,
   `u_email` varchar(50) NOT NULL,
   `r_id` int(11) NOT NULL,
-  `password` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `password` varchar(20) NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
