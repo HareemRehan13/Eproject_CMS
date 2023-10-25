@@ -1,7 +1,27 @@
 <?php
 include('connection.php');
-$select_q ='SELECT * FROM `tbl_user`';
+$id = $_GET['id'];
+
+$select_q ='SELECT * FROM `tbl_role`';
 $run_q = mysqli_query($conn, $select_q);
+
+$fetch_selected_r ="SELECT * FROM `tbl_user` WHERE u_id = $id";
+$run_query = mysqli_query($conn,$fetch_selected_r );
+$row = mysqli_fetch_array($run_query);
+if(isset($_POST['btnupdate'])){
+    $u_name = $_POST['u_name'];
+    $u_email = $_POST['u_email'];
+    $r_name = $_POST['r_name'];
+    $u_pass= $_POST['u_pass'];
+
+    $update_q = "UPDATE `tbl_user` SET `u_name`='$u_name', `u_email`='$u_email', `r_id`='$r_name', `password`='$u_pass' WHERE `u_id` = $id";
+    $run = mysqli_query($conn, $update_q);
+
+    if($run){
+        header('location:userlist.php');
+    }
+ 
+}
 
 
 ?>
@@ -61,52 +81,48 @@ $run_q = mysqli_query($conn, $select_q);
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">View Users</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Update Users</h1>
                         <a href="useradd.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Add User</a>
                     </div>
 
-<div class="container">
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Role</th>
-      <th>Password</th>
-      <th>Edit</th>
-      <th>Delete</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php while($row = mysqli_fetch_array($run_q)){?>
-   
-    <tr>
-    <td><?php echo $row['u_id'];?></td>
-      <td><?php echo $row['u_name'];?></td>
-      <td><?php echo $row['u_email'];?></td>
-      <td><?php echo $row['r_id'];?></td>
-      <td><?php echo $row['password'];?></td>
-    
-      <div class="mb-3">
- 
 
-
-    
-  </div>
-      <td><a href="edituser.php?id=<?php echo $row['u_id'];?>" class="btn btn-success">Edit</a></td>
-      <td><a href="deleteuser.php?id=<?php echo $row['u_id'];?>" class="btn btn-danger">Delete</a></td>
-    
-
-    </tr>
-  <?php } ?>
-  </tbody>
-</table>
-</div>
                 </div>
                 <!-- /.container-fluid -->
+                <div class="container">
 
+  <form method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label  class="form-label">User Name</label>
+        <input type="text" class="form-control" value ="<?php echo $row['u_name']; ?>" name="u_name">
+      </div>
+    <div class="mb-3">
+      <label  class="form-label">User Email</label>
+      <input type="email" class="form-control" value ="<?php echo $row['u_email']; ?>" name="u_email">
+    </div>
+    <div class="mb-3">
+    <label  class="form-label">Role</label>
+    
+    <select class="form-control" name="r_name">
+   <?php while ($row = mysqli_fetch_array($run_q)) { ?>
+      <option value="<?php echo $row['r_id']; ?>"><?php echo $row['r_name']; ?></option>
+
+   <?php } ?>
+</select>
+    
+  </div>
+  <div class="mb-3">
+    <label  class="form-label">Password</label>
+    <input type="text" class="form-control"  name="u_pass">
+    
+  </div>
+ 
+
+    <button type="submit" class="btn btn-primary" name="btnupdate">Submit</button>
+  </form>
+</div>
             </div>
+
+
             <!-- End of Main Content -->
 
             <!-- Footer -->
@@ -164,3 +180,6 @@ $run_q = mysqli_query($conn, $select_q);
 </body>
 
 </html>
+
+
+
