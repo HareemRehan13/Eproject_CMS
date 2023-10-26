@@ -12,10 +12,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['btnsubmit'])) {
         $branchaddress = $_POST['b_address'];
         $branchcontact = $_POST['b_contact'];
-        $city = $_POST['ci_id'];
-        $insert_q = "INSERT INTO `tbl_branch`( `b_address`, `b_contact`, `ci_id`) VALUES ('$branchaddress','$branchcontact','$city')";
-        $run_q = mysqli_query($conn, $insert_q);
-        if ($run_q) {
+        $city = $_POST['city'];
+        $insert_q = "UPDATE `tbl_branch` SET`ci_id`=' $city',`b_address`='$branchaddress',`b_contact`='$branchcontact' WHERE b_id=$id";
+        $run= mysqli_query($conn, $insert_q);
+        if ($run) {
             header('location: branchlist.php');
        }
     }

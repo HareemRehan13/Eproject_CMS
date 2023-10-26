@@ -1,17 +1,11 @@
 <?php
 include('connection.php');
 $select_q ='SELECT * FROM `tbl_branch`';
-$run_q = mysqli_query($conn, $select_q);
-
- 
-    
+$run_q = mysqli_query($conn, $select_q);   
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -61,8 +55,8 @@ $run_q = mysqli_query($conn, $select_q);
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">View Products</h1>
-                        <a href="maintainproducts.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Add Product</a>
+                        <h1 class="h3 mb-0 text-gray-800">Branch List</h1>
+                        <a href="branchadd.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Add Branch</a>
                     </div>
 
 <div class="container">
@@ -72,7 +66,6 @@ $run_q = mysqli_query($conn, $select_q);
       <th>Id</th>
       <th>city</th>
       <th>Address</th>
-      <th>Price</th>
       <th>ContactNo</th>
       <th>Edit</th>
       <th>Delete</th>
@@ -94,8 +87,8 @@ $run_q = mysqli_query($conn, $select_q);
 
     
   </div>
-      <td><a href="editbranch.php?id=<?php echo $row['p_id'];?>" class="btn btn-success">Edit</a></td>
-      <td><a href="deletebranch.php?id=<?php echo $row['p_id'];?>" class="btn btn-danger">Delete</a></td>
+      <td><a href="editbranch.php?id=<?php echo $row['b_id'];?>" class="btn btn-success">Edit</a></td>
+      <td><a href="deletebranch.php?id=<?php echo $row['b_id'];?>" class="btn btn-danger">Delete</a></td>
     
 
     </tr>

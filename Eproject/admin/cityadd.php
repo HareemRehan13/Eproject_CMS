@@ -4,27 +4,24 @@ $fetch_q = "SELECT * FROM `tbl_city`";
 $run_q = mysqli_query($conn, $fetch_q);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['btnsubmit'])) {
-        $branchaddress = $_POST['b_address'];
-        $branchcontact = $_POST['b_contact'];
-        $city = $_POST['ci_id'];
+        $cityname = $_POST['ci_name'];
+       /* $branchcontact = $_POST['b_contact'];
+        $city = $_POST['ci_id'];*/
         /* $userimg_name = $_FILES['p_img']['name'];
          $userimg_tempname = $_FILES['p_img']['tmp_name'];
          $userimg_path = 'image/' . $userimg_name;
          move_uploaded_file($userimg_tempname, $userimg_path);*/
-        $insert_q = "INSERT INTO `tbl_branch`( `b_address`, `b_contact`, `ci_id`) VALUES ('$branchaddress','$branchcontact','$city')";
+        $insert_q = "INSERT INTO `tbl_city`(`ci_name`) VALUES ('$cityname')";
         $run = mysqli_query($conn, $insert_q);
         if($run){
-      echo"<script>window.location.href='branchlist.php' </script>";
+      echo"<script>window.location.href='citylist.php' </script>";
     }
 }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -83,26 +80,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 
                 <!-- /.container-fluid -->
 
-                    <form method="POST" enctype="multipart/form-data">
+                  <form method="POST" enctype="multipart/form-data">
                         <div class="mb-3">
-                            <label class="form-label"> Branch Address </label>
-                            <input type="text" class="form-control" name="b_address" required>
+                            <label class="form-label">City Name</label>
+                            <input type="text" class="form-control" name="ci_name" required>
 
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Branch Contact</label>
                             <input type="tel" class="form-control" name="b_contact" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">City</label>
-                            <select name="ci_id" id="" class="form-control">
-
-                                <?php while ($row = mysqli_fetch_array($run_q)) { ?>
-                                    <option value="<?php echo $row['ci_id'] ?>">
-                                        <?php echo $row['ci_name'] ?>
-                                    </option>
-                                <?php } ?>
-
+</div>
                             </select>
                         </div>
                         <button type="submit" name="btnsubmit" class="btn btn-danger">submit</button>

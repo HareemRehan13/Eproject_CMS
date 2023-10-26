@@ -1,36 +1,16 @@
 <?php
 include('connection.php');
-$fetch_q = "SELECT * FROM `tbl_city`";
-$run_q = mysqli_query($conn, $fetch_q);
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['btnsubmit'])) {
-        $branchaddress = $_POST['b_address'];
-        $branchcontact = $_POST['b_contact'];
-        $city = $_POST['ci_id'];
-        /* $userimg_name = $_FILES['p_img']['name'];
-         $userimg_tempname = $_FILES['p_img']['tmp_name'];
-         $userimg_path = 'image/' . $userimg_name;
-         move_uploaded_file($userimg_tempname, $userimg_path);*/
-        $insert_q = "INSERT INTO `tbl_branch`( `b_address`, `b_contact`, `ci_id`) VALUES ('$branchaddress','$branchcontact','$city')";
-        $run = mysqli_query($conn, $insert_q);
-        if($run){
-      echo"<script>window.location.href='branchlist.php' </script>";
-    }
-}
-}
+$select_q ='SELECT * FROM `tbl_city`';
+$run_q = mysqli_query($conn, $select_q);   
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <title>SB Admin 2 - Dashboard</title>
 
@@ -71,44 +51,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                 
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Branch</h1>
-                        <a href="branchlist.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">view List </a>
+                        <h1 class="h3 mb-0 text-gray-800">Branch List</h1>
+                        <a href="cityadd.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Add City</a>
                     </div>
 
-                
-                <!-- /.container-fluid -->
+<div class="container">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>City</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php while($row = mysqli_fetch_array($run_q)){?>
+   
+    <tr>
+    <td><?php echo $row['ci_id'];?></td>
+      <td><?php echo $row['ci_name'];?></td>
+      <td><a href="editcity.php?id=<?php echo $row['ci_id'];?>" class="btn btn-success">Edit</a></td>
+      <td><a href="deletecity.php?id=<?php echo $row['ci_id'];?>" class="btn btn-danger">Delete</a></td>
+    
 
-                    <form method="POST" enctype="multipart/form-data">
-                        <div class="mb-3">
-                            <label class="form-label"> Branch Address </label>
-                            <input type="text" class="form-control" name="b_address" required>
-
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Branch Contact</label>
-                            <input type="tel" class="form-control" name="b_contact" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">City</label>
-                            <select name="ci_id" id="" class="form-control">
-
-                                <?php while ($row = mysqli_fetch_array($run_q)) { ?>
-                                    <option value="<?php echo $row['ci_id'] ?>">
-                                        <?php echo $row['ci_name'] ?>
-                                    </option>
-                                <?php } ?>
-
-                            </select>
-                        </div>
-                        <button type="submit" name="btnsubmit" class="btn btn-danger">submit</button>
-
-                    </form>
-
+    </tr>
+  <?php } ?>
+  </tbody>
+</table>
+</div>
                 </div>
                 <!-- /.container-fluid -->
 
@@ -116,13 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
-                    </div>
-                </div>
-            </footer>
+       <?php include('footer.php')?>
             <!-- End of Footer -->
 
         </div>
