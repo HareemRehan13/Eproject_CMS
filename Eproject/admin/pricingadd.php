@@ -1,31 +1,15 @@
+
 <?php
 include('connection.php');
-$id = $_GET['id'];
 
-$select_q ='SELECT * FROM `tbl_role`';
-$run_q = mysqli_query($conn, $select_q);
+if(isset($_POST['btnsubmit'])){
+$p_parameter = $_POST['p_parameter'];
+$p_price = $_POST['p_price'];
 
-$fetch_selected_r ="SELECT * FROM `tbl_user` WHERE u_id = $id";
-$run_query = mysqli_query($conn,$fetch_selected_r );
-$row = mysqli_fetch_array($run_query);
-if(isset($_POST['btnupdate'])){
-    $u_name = $_POST['u_name'];
-    $u_email = $_POST['u_email'];
-    $r_name = $_POST['r_name'];
-    $u_pass= $_POST['u_pass'];
-
-    $update_q = "UPDATE `tbl_user` SET `u_name`='$u_name', `u_email`='$u_email', `r_id`='$r_name', `password`='$u_pass' WHERE `u_id` = $id";
-    $run = mysqli_query($conn, $update_q);
-
-    if($run){
-        header('location:userlist.php');
-    }
- 
+$insert_q ="INSERT INTO `tbl_pricing`( `p_parameter`, `p_price`) VALUES ('$p_parameter ','$p_price')";
+$run = mysqli_query($conn, $insert_q);
 }
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,6 +21,7 @@ if(isset($_POST['btnupdate'])){
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <title>SB Admin 2 - Dashboard</title>
 
@@ -77,51 +62,34 @@ if(isset($_POST['btnupdate'])){
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
+                 
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Update Users</h1>
-                        <a href="useradd.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Add User</a>
+                        <h1 class="h3 mb-0 text-gray-800">Add Pricing</h1>
+                        <a href="pricinglist.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">  Pricing List</a>
                     </div>
 
-
-                </div>
+                
                 <!-- /.container-fluid -->
-                <div class="container">
 
-  <form method="POST" enctype="multipart/form-data">
-    <div class="mb-3">
-        <label  class="form-label">User Name</label>
-        <input type="text" class="form-control" value ="<?php echo $row['u_name']; ?>" name="u_name">
-      </div>
-    <div class="mb-3">
-      <label  class="form-label">User Email</label>
-      <input type="email" class="form-control" value ="<?php echo $row['u_email']; ?>" name="u_email">
-    </div>
-    <div class="mb-3">
-    <label  class="form-label">Role</label>
-    <select class="form-control" name="r_name">
-   <?php while ($data = mysqli_fetch_array($run_q)) { ?>
-      <option value="<?php echo $data['r_id']; ?>"><?php echo $data['r_name']; ?></option>
-
-   <?php } ?>
-</select>
-    
+            </div>
+           <div class="container">
+            <form method="POST" enctype="multipart/form-data">
+  <div class="mb-3">
+    <label  class="form-label">Parameter</label>
+    <input type="text" class="form-control" name="p_parameter">
+  
   </div>
   <div class="mb-3">
-    <label  class="form-label">Password</label>
-    <input type="text" class="form-control" value="<?php echo $row['password'];?>" name="u_pass">
-    
+    <label  class="form-label">Price</label>
+    <input type="text" class="form-control" name="p_price">
   </div>
  
-
-    <button type="submit" class="btn btn-primary" name="btnupdate">Submit</button>
-  </form>
-</div>
-            </div>
-
-
+  <button type="submit" class="btn btn-primary" name="btnsubmit">Submit</button>
+</form>
+  </div>
             <!-- End of Main Content -->
 
             <!-- Footer -->
@@ -179,6 +147,3 @@ if(isset($_POST['btnupdate'])){
 </body>
 
 </html>
-
-
-

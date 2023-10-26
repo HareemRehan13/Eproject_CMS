@@ -95,6 +95,7 @@ $run = mysqli_query($conn, $insert_q);
     <label  class="form-label">Role</label>
     
     <select class="form-control" name="r_name">
+        <option selected disabled>Select an option</option>
    <?php while ($row = mysqli_fetch_array($run_q)) { ?>
       <option value="<?php echo $row['r_id']; ?>"><?php echo $row['r_name']; ?></option>
 

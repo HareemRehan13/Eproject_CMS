@@ -2,23 +2,19 @@
 include('connection.php');
 $id = $_GET['id'];
 
-$select_q ='SELECT * FROM `tbl_role`';
-$run_q = mysqli_query($conn, $select_q);
-
-$fetch_selected_r ="SELECT * FROM `tbl_user` WHERE u_id = $id";
+$fetch_selected_r ="SELECT * FROM `tbl_pricing` WHERE p_id = $id";
 $run_query = mysqli_query($conn,$fetch_selected_r );
 $row = mysqli_fetch_array($run_query);
 if(isset($_POST['btnupdate'])){
-    $u_name = $_POST['u_name'];
-    $u_email = $_POST['u_email'];
-    $r_name = $_POST['r_name'];
-    $u_pass= $_POST['u_pass'];
+    $p_parameter = $_POST['p_parameter'];
+    $p_price = $_POST['p_price'];
+   
 
-    $update_q = "UPDATE `tbl_user` SET `u_name`='$u_name', `u_email`='$u_email', `r_id`='$r_name', `password`='$u_pass' WHERE `u_id` = $id";
+    $update_q = "UPDATE `tbl_pricing` SET `p_parameter`='$p_parameter', `p_price`='$p_price' WHERE `p_id` = $id";
     $run = mysqli_query($conn, $update_q);
 
     if($run){
-        header('location:userlist.php');
+        header('location:pricinglist.php');
     }
  
 }
@@ -81,8 +77,8 @@ if(isset($_POST['btnupdate'])){
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Update Users</h1>
-                        <a href="useradd.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Add User</a>
+                        <h1 class="h3 mb-0 text-gray-800">Update Pricing</h1>
+                        <a href="pricingadd.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Add Pricing</a>
                     </div>
 
 
@@ -92,28 +88,15 @@ if(isset($_POST['btnupdate'])){
 
   <form method="POST" enctype="multipart/form-data">
     <div class="mb-3">
-        <label  class="form-label">User Name</label>
-        <input type="text" class="form-control" value ="<?php echo $row['u_name']; ?>" name="u_name">
+        <label  class="form-label">Parameter</label>
+        <input type="text" class="form-control" value ="<?php echo $row['p_parameter']; ?>" name="p_parameter">
       </div>
     <div class="mb-3">
-      <label  class="form-label">User Email</label>
-      <input type="email" class="form-control" value ="<?php echo $row['u_email']; ?>" name="u_email">
+      <label  class="form-label">Price</label>
+      <input type="text" class="form-control" value ="<?php echo $row['p_price']; ?>" name="p_price">
     </div>
-    <div class="mb-3">
-    <label  class="form-label">Role</label>
-    <select class="form-control" name="r_name">
-   <?php while ($data = mysqli_fetch_array($run_q)) { ?>
-      <option value="<?php echo $data['r_id']; ?>"><?php echo $data['r_name']; ?></option>
+ 
 
-   <?php } ?>
-</select>
-    
-  </div>
-  <div class="mb-3">
-    <label  class="form-label">Password</label>
-    <input type="text" class="form-control" value="<?php echo $row['password'];?>" name="u_pass">
-    
-  </div>
  
 
     <button type="submit" class="btn btn-primary" name="btnupdate">Submit</button>

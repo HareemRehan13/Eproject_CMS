@@ -68,11 +68,19 @@
                 </div>
             </li>
 
-<li class="nav-item">
-    <a class="nav-link" href="charts.html">
-    <i class='fas fa-city'></i>
-        <span>City</span></a>
-</li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsecity"
+                    aria-expanded="true" aria-controls="collapsecity">
+                    <i class='fas fa-th-list'></i>
+                    <span>City</span>
+                </a>
+                <div id="collapsecity" class="collapse" aria-labelledby="headingcity" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="citylist.php"> List</a>
+                        <a class="collapse-item" href="cityadd.php">Add </a>
+                    </div>
+                </div>
+            </li>
 
 
 <li class="nav-item">
@@ -91,11 +99,19 @@
             </li>
 
 
-<li class="nav-item">
-    <a class="nav-link" href="charts.html">
-        <i class="fas fa-fw fa-chart-area"></i>
-        <span>Pricing</span></a>
-</li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsepricing"
+                    aria-expanded="true" aria-controls="collapsepricing">
+                    <i class='fas fa-th-list'></i>
+                    <span>Pricing</span>
+                </a>
+                <div id="collapsepricing" class="collapse" aria-labelledby="headingpricing" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="pricinglist.php"> List</a>
+                        <a class="collapse-item" href="pricingadd.php">Add </a>
+                    </div>
+                </div>
+            </li>
 
 
 
