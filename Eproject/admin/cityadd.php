@@ -86,30 +86,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <input type="text" class="form-control" name="ci_name" required>
 
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Branch Contact</label>
-                            <input type="tel" class="form-control" name="b_contact" required>
-</div>
-                            </select>
+                        
+                            <button type="submit" name="btnsubmit" class="btn btn-danger">submit</button>
                         </div>
-                        <button type="submit" name="btnsubmit" class="btn btn-danger">submit</button>
-
                     </form>
 
                 </div>
-                <!-- /.container-fluid -->
-
-            </div>
-            <!-- End of Main Content -->
+            
+         <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
-                    </div>
-                </div>
-            </footer>
+       <?php include('footer.php')?>
             <!-- End of Footer -->
 
         </div>
@@ -159,7 +146,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
-
 </body>
 
 </html>
