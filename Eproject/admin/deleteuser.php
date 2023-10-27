@@ -5,7 +5,7 @@ echo $id;
 $delete_q ="DELETE FROM `tbl_user` WHERE u_id = $id";
 $run = mysqli_query($conn, $delete_q);
 if($run){
-    header('location:userlist.php');
-}
+    echo"<script>window.location.href='userlist.php' </script>";
+  }
 
 ?>

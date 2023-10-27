@@ -18,8 +18,8 @@ if(isset($_POST['btnupdate'])){
     $run = mysqli_query($conn, $update_q);
 
     if($run){
-        header('location:userlist.php');
-    }
+        echo"<script>window.location.href='userlist.php' </script>";
+      }
  
 }
 

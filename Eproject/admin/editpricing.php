@@ -14,8 +14,8 @@ if(isset($_POST['btnupdate'])){
     $run = mysqli_query($conn, $update_q);
 
     if($run){
-        header('location:pricinglist.php');
-    }
+        echo"<script>window.location.href='pricinglist.php' </script>";
+      }
  
 }
 
