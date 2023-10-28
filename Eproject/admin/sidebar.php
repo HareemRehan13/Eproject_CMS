@@ -117,7 +117,7 @@
 
 
 <li class="nav-item">
-    <a class="nav-link" href="charts.html">
+    <a class="nav-link" href="orders.php">
     <i class='fas fa-boxes'></i>
         <span>Orders</span></a>
 </li>
