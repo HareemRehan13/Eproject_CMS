@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 28, 2023 at 07:24 AM
+-- Generation Time: Oct 28, 2023 at 07:57 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -32,15 +32,16 @@ CREATE TABLE `tbl_agent` (
   `u_id` int(11) NOT NULL,
   `a_contact` int(11) NOT NULL,
   `b_id` int(11) NOT NULL,
-  `status` int(11) NOT NULL
+  `status` int(11) NOT NULL,
+  `agent_name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_agent`
 --
 
-INSERT INTO `tbl_agent` (`a_id`, `u_id`, `a_contact`, `b_id`, `status`) VALUES
-(1, 2, 3212155, 3, 0);
+INSERT INTO `tbl_agent` (`a_id`, `u_id`, `a_contact`, `b_id`, `status`, `agent_name`) VALUES
+(1, 2, 3212155, 3, 0, 'ilyas');
 
 -- --------------------------------------------------------
 
@@ -166,13 +167,13 @@ CREATE TABLE `tbl_order` (
   `receiver_email` varchar(50) NOT NULL,
   `receiver_address` varchar(50) NOT NULL,
   `receiver_phoneno` bigint(20) NOT NULL,
-  `agent_from` int(11) NOT NULL,
-  `agent_to` int(20) NOT NULL,
+  `agent_from` int(11) DEFAULT NULL,
+  `agent_to` int(20) DEFAULT NULL,
   `order_weight` varchar(20) NOT NULL,
   `order_distance` int(20) NOT NULL,
   `status` varchar(50) NOT NULL,
-  `locationfrom` int(11) NOT NULL,
-  `location_to` int(11) NOT NULL,
+  `locationfrom` int(11) DEFAULT NULL,
+  `location_to` int(11) DEFAULT NULL,
   `co_id` int(11) NOT NULL,
   `total_charges` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -182,7 +183,8 @@ CREATE TABLE `tbl_order` (
 --
 
 INSERT INTO `tbl_order` (`or_id`, `u_id`, `sender_address`, `sender_phoneno`, `receiver_name`, `receiver_email`, `receiver_address`, `receiver_phoneno`, `agent_from`, `agent_to`, `order_weight`, `order_distance`, `status`, `locationfrom`, `location_to`, `co_id`, `total_charges`) VALUES
-(1, 3, 'F.B. Area R-12 Block18,Karachi', 15511152, 'battu', 'battu@gmail.com', 'F.B. Area R-12 Block18,peshawar', 4421501221, 1, 1, '4kg', 1600, 'pending', 3, 10, 2, 2700);
+(1, 3, 'F.B. Area R-12 Block18,Karachi', 15511152, 'battu', 'battu@gmail.com', 'F.B. Area R-12 Block18,peshawar', 4421501221, 1, 1, '4kg', 1600, 'pending', 3, 10, 2, 2700),
+(3, 3, 'nghngn', 15511152, 'hgnghn', 'nghnghn', 'nhgnf', 67567, NULL, NULL, '56', 46, 'pending', NULL, NULL, 2, 676);
 
 -- --------------------------------------------------------
 
@@ -370,7 +372,7 @@ ALTER TABLE `tbl_courier`
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `or_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `or_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_pricing`
