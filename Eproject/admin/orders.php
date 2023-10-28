@@ -81,7 +81,7 @@ $run_q = mysqli_query($conn, $select_q);
       <th>Courier Id</th>
       <th>Total price</th>
       <th>Status</th>
-      
+      <th>Assign</th>
     </tr>
   </thead>
   <tbody>
@@ -105,6 +105,7 @@ $run_q = mysqli_query($conn, $select_q);
       <td><?php echo $row['co_id'];?></td>
       <td><?php echo $row['total_charges'];?></td>
       <td><?php echo $row['status'];?></td>
+      <td><a href="assign.php?id=<?php echo $row['or_id'];?>">Assign</a></td>
     </tr>
   <?php } ?>
   </tbody>
