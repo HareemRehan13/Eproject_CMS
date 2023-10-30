@@ -1,6 +1,6 @@
 <?php
 include('connection.php');
-$select_q ='SELECT * FROM `tbl_user`';
+$select_q = 'SELECT * FROM `tbl_user`';
 $run_q = mysqli_query($conn, $select_q);
 
 
@@ -29,10 +29,10 @@ $run_q = mysqli_query($conn, $select_q);
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <style>
-    .bg-gradient-primary {
-    background-color: #3a3b45;
-    background-image: linear-gradient(178deg,#000 10%,#3a3b45 100%);
-}
+        .bg-gradient-primary {
+            background-color: #3a3b45;
+            background-image: linear-gradient(178deg, #000 10%, #3a3b45 100%);
+        }
     </style>
 </head>
 
@@ -42,7 +42,7 @@ $run_q = mysqli_query($conn, $select_q);
     <div id="wrapper">
 
         <!-- Sidebar -->
-       <?php include('sidebar.php')?>
+        <?php include('sidebar.php') ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -52,7 +52,7 @@ $run_q = mysqli_query($conn, $select_q);
             <div id="content">
 
                 <!-- Topbar -->
-                <?php include('topbar.php')?>
+                <?php include('topbar.php') ?>
 
                 <!-- End of Topbar -->
 
@@ -62,42 +62,55 @@ $run_q = mysqli_query($conn, $select_q);
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">View Users</h1>
-                        <a href="useradd.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Add User</a>
+                        <a href="useradd.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Add
+                            User</a>
                     </div>
 
-<div class="container">
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Role</th>
-      <th>Password</th>
-      <th>Edit</th>
-      <th>Delete</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php while($row = mysqli_fetch_array($run_q)){?>
-   
-    <tr>
-    <td><?php echo $row['u_id'];?></td>
-      <td><?php echo $row['u_name'];?></td>
-      <td><?php echo $row['u_email'];?></td>
-      <td><?php echo $row['r_id'];?></td>
-      <td><?php echo $row['password'];?></td>
-      <div class="mb-3"> 
-  </div>
-      <td><a href="edituser.php?id=<?php echo $row['u_id'];?>" class="btn btn-success">Edit</a></td>
-      <td><a href="deleteuser.php?id=<?php echo $row['u_id'];?>" class="btn btn-danger">Delete</a></td>
-    
+                    <div class="container">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Password</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php while ($row = mysqli_fetch_array($run_q)) { ?>
 
-    </tr>
-  <?php } ?>
-  </tbody>
-</table>
-</div>
+                                    <tr>
+                                        <td>
+                                            <?php echo $row['u_id']; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row['u_name']; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row['u_email']; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row['r_id']; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row['password']; ?>
+                                        </td>
+                                        <div class="mb-3">
+                                        </div>
+                                        <td><a href="edituser.php?id=<?php echo $row['u_id']; ?>"
+                                                class="btn btn-success">Edit</a></td>
+                                        <td><a href="deleteuser.php?id=<?php echo $row['u_id']; ?>"
+                                                class="btn btn-danger">Delete</a></td>
+
+
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <!-- /.container-fluid -->
 
@@ -105,7 +118,7 @@ $run_q = mysqli_query($conn, $select_q);
             <!-- End of Main Content -->
 
             <!-- Footer -->
-       <?php include('footer.php')?>
+            <?php include('footer.php') ?>
             <!-- End of Footer -->
 
         </div>
