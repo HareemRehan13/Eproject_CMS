@@ -80,6 +80,7 @@ $run_q = mysqli_query($conn, $select_q);
                                 </tr>
                             </thead>
                             <tbody>
+                        
                                 <?php while ($row = mysqli_fetch_array($run_q)) { ?>
 
                                     <tr>
@@ -105,13 +106,15 @@ $run_q = mysqli_query($conn, $select_q);
                                         <td><a href="deleteuser.php?id=<?php echo $row['u_id']; ?>"
                                                 class="btn btn-danger">Delete</a></td>
 
-
+                                    
                                     </tr>
                                 <?php } ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
+            
+            
                 <!-- /.container-fluid -->
 
             </div>
