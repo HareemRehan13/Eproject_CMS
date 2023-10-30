@@ -55,7 +55,7 @@ $run_q = mysqli_query($conn, $select_q);
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Branch List</h1>
+                        <h1 class="h3 mb-0 text-gray-800">City List</h1>
                         <a href="cityadd.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Add City</a>
                     </div>
 

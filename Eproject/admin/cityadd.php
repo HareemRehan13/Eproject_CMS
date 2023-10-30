@@ -73,8 +73,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Branch</h1>
-                        <a href="branchlist.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">view List </a>
+                        <h1 class="h3 mb-0 text-gray-800">City</h1>
+                        <a href="citylist.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">City List </a>
                     </div>
 
                 
