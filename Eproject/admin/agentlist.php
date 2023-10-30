@@ -3,9 +3,9 @@ include('connection.php');
 $select_q ='SELECT * FROM `tbl_agent`';
 $run_q = mysqli_query($conn, $select_q);
 
- 
-    
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -61,8 +61,8 @@ $run_q = mysqli_query($conn, $select_q);
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">View Products</h1>
-                        <a href="maintainproducts.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Add Product</a>
+                        <h1 class="h3 mb-0 text-gray-800">View Agents</h1>
+                        <a href="agentadd.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Add Agent</a>
                     </div>
 
 <div class="container">
@@ -71,9 +71,9 @@ $run_q = mysqli_query($conn, $select_q);
     <tr>
       <th>Id</th>
       <th>Name</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Images</th>
+      <th>Contact</th>
+      <th>User Id</th>
+      <th>Branch Id</th>
       <th>Edit</th>
       <th>Delete</th>
     </tr>
@@ -82,20 +82,15 @@ $run_q = mysqli_query($conn, $select_q);
     <?php while($row = mysqli_fetch_array($run_q)){?>
    
     <tr>
-    <td><?php echo $row['p_id'];?></td>
-      <td><?php echo $row['p_name'];?></td>
-      <td><?php echo $row['p_des'];?></td>
-      <td><?php echo $row['p_price'];?></td>
-
-      <td><img src="<?php echo $row['p_img'];?>" width="50" height="50" alt=""></td>
-      <div class="mb-3">
- 
-
-
-    
+    <td><?php echo $row['a_id'];?></td>
+      <td><?php echo $row['agent_name'];?></td>
+      <td><?php echo $row['a_contact'];?></td>
+      <td><?php echo $row['u_id'];?></td>
+      <td><?php echo $row['b_id'];?></td>
+      <div class="mb-3"> 
   </div>
-      <td><a href="editproduct.php?id=<?php echo $row['p_id'];?>" class="btn btn-success">Edit</a></td>
-      <td><a href="deleteproduct.php?id=<?php echo $row['p_id'];?>" class="btn btn-danger">Delete</a></td>
+      <td><a href="editagent.php?id=<?php echo $row['a_id'];?>" class="btn btn-success">Edit</a></td>
+      <td><a href="deleteagent.php?id=<?php echo $row['a_id'];?>" class="btn btn-danger">Delete</a></td>
     
 
     </tr>
