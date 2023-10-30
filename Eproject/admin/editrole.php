@@ -1,12 +1,20 @@
 <?php
 include('connection.php');
-$select_q ='SELECT * FROM `tbl_role`';
-$run_q = mysqli_query($conn, $select_q);
+$id = $_GET['id'];
 
- 
-    
+$fetch_selected_r ="SELECT * FROM `tbl_role` WHERE r_id = $id";
+$run_query = mysqli_query($conn,$fetch_selected_r );
+$row = mysqli_fetch_array($run_query);
+if(isset($_POST['btnupdate'])){
+    $rolename = $_POST['r_name'];
+    $update_q = "UPDATE `tbl_role` SET `r_name`='$rolename' WHERE `r_id` = $id";
+    $run = mysqli_query($conn, $update_q);
+
+    if($run){
+        header('location:rolelist.php');
+    }
+}
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,41 +69,26 @@ $run_q = mysqli_query($conn, $select_q);
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">View Roles</h1>
-                        <a href="maintainproducts.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Add Product</a>
+                        <h1 class="h3 mb-0 text-gray-800">Update Pricing</h1>
+                        <a href="roleadd.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Add Pricing</a>
                     </div>
 
-<div class="container">
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Role Name</th>
-      <th>Edit</th>
-      <th>Delete</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php while($row = mysqli_fetch_array($run_q)){?>
-   
-    <tr>
-    <td><?php echo $row['r_id'];?></td>
-      <td><?php echo $row['r_name'];?></td>
-      <div class="mb-3">  
-  </div>
-      <td><a href="editrole.php?id=<?php echo $row['r_id'];?>" class="btn btn-success">Edit</a></td>
-      <td><a href="deleterole.php?id=<?php echo $row['r_id'];?>" class="btn btn-danger">Delete</a></td>
-    
 
-    </tr>
-  <?php } ?>
-  </tbody>
-</table>
-</div>
                 </div>
                 <!-- /.container-fluid -->
+                <div class="container">
 
+  <form method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label  class="form-label">Role Name</label>
+        <input type="text" class="form-control" value ="<?php echo $row['r_name']; ?>" name="r_name">
+      </div>
+    <button type="submit" class="btn btn-primary" name="btnupdate">Submit</button>
+  </form>
+</div>
             </div>
+
+
             <!-- End of Main Content -->
 
             <!-- Footer -->
@@ -153,3 +146,6 @@ $run_q = mysqli_query($conn, $select_q);
 </body>
 
 </html>
+
+
+

@@ -1,9 +1,18 @@
 <?php
 include('connection.php');
-$select_q ='SELECT * FROM `tbl_role`';
-$run_q = mysqli_query($conn, $select_q);
-
-
+$fetch_q = "SELECT * FROM `tbl_role`";
+$run_q = mysqli_query($conn, $fetch_q);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['btnsubmit'])) {
+        $rolename = $_POST['r_name'];
+        $insert_q = "INSERT INTO `tbl_role`( `r_name`) VALUES ('$rolename')";
+        $run = mysqli_query($conn, $insert_q);
+        if($run){
+      echo"<script>window.location.href='rolelist.php' </script>";
+    }
+}
+}
+?>
 ?>
 
 
@@ -63,7 +72,7 @@ $run_q = mysqli_query($conn, $select_q);
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Maintain Products</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Add Role</h1>
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
@@ -75,40 +84,17 @@ $run_q = mysqli_query($conn, $select_q);
            <div class="container">
             <form method="POST" enctype="multipart/form-data">
   <div class="mb-3">
-    <label  class="form-label">Product Name</label>
-    <input type="text" class="form-control" name="p_name">
-  
+    <label  class="form-label">Role Name</label>
+    <input type="text" class="form-control" name="r_name">
+    <br>
+    <button type="submit" class="btn btn-primary" name="btnsubmit">Submit</button>
   </div>
-  <div class="mb-3">
-    <label  class="form-label">Description</label>
-    <input type="text" class="form-control" name="p_des">
-  </div>
-  <div class="mb-3">
-    <label  class="form-label">Price</label>
-    <input type="text" class="form-control" name="p_price">
-    
-  </div>
-  <div class="mb-3">
-    <label  class="form-label">Image</label>
-      <img src="<?php echo $row['p_img'];?>" width="50" height="50" alt="">
-    <input type="file" class="form-control" name="p_img"> 
-  </div>
-  <div class="mb-3">
-    <label  class="form-label">Category</label>
-    
-    <select class="form-control" name="c_name">
-   <?php while ($row = mysqli_fetch_array($run_q)) { ?>
-      <option value="<?php echo $row['c_id']; ?>"><?php echo $row['c_name']; ?></option>
-
-   <?php } ?>
 </select>
-
-
-    
   </div>
-  <button type="submit" class="btn btn-primary" name="btnsubmit">Submit</button>
+ 
 </form>
   </div>
+
             <!-- End of Main Content -->
 
             <!-- Footer -->
