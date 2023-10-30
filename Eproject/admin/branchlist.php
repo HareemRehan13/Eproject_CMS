@@ -1,6 +1,6 @@
 <?php
 include('connection.php');
-$select_q ='SELECT * FROM `tbl_branch`';
+$select_q ='SELECT * FROM `tbl_branch`WHERE status=0';
 $run_q = mysqli_query($conn, $select_q);   
 ?>
 <!DOCTYPE html>

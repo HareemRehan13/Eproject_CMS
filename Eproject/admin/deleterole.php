@@ -7,5 +7,4 @@ $run = mysqli_query($conn, $update_q);
 if($run){
     header('location:rolelist.php');
 }
-
 ?>

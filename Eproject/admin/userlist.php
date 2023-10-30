@@ -1,6 +1,6 @@
 <?php
 include('connection.php');
-$select_q = 'SELECT * FROM `tbl_user`';
+$select_q = 'SELECT * FROM `tbl_user`WHERE status=0';
 $run_q = mysqli_query($conn, $select_q);
 
 
