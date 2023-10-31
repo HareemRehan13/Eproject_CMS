@@ -1,7 +1,7 @@
 <?php
-if(!isset($_SESSION['user_name'])){
-echo "<script>window.location.href='login.php';</script>";
-}
+// if(!isset($_SESSION['user_name'])){
+// echo "<script>window.location.href='login.php';</script>";
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">

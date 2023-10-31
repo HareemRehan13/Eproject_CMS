@@ -1,9 +1,48 @@
 <?php
 include('connection.php');
+
+
 $id = $_GET['id'] ;
 $fetch_selected_r = "SELECT * FROM `tbl_order` WHERE or_id = $id";
 $run_query=mysqli_query($conn,$fetch_selected_r);
+
 $row=mysqli_fetch_array($run_query);
+
+if(isset($_POST['assign'])){
+  $u_id = $_POST['u_id'];
+  $sender_address1 = $_POST['sender_address1'];
+  $sender_phoneno = $_POST['sender_phoneno'];
+  $receiver_name= $_POST['receiver_name'];
+  $receiver_email = $_POST['receiver_email'];
+  $receiver_address= $_POST['receiver_address'];
+  $receiver_phoneno = $_POST['receiver_phoneno'];
+  $agent_from= $_POST['agent_from'];
+  $agent_to= $_POST['agent_to'];
+  $locationfrom= $_POST['locationfrom'];
+  $location_to= $_POST['location_to'];
+  $order_weight= $_POST['order_weight'];
+  $order_distance= $_POST['order_distance'];
+  $order_charges= $_POST['order_charges'];
+  $co_id= $_POST['co_id'];
+  $order_status= $_POST['order_status'];
+  $update_q = "UPDATE `tbl_order` SET `u_id`='$u_id',`sender_address`='$sender_address1',`sender_phoneno`='$sender_phoneno',
+  `receiver_name`='$receiver_name',`receiver_email`='$receiver_email',`receiver_address`=' $receiver_address',`receiver_phoneno`='$receiver_phoneno ',
+  `agent_from`='$agent_from',`agent_to`='$agent_to',`order_weight`='$order_weight',`order_distance`='$order_distance',
+  `locationfrom`='$locationfrom',`location_to`='$location_to',`co_id`='$co_id',`total_charges`='$order_charges',`status`='$order_status' WHERE `or_id` = $id";
+  $run = mysqli_query($conn, $update_q);
+
+  if($run){
+      echo"<script>window.location.href='orders.php' </script>";
+    }
+
+}
+
+
+
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -105,13 +144,12 @@ $row=mysqli_fetch_array($run_query);
             <div class="mb-3">
               <label class="form-label">Agent from</label>
               <select class="form-control" name="agent_from">
-                <option selected disabled>select an option</option>
                 <?php
-                $select_q = 'SELECT * FROM `tbl_agent` join `tbl_branch` on tbl_agent.b_id=tbl_branch.b_id right join tbl_city on tbl_city.ci_id=tbl_branch.ci_id';
+                $select_q = 'SELECT * FROM `tbl_agent`';
                 $run_q = mysqli_query($conn, $select_q);
                 while ($data = mysqli_fetch_array($run_q)) { ?>
                   <option value="<?php echo $data['a_id']; ?>">
-                    <?php echo $data['agent_name'] . ',' . $data['ci_name']; ?>
+                    <?php echo $data['agent_name'] ?>
                   </option>
 
                 <?php } ?>
@@ -121,13 +159,12 @@ $row=mysqli_fetch_array($run_query);
             <div class="mb-3">
               <label class="form-label">Agent to</label>
               <select class="form-control" name="agent_to">
-                <option selected disabled>select an option</option>
                 <?php
-                $select_q = 'SELECT * FROM `tbl_agent` join `tbl_branch` on tbl_agent.b_id=tbl_branch.b_id right join tbl_city on tbl_city.ci_id=tbl_branch.ci_id';
+                $select_q = 'SELECT * FROM `tbl_agent`';
                 $run_q = mysqli_query($conn, $select_q);
                 while ($data2 = mysqli_fetch_array($run_q)) { ?>
                   <option value="<?php echo $data2['a_id']; ?>">
-                    <?php echo $data2['ci_name']; ?>
+                    <?php echo $data2['agent_name']; ?>
                   </option>
 
                 <?php } ?>
@@ -138,11 +175,11 @@ $row=mysqli_fetch_array($run_query);
               <label class="form-label">Location from</label>
               <select class="form-control" name="locationfrom">
                 <?php
-                $select_q = 'SELECT * FROM `tbl_city`';
+                $select_q = 'SELECT * FROM `tbl_branch`';
                 $run_q = mysqli_query($conn, $select_q);
-                while ($data = mysqli_fetch_array($run_q)) { ?>
-                  <option value="<?php echo $data['ci_id']; ?>">
-                    <?php echo $data['ci_name']; ?>
+                while ($data3 = mysqli_fetch_array($run_q)) { ?>
+                  <option value="<?php echo $data3['b_id']; ?>">
+                    <?php echo $data3['b_address']; ?>
                   </option>
 
                 <?php } ?>
@@ -152,11 +189,11 @@ $row=mysqli_fetch_array($run_query);
             <div class="mb-3">
               <label class="form-label">Location to</label>
               <select class="form-control" name="location_to">
-                <?php $select_q = 'SELECT * FROM `tbl_city`';
+                <?php $select_q = 'SELECT * FROM `tbl_branch`';
                 $run_q = mysqli_query($conn, $select_q);
-                while ($data = mysqli_fetch_array($run_q)) { ?>
-                  <option value="<?php echo $data['ci_id']; ?>">
-                    <?php echo $data['ci_name']; ?>
+                while ($data4 = mysqli_fetch_array($run_q)) { ?>
+                  <option value="<?php echo $data4['b_id']; ?>">
+                    <?php echo $data4['b_address']; ?>
                   </option>
 
                 <?php } ?>
