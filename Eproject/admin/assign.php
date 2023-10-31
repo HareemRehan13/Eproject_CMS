@@ -2,18 +2,27 @@
 include('connection.php');
 $id = $_GET['id'];
 
-
-
 $fetch_selected_r ="SELECT * FROM `tbl_order` WHERE or_id = $id";
 $run_query = mysqli_query($conn,$fetch_selected_r );
 $row = mysqli_fetch_array($run_query);
-if(isset($_POST['btnupdate'])){
-    $u_name = $_POST['u_name'];
-    $u_email = $_POST['u_email'];
-    $r_name = $_POST['r_name'];
-    $u_pass= $_POST['u_pass'];
-
-    $update_q = "UPDATE `tbl_user` SET `u_name`='$u_name', `u_email`='$u_email', `r_id`='$r_name', `password`='$u_pass' WHERE `u_id` = $id";
+if(isset($_POST['assign'])){
+    // $u_name = $_POST['u_name'];
+    $sender_address = $_POST['sender_address'];
+    $sender_phoneno = $_POST['sender_phoneno'];
+    $receiver_name = $_POST['receiver_name'];
+    $receiver_email = $_POST['receiver_email'];
+    $receiver_address = $_POST['receiver_address'];
+    $receiver_phoneno = $_POST['receiver_phoneno'];
+    $agent_from = $_POST['agent_from'];
+    $agent_to = $_POST['agent_to'];
+    $location_from = $_POST['locationfrom'];
+    $location_to = $_POST['location_to'];
+    $order_weight = $_POST['order_weight'];
+    $order_distance = $_POST['order_distance'];
+    $total_charges = $_POST['total_charges'];
+    $courier_com = $_POST['courier_com'];
+    $order_status = $_POST['order_status'];
+    $update_q = "UPDATE `tbl_order` SET `sender_address`='[sender_address]',`sender_phoneno`='[sender_phoneno]',`receiver_name`='[receiver_name]',`receiver_email`='[receiver_email]',`receiver_address`='[receiver_address]',`receiver_phoneno`='[receiver_phoneno]',`agent_from`='[agent_from]',`agent_to`='[agent_to]',`order_weight`='[order_weight]',`order_distance`='[order_distance]',`locationfrom`='[locationfrom]',`location_to`='[location_to]',`total_charges`='[total_charges]' WHERE id=$id";
     $run = mysqli_query($conn, $update_q);
 
     if($run){
@@ -22,10 +31,7 @@ if(isset($_POST['btnupdate'])){
  
 }
 
-
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -92,41 +98,44 @@ if(isset($_POST['btnupdate'])){
   <form method="POST" enctype="multipart/form-data">
     <div class="mb-3">
         <label  class="form-label">User id</label>
-        <input type="text" class="form-control" value ="<?php echo $row['u_id']; ?>" name="u_name">
+        <input type="text" class="form-control" value ="<?php echo $row['u_id']; ?>" name="u_id">
       </div>
     <div class="mb-3">
       <label  class="form-label">Sender Address</label>
-      <input type="email" class="form-control" value ="<?php echo $row['sender_address']; ?>" name="u_email">
+      <input type="text" class="form-control" value ="<?php echo $row['sender_address']; ?>" name="sender_address">
     </div>
     <div class="mb-3">
       <label  class="form-label">Sender Phone</label>
-      <input type="email" class="form-control" value ="<?php echo $row['sender_phoneno']; ?>" name="u_email">
+      <input type="text" class="form-control" value ="<?php echo $row['sender_phoneno']; ?>" name="sender_phoneno">
     </div>
     <div class="mb-3">
       <label  class="form-label">Reciever Name</label>
-      <input type="email" class="form-control" value ="<?php echo $row['reciever_name']; ?>" name="u_email">
+      <input type="text" class="form-control" value ="<?php echo $row['receiver_name']; ?>" name="receiver_name">
     </div>
     <div class="mb-3">
       <label  class="form-label">Reciever Email</label>
-      <input type="email" class="form-control" value ="<?php echo $row['reciever_email']; ?>" name="u_email">
+      <input type="email" class="form-control" value ="<?php echo $row['receiver_email']; ?>" name="receiver_email">
     </div>
     <div class="mb-3">
       <label  class="form-label">Reciever Address</label>
-      <input type="email" class="form-control" value ="<?php echo $row['reciever_address']; ?>" name="u_email">
+      <input type="email" class="form-control" value ="<?php echo $row['receiver_address']; ?>" name="receiver_address">
     </div>
     <div class="mb-3">
       <label  class="form-label">Reciever Phone</label>
-      <input type="email" class="form-control" value ="<?php echo $row['reciever_phoneno']; ?>" name="u_email">
+      <input type="text" class="form-control" value ="<?php echo $row['receiver_phoneno']; ?>" name="receiver_phoneno">
     </div>
     <div class="mb-3">
     <label  class="form-label">Agent from</label>
-    <select class="form-control" name="r_name">
+    <select class="form-control" name="agent_from">
         <option selected disabled>select an option</option>
    <?php 
    $select_q ='SELECT * FROM `tbl_agent` join `tbl_branch` on tbl_agent.b_id=tbl_branch.b_id right join tbl_city on tbl_city.ci_id=tbl_branch.ci_id';
 $run_q = mysqli_query($conn, $select_q);
    while ($data = mysqli_fetch_array($run_q)) { ?>
-      <option value="<?php echo $data['a_id']; ?>"><?php echo $data['agent_name'].','. $data['ci_name']; ?></option>
+      <option value="<?php echo $data['a_id']; ?>"
+      
+      
+      ><?php echo $data['agent_name'].','. $data['ci_name']; ?></option>
 
    <?php } ?>
 </select>
@@ -134,7 +143,7 @@ $run_q = mysqli_query($conn, $select_q);
   </div>
   <div class="mb-3">
     <label  class="form-label">Agent to</label>
-    <select class="form-control" name="r_name">
+    <select class="form-control" name="agent_to">
     <option selected disabled>select an option</option>
     <?php 
    $select_q ='SELECT * FROM `tbl_agent` join `tbl_branch` on tbl_agent.b_id=tbl_branch.b_id right join tbl_city on tbl_city.ci_id=tbl_branch.ci_id';
@@ -147,8 +156,8 @@ $run_q = mysqli_query($conn, $select_q);
     
   </div>
   <div class="mb-3">
-    <label  class="form-label">Location to</label>
-    <select class="form-control" name="r_name">
+    <label  class="form-label">Location from</label>
+    <select class="form-control" name="locationfrom">
    <?php
     $select_q ='SELECT * FROM `tbl_city`';
     $run_q = mysqli_query($conn, $select_q);
@@ -161,7 +170,7 @@ $run_q = mysqli_query($conn, $select_q);
   </div>
   <div class="mb-3">
     <label  class="form-label">Location to</label>
-    <select class="form-control" name="r_name">
+    <select class="form-control" name="location_to">
    <?php  $select_q ='SELECT * FROM `tbl_city`';
     $run_q = mysqli_query($conn, $select_q);
    while ($data = mysqli_fetch_array($run_q)) { ?>
@@ -173,31 +182,31 @@ $run_q = mysqli_query($conn, $select_q);
   </div>
   <div class="mb-3">
     <label  class="form-label">Order Weight</label>
-    <input type="text" class="form-control" value="<?php echo $row['order_weight'];?>" name="u_pass">
+    <input type="text" class="form-control" value="<?php echo $row['order_weight'];?>" name="order_weight">
     
   </div>
  
   <div class="mb-3">
     <label  class="form-label">Order Distance</label>
-    <input type="text" class="form-control" value="<?php echo $row['order_distance'];?>" name="u_pass">
+    <input type="text" class="form-control" value="<?php echo $row['order_distance'];?>" name="order_distance">
     
   </div>
   <div class="mb-3">
     <label  class="form-label">Order Charges</label>
-    <input type="text" class="form-control" value="<?php echo $row['total_charges'];?>" name="u_pass">
+    <input type="text" class="form-control" value="<?php echo $row['total_charges'];?>" name="order_charges">
     
   </div>
   <div class="mb-3">
     <label  class="form-label">Courier Company</label>
-    <input type="text" class="form-control" value="<?php echo $row['co_id'];?>" name="u_pass">
+    <input type="text" class="form-control" value="<?php echo $row['co_id'];?>" name="courier_com">
     
   </div>
   <div class="mb-3">
     <label  class="form-label">Order Status</label>
-    <input type="text" class="form-control" value="<?php echo $row['status'];?>" name="u_pass">
+    <input type="text" class="form-control" value="<?php echo $row['status'];?>" name="order_status">
     
   </div>
-    <button type="submit" class="btn btn-primary" name="btnupdate">Submit</button>
+    <button type="submit" class="btn btn-primary" name="assign">Assign</button>
   </form>
 </div>
             </div>
