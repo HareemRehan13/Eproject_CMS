@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(!isset($_SESSION['user_name'])){
+    header('location:../admin/login.php');
+}
 ?>
 
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">

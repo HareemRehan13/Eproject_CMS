@@ -57,7 +57,7 @@ $run_q = mysqli_query($conn, $select_q);
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">View Users</h1>
-                        <a href="useradd.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Add User</a>
+                        <a href="assign.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Add User</a>
                     </div>
 
 <div class="container" style="overflow-x:auto;">
@@ -146,7 +146,7 @@ $run_q = mysqli_query($conn, $select_q);
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="../admin/logout.php">Logout</a>
                 </div>
             </div>
         </div>
