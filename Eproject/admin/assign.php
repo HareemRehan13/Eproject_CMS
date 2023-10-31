@@ -1,34 +1,9 @@
 <?php
 include('connection.php');
-$id = $_GET['id'];
+$id = $_GET['id'] ;
 $fetch_selected_r = "SELECT * FROM `tbl_order` WHERE or_id = $id";
-$run_query = mysqli_query($conn, $fetch_selected_r);
-$row = mysqli_fetch_array($run_query);
-// if (isset($_POST['assign'])) {
-//   $sender_address = $_POST['sender_address'];
-//   $sender_phoneno = $_POST['sender_phoneno'];
-//   $receiver_name = $_POST['receiver_name'];
-//   $receiver_email = $_POST['receiver_email'];
-//   $receiver_address = $_POST['receiver_address'];
-//   $receiver_phoneno = $_POST['receiver_phoneno'];
-//   $agent_from = $_POST['agent_from'];
-//   $agent_to = $_POST['agent_to'];
-//   $location_from = $_POST['locationfrom'];
-//   $location_to = $_POST['location_to'];
-//   $order_weight = $_POST['order_weight'];
-//   $order_distance = $_POST['order_distance'];
-//   $total_charges = $_POST['order_charges'];
-//   $courier_com = $_POST['courier_com'];
-//   $order_status = $_POST['order_status'];
-//   $update_q= "UPDATE `tbl_order` SET `sender_address`='sender_address',`sender_phoneno`='sender_phoneno',`receiver_name`='receiver_name',`receiver_email`='receiver_email',`receiver_address`='receiver_address',`receiver_phoneno`='receiver_phoneno',`order_weight`='order_weight',`order_distance`='order_distance',`locationfrom`='locationfrom',`location_to`='location_to',`agent_from`='agent_from',`agent_to`='agent_to',`total_charges`='order_charges' WHERE or_id=$id ";
-//   $run = mysqli_query($conn,$update_q);
-
-//   if ($run) {
-//     echo "<script>window.location.href='orders.php' </script>";
-//   }
-
-// }
-
+$run_query=mysqli_query($conn,$fetch_selected_r);
+$row=mysqli_fetch_array($run_query);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,7 +60,7 @@ $row = mysqli_fetch_array($run_query);
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Update Users</h1>
-            <a href="useradd.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Assign order</a>
+            <a href="orders.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Assign order</a>
           </div>
 
 
@@ -101,7 +76,7 @@ $row = mysqli_fetch_array($run_query);
             <div class="mb-3">
               <label class="form-label">Sender Address</label>
               <input type="text" class="form-control" value="<?php echo $row['sender_address']; ?>"
-                name="sender_address">
+                name="sender_address1">
             </div>
             <div class="mb-3">
               <label class="form-label">Sender Phone</label>
@@ -207,7 +182,7 @@ $row = mysqli_fetch_array($run_query);
             </div>
             <div class="mb-3">
               <label class="form-label">Courier Company</label>
-              <input type="text" class="form-control" value="<?php echo $row['co_id']; ?>" name="courier_com">
+              <input type="text" class="form-control" value="<?php echo $row['co_id']; ?>" name="co_id">
 
             </div>
             <div class="mb-3">
