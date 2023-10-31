@@ -2,23 +2,41 @@
 include('connection.php');
 session_start();
 if(isset($_POST['btnlogin'])){
-$user_name = $_POST["user_name"];
-$user_pass = $_POST["user_pass"];
-$select_q = "SELECT * FROM `tbl_user` WHERE u_name ='$user_name' and password ='$user_pass'";
+$u_name = $_POST["u_name"];
+$u_pass = $_POST["u_pass"];
+$select_q = "SELECT * FROM `tbl_user` WHERE u_name ='$u_name' and password ='$u_pass'";
 $run_q = mysqli_query($conn, $select_q);
+$roles=mysqli_fetch_assoc($run_q);
+$role=$roles['r_id'];
 $row = mysqli_num_rows($run_q);
-		if($row == 1){
+
+if($row>=1){
+		if($role == 1){
             echo '<script>alert("login successful")</script>'; 
-            $_SESSION['user_name'] = $user_name;
+            $_SESSION['user_name'] = $u_name;
             echo"<script>window.location.href='dashboard.php' </script>";
 
 		}
-        else{
-            echo '<script> alert("login fail")</script>';
-            echo"<script>window.location.href='login.php' </script>";
+        if($role == 3){
+            echo '<script>alert("login successful")</script>'; 
+            $_SESSION['user_name'] = $u_name;
+            echo"<script>window.location.href='../agent/dashboard.php' </script>";
 
 		}
+        else{
+            echo '<script>alert("login successful")</script>'; 
+            $_SESSION['user_name'] = $u_name;
+            echo"<script>window.location.href='.php' </script>";
 
+          
+		}
+
+}
+else{
+    echo '<script> alert("login fail")</script>';
+    echo"<script>window.location.href='login.php' </script>";
+
+}
 }
 
 ?>
@@ -82,13 +100,13 @@ $row = mysqli_num_rows($run_q);
                                         <div class="form-group">
                                         <label >Username</label>
                                             <input type="text" class="form-control "
-                                                name="user_name" aria-describedby="emailHelp"
+                                                name="u_name" aria-describedby="emailHelp"
                                                 placeholder="Enter Your Name...">
                                         </div>
                                         <div class="form-group">
                                         <label>Password</label>
                                             <input type="password" class="form-control "
-                                                name="user_pass" placeholder="Enter Your Password...">
+                                                name="u_pass" placeholder="Enter Your Password...">
                                         </div>
 
                                         <div class="row">
