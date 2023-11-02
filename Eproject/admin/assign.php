@@ -144,12 +144,13 @@ if(isset($_POST['assign'])){
             <div class="mb-3">
               <label class="form-label">Agent from</label>
               <select class="form-control" name="agent_from">
+                <option selected disabled>select an option</option>
                 <?php
-                $select_q = 'SELECT * FROM `tbl_agent`';
+                $select_q = 'SELECT * FROM `tbl_agent` join `tbl_branch` on tbl_agent.b_id=tbl_branch.b_id right join tbl_city on tbl_city.ci_id=tbl_branch.ci_id';
                 $run_q = mysqli_query($conn, $select_q);
                 while ($data = mysqli_fetch_array($run_q)) { ?>
                   <option value="<?php echo $data['a_id']; ?>">
-                    <?php echo $data['agent_name'] ?>
+                    <?php echo $data['agent_name'] . ',' . $data['ci_name']; ?>
                   </option>
 
                 <?php } ?>
@@ -159,12 +160,13 @@ if(isset($_POST['assign'])){
             <div class="mb-3">
               <label class="form-label">Agent to</label>
               <select class="form-control" name="agent_to">
+                <option selected disabled>select an option</option>
                 <?php
-                $select_q = 'SELECT * FROM `tbl_agent`';
+                $select_q = 'SELECT * FROM `tbl_agent` join `tbl_branch` on tbl_agent.b_id=tbl_branch.b_id right join tbl_city on tbl_city.ci_id=tbl_branch.ci_id';
                 $run_q = mysqli_query($conn, $select_q);
                 while ($data2 = mysqli_fetch_array($run_q)) { ?>
                   <option value="<?php echo $data2['a_id']; ?>">
-                    <?php echo $data2['agent_name']; ?>
+                    <?php echo $data2['ci_name']; ?>
                   </option>
 
                 <?php } ?>
@@ -174,12 +176,20 @@ if(isset($_POST['assign'])){
             <div class="mb-3">
               <label class="form-label">Location from</label>
               <select class="form-control" name="locationfrom">
+              <option selected disabled>select an option</option>
                 <?php
-                $select_q = 'SELECT * FROM `tbl_branch`';
+                $select_q = 'SELECT * FROM `tbl_city`';
                 $run_q = mysqli_query($conn, $select_q);
-                while ($data3 = mysqli_fetch_array($run_q)) { ?>
-                  <option value="<?php echo $data3['b_id']; ?>">
-                    <?php echo $data3['b_address']; ?>
+                while ($data = mysqli_fetch_array($run_q)) { ?>
+                  <option value="<?php echo $data['ci_id']; ?>"
+                  <?php
+                  if($data['ci_id']==$row['locationfrom']){
+                    echo "selected";
+                  }
+                  ?>
+                  
+                  >
+                    <?php echo $data['ci_name']; ?>
                   </option>
 
                 <?php } ?>
@@ -189,11 +199,19 @@ if(isset($_POST['assign'])){
             <div class="mb-3">
               <label class="form-label">Location to</label>
               <select class="form-control" name="location_to">
-                <?php $select_q = 'SELECT * FROM `tbl_branch`';
+              <option selected disabled>select an option</option>
+                <?php $select_q = 'SELECT * FROM `tbl_city`';
                 $run_q = mysqli_query($conn, $select_q);
-                while ($data4 = mysqli_fetch_array($run_q)) { ?>
-                  <option value="<?php echo $data4['b_id']; ?>">
-                    <?php echo $data4['b_address']; ?>
+                while ($data = mysqli_fetch_array($run_q)) { ?>
+                  <option value="<?php echo $data['ci_id']; ?>"
+                  
+                  <?php
+                  if($data['ci_id']==$row['location_to']){
+                    echo "selected";
+                  }
+                  ?>
+                  >
+                    <?php echo $data['ci_name']; ?>
                   </option>
 
                 <?php } ?>
@@ -224,7 +242,14 @@ if(isset($_POST['assign'])){
             </div>
             <div class="mb-3">
               <label class="form-label">Order Status</label>
-              <input type="text" class="form-control" value="<?php echo $row['status']; ?>" name="order_status">
+         <select name="order_status" id="">
+
+         <option value="pending">pending</option>
+         <option value="Assigned">
+          Assigned
+         </option>
+         
+         </select>
 
             </div>
             <button type="submit" class="btn btn-primary" name="assign">Assign</button>
