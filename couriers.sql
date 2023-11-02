@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 28, 2023 at 07:57 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Nov 02, 2023 at 05:43 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,7 +34,7 @@ CREATE TABLE `tbl_agent` (
   `b_id` int(11) NOT NULL,
   `status` int(11) NOT NULL,
   `agent_name` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_agent`
@@ -55,7 +55,7 @@ CREATE TABLE `tbl_branch` (
   `b_address` varchar(50) NOT NULL,
   `b_contact` int(11) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_branch`
@@ -77,7 +77,7 @@ CREATE TABLE `tbl_city` (
   `ci_id` int(11) NOT NULL,
   `ci_name` varchar(50) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_city`
@@ -100,7 +100,7 @@ CREATE TABLE `tbl_company` (
   `co_money` bigint(20) NOT NULL,
   `co_name` varchar(50) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_company`
@@ -122,7 +122,7 @@ CREATE TABLE `tbl_contact` (
   `u_id` int(11) NOT NULL,
   `con_msg` varchar(50) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -150,7 +150,7 @@ CREATE TABLE `tbl_courier` (
   `delivery_charges` bigint(20) NOT NULL,
   `total_charges` bigint(20) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -176,15 +176,15 @@ CREATE TABLE `tbl_order` (
   `location_to` int(11) DEFAULT NULL,
   `co_id` int(11) NOT NULL,
   `total_charges` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_order`
 --
 
 INSERT INTO `tbl_order` (`or_id`, `u_id`, `sender_address`, `sender_phoneno`, `receiver_name`, `receiver_email`, `receiver_address`, `receiver_phoneno`, `agent_from`, `agent_to`, `order_weight`, `order_distance`, `status`, `locationfrom`, `location_to`, `co_id`, `total_charges`) VALUES
-(1, 3, 'F.B. Area R-12 Block18,Karachi', 15511152, 'battu', 'battu@gmail.com', 'F.B. Area R-12 Block18,peshawar', 4421501221, 1, 1, '4kg', 1600, 'pending', 3, 10, 2, 2700),
-(3, 3, 'nghngn', 15511152, 'hgnghn', 'nghnghn', 'nhgnf', 67567, NULL, NULL, '56', 46, 'pending', NULL, NULL, 2, 676);
+(1, 3, 'F.B. Area R-12 Block18,Karachi', 15511152, 'battu', 'battu@gmail.com', ' F.B. Area R-12 Block18,peshawar', 4421501221, 1, 1, '4kg', 1600, 'delivered', 3, 3, 2, 2700),
+(3, 3, 'nghngn', 15511152, 'hgnghn', 'nghnghn', 'nhgnf', 67567, NULL, NULL, '56', 46, 'pending', 2, 1, 2, 676);
 
 -- --------------------------------------------------------
 
@@ -197,7 +197,7 @@ CREATE TABLE `tbl_pricing` (
   `p_parameter` varchar(50) NOT NULL,
   `p_price` int(20) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_pricing`
@@ -217,7 +217,7 @@ CREATE TABLE `tbl_role` (
   `r_id` int(11) NOT NULL,
   `r_name` varchar(50) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_role`
@@ -241,14 +241,14 @@ CREATE TABLE `tbl_user` (
   `r_id` int(11) NOT NULL,
   `password` varchar(20) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`u_id`, `u_name`, `u_email`, `r_id`, `password`, `status`) VALUES
-(1, 'admin', 'admin@gmail.com', 1, 'kuchbhi', 0),
+(1, 'admin12', 'admin@gmail.com', 1, 'kuchbhi', 0),
 (2, 'ilyas', 'kapoorr@gmail.com', 3, 'bohathiachay', 0),
 (3, 'ibrahim', 'ibrahim@gmail.com', 2, 'kesayhnnaabsb', 0);
 
@@ -429,8 +429,8 @@ ALTER TABLE `tbl_order`
   ADD CONSTRAINT `fk11` FOREIGN KEY (`agent_to`) REFERENCES `tbl_agent` (`a_id`),
   ADD CONSTRAINT `fk6` FOREIGN KEY (`u_id`) REFERENCES `tbl_user` (`u_id`),
   ADD CONSTRAINT `fk7` FOREIGN KEY (`co_id`) REFERENCES `tbl_company` (`co_id`),
-  ADD CONSTRAINT `fk8` FOREIGN KEY (`locationfrom`) REFERENCES `tbl_branch` (`b_id`),
-  ADD CONSTRAINT `fk9` FOREIGN KEY (`location_to`) REFERENCES `tbl_branch` (`b_id`);
+  ADD CONSTRAINT `fk8` FOREIGN KEY (`locationfrom`) REFERENCES `tbl_city` (`ci_id`),
+  ADD CONSTRAINT `fk9` FOREIGN KEY (`location_to`) REFERENCES `tbl_city` (`ci_id`);
 
 --
 -- Constraints for table `tbl_user`
