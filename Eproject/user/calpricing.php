@@ -65,7 +65,7 @@ button:hover {
      
 <div class="container">
   <div class="row">
-    <div  class="col-lg-6 ">
+    <div  class="col-lg-6">
     <h1>Courier Price Calculator</h1>
 </div>
     <div class="col-lg-6">
