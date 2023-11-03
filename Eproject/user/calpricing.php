@@ -1,7 +1,34 @@
  <!-- ======= Header ======= -->
   <?php include('navbar.php');?>
   <!-- End Header -->
+<style>
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
 
+.calculator {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    display: inline-block;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+</style>
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
@@ -27,6 +54,48 @@
     </div><!-- End Breadcrumbs -->
 
     <!-- ======= Contact Section ======= -->
+     <link rel="stylesheet" href="agent/css/sb-admin-2.min.css">
+     <link rel="stylesheet" type="text/css" href="styles.css">
+     <script src="agent/js/sb-admin-2.min.js"></script>
+<div class="container">
+  <div class="row">
+    <div class="col ">
+  
+    <h1>Courier Price Calculator</h1>
+    <div class="calculator">
+        <input type="number" id="weight" placeholder="Enter Weight">
+        <select id="unit">
+            <option value="kg">Kilograms (kg)</option>
+            <option value="gm">Grams (gm)</option>
+        </select>
+        <button onclick="calculatePrice()">Calculate Price</button>
+        <p id="result"></p>
+    </div>
+    <script >
+      function calculatePrice() {
+    const weight = parseFloat(document.getElementById("weight").value);
+    const unit = document.getElementById("unit").value;
+    const resultElement = document.getElementById("result");
+
+    const pricePerKg = 900; // Price per kilogram
+    const pricePerGm = 1.11; // Price per gram
+
+    let weightInKg;
+    if (unit === "kg") {
+        weightInKg = weight;
+    } else if (unit === "gm") {
+        weightInKg = weight / 1000; // Convert grams to kilograms
+    }
+
+    const price = weightInKg * (unit === "kg" ? pricePerKg : pricePerGm);
+    
+    resultElement.innerHTML = `The price for a ${weight} ${unit} parcel is ${price.toFixed(2)} PKR`;
+}
+
+    </script>
+    </div>
+  </div>
+</div>
     <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">
 
