@@ -1,5 +1,10 @@
- <!-- ======= Header ======= -->
-  <?php include('navbar.php');?>
+
+<!-- ======= Header ======= -->
+ <?php
+ include('connection.php');
+include('navbar.php');
+
+?>
   <!-- End Header -->
   <link rel="stylesheet" href="agent/css/sb-admin-2.min.css">
      <link rel="stylesheet" type="text/css" href="styles.css">
@@ -32,8 +37,8 @@ button:hover {
     background-color:darkblue;
 }
 </style>
-  <main id="main">
 
+  <main id="main">
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs">
       <div class="page-header d-flex align-items-center" style="background-image: url('assets/img/page-header.jpg');">
@@ -60,8 +65,7 @@ button:hover {
      
 <div class="container">
   <div class="row">
-    <div class="col ">
-  
+    <div class="col">
     <h1>Courier Price Calculator</h1>
     <div class="calculator">
         <input type="number" id="weight" placeholder="Enter Weight">
@@ -79,15 +83,15 @@ button:hover {
     const resultElement = document.getElementById("result");
 
     const pricePerKg = 900; // Price per kilogram
-    const pricePerGm = 900; // Price per gram
+    const pricePerGm =900; // Price per gram
 
     let weightInKg;
     if (unit === "kg") {
         weightInKg = weight;
-    } else if (unit === "gm") {
+    } 
+    else if (unit === "gm") {
         weightInKg = weight /1000; // Convert grams to kilograms
     }
-
     const price = weightInKg * (unit === "kg" ? pricePerKg : pricePerGm);
     
     resultElement.innerHTML = `The price for a ${weight} ${unit} parcel is ${price.toFixed(2)} PKR`;
