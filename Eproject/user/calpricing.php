@@ -1,6 +1,9 @@
  <!-- ======= Header ======= -->
   <?php include('navbar.php');?>
   <!-- End Header -->
+  <link rel="stylesheet" href="agent/css/sb-admin-2.min.css">
+     <link rel="stylesheet" type="text/css" href="styles.css">
+     <script src="agent/js/sb-admin-2.min.js"></script>
 <style>
 body {
     text-align: center;
@@ -18,15 +21,15 @@ body {
 
 button {
     padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
+    background-color:black;
+    color: bisque; 
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color:darkblue;
 }
 </style>
   <main id="main">
@@ -54,9 +57,7 @@ button:hover {
     </div><!-- End Breadcrumbs -->
 
     <!-- ======= Contact Section ======= -->
-     <link rel="stylesheet" href="agent/css/sb-admin-2.min.css">
-     <link rel="stylesheet" type="text/css" href="styles.css">
-     <script src="agent/js/sb-admin-2.min.js"></script>
+     
 <div class="container">
   <div class="row">
     <div class="col ">
@@ -78,13 +79,13 @@ button:hover {
     const resultElement = document.getElementById("result");
 
     const pricePerKg = 900; // Price per kilogram
-    const pricePerGm = 1.11; // Price per gram
+    const pricePerGm = 900; // Price per gram
 
     let weightInKg;
     if (unit === "kg") {
         weightInKg = weight;
     } else if (unit === "gm") {
-        weightInKg = weight / 1000; // Convert grams to kilograms
+        weightInKg = weight /1000; // Convert grams to kilograms
     }
 
     const price = weightInKg * (unit === "kg" ? pricePerKg : pricePerGm);
