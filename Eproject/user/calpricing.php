@@ -65,8 +65,10 @@ button:hover {
      
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div  class="col-lg-6 ">
     <h1>Courier Price Calculator</h1>
+</div>
+    <div class="col-lg-6">
     <div class="calculator">
         <input type="number" id="weight" placeholder="Enter Weight">
         <select id="unit">
