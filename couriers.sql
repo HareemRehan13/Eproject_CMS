@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2023 at 05:43 AM
+-- Generation Time: Nov 02, 2023 at 06:33 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -41,7 +41,9 @@ CREATE TABLE `tbl_agent` (
 --
 
 INSERT INTO `tbl_agent` (`a_id`, `u_id`, `a_contact`, `b_id`, `status`, `agent_name`) VALUES
-(1, 2, 3212155, 3, 0, 'ilyas');
+(1, 2, 3212155, 3, 0, 'ilyas'),
+(2, 4, 33102156, 6, 0, 'Ali'),
+(3, 5, 33103145, 9, 0, 'Faiz');
 
 -- --------------------------------------------------------
 
@@ -64,8 +66,7 @@ CREATE TABLE `tbl_branch` (
 INSERT INTO `tbl_branch` (`b_id`, `ci_id`, `b_address`, `b_contact`, `status`) VALUES
 (3, 2, 'thfdgzvzds', 3333925, 0),
 (6, 1, 'thfdgzvzds', 3333925, 0),
-(9, 1, 'thfdgzvzds', 2147483647, 0),
-(10, 1, 'thfdgzvzds', 421828252, 0);
+(9, 3, 'thfdgzvzds', 2147483647, 0);
 
 -- --------------------------------------------------------
 
@@ -183,8 +184,8 @@ CREATE TABLE `tbl_order` (
 --
 
 INSERT INTO `tbl_order` (`or_id`, `u_id`, `sender_address`, `sender_phoneno`, `receiver_name`, `receiver_email`, `receiver_address`, `receiver_phoneno`, `agent_from`, `agent_to`, `order_weight`, `order_distance`, `status`, `locationfrom`, `location_to`, `co_id`, `total_charges`) VALUES
-(1, 3, 'F.B. Area R-12 Block18,Karachi', 15511152, 'battu', 'battu@gmail.com', ' F.B. Area R-12 Block18,peshawar', 4421501221, 1, 1, '4kg', 1600, 'delivered', 3, 3, 2, 2700),
-(3, 3, 'nghngn', 15511152, 'hgnghn', 'nghnghn', 'nhgnf', 67567, NULL, NULL, '56', 46, 'pending', 2, 1, 2, 676);
+(1, 3, 'F.B. Area R-12 Block18,Karachi', 15511152, 'battu', 'battu@gmail.com', ' F.B. Area R-12 Block18,peshawar', 4421501221, 2, 1, '4kg', 1600, 'delivered', 3, 3, 2, 2700),
+(3, 3, 'nghngn', 15511152, 'hgnghn', 'nghnghn@gmail.com', ' nhgnf', 67567, 1, 1, '56', 46, 'Assigned', 2, 1, 2, 676);
 
 -- --------------------------------------------------------
 
@@ -250,7 +251,9 @@ CREATE TABLE `tbl_user` (
 INSERT INTO `tbl_user` (`u_id`, `u_name`, `u_email`, `r_id`, `password`, `status`) VALUES
 (1, 'admin12', 'admin@gmail.com', 1, 'kuchbhi', 0),
 (2, 'ilyas', 'kapoorr@gmail.com', 3, 'bohathiachay', 0),
-(3, 'ibrahim', 'ibrahim@gmail.com', 2, 'kesayhnnaabsb', 0);
+(3, 'ibrahim', 'ibrahim@gmail.com', 2, 'kesayhnnaabsb', 0),
+(4, 'Ali', 'Ali@gmail.com', 3, 'Ali123', 0),
+(5, 'Faiz', 'Faiz@gmail.com', 3, 'F1234', 0);
 
 --
 -- Indexes for dumped tables
@@ -336,7 +339,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_agent`
 --
 ALTER TABLE `tbl_agent`
-  MODIFY `a_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `a_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_branch`
@@ -390,7 +393,7 @@ ALTER TABLE `tbl_role`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

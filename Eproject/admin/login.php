@@ -14,18 +14,21 @@ if($row>=1){
 		if($role == 1){
             echo '<script>alert("login successful")</script>'; 
             $_SESSION['user_name'] = $u_name;
+            $_SESSION['id'] = $roles['u_id'];
             echo"<script>window.location.href='dashboard.php' </script>";
 
 		}
         if($role == 3){
             echo '<script>alert("login successful")</script>'; 
             $_SESSION['user_name'] = $u_name;
+            $_SESSION['id'] = $roles['u_id'];
             echo"<script>window.location.href='../agent/dashboard.php' </script>";
 
 		}
         else{
             echo '<script>alert("login successful")</script>'; 
             $_SESSION['user_name'] = $u_name;
+            $_SESSION['id'] = $roles['u_id'];
             echo"<script>window.location.href='.php' </script>";
 
           
