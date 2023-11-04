@@ -66,7 +66,28 @@ h1{
     </div><!-- End Breadcrumbs -->
 
     <!-- ======= Contact Section ======= -->
-     
+  <?php
+  if(isset($_POST['calc'])){
+$weight=$_POST['weight'];
+$unit=$_POST['unit'];
+$comp=$_POST['comp'];
+$qqq="select * from tbl_company WHERE co_id=$comp";
+$results=mysqli_query($conn,$qqq);
+$rows1=mysqli_fetch_array($results);
+$perkg=$rows1['per_kg'];
+$pergrams=$rows1['per_gram'];
+
+if($unit=="kg"){
+$price=$weight*$perkg;
+echo "<script>alert('Total Price: '+$price);</script>";
+}
+else{
+ 
+  $price=$weight*$pergrams;
+  echo "<script>alert('Total Price: '+$price);</script>";
+}
+  }
+  ?>   
 <div class="container">
   <div class="row">
     <div  class="col-lg-6">
@@ -74,36 +95,28 @@ h1{
 </div>
     <div class="col-lg-6">
     <div class="calculator">
-        <input type="number" id="weight" placeholder="Enter Weight">
-        <select id="unit">
+      <form action="" method="POST">
+        <input type="number" id="weight" name="weight" placeholder="Enter Weight">
+        <select id="unit" name="unit">
             <option value="kg">Kilograms (kg)</option>
             <option value="gm">Grams (gm)</option>
         </select>
-        <button onclick="calculatePrice()">Calculate Price</button>
+        <select name="comp">
+        <?php
+        $q="select * from tbl_company";
+        $res=mysqli_query($conn,$q);
+        while($row=mysqli_fetch_array($res)){
+        
+        ?>
+<option value="<?php echo $row['co_id']?>"><?php echo $row['co_name']?></option>
+        <?php
+        }
+        ?>
+        </select>
+        <button type="submit" name="calc">Calculate Price</button>
+        </form>
         <p id="result"></p>
     </div>
-    <script >
-      function calculatePrice() {
-    const weight = parseFloat(document.getElementById("weight").value);
-    const unit = document.getElementById("unit").value;
-    const resultElement = document.getElementById("result");
-
-    const pricePerKg = 900; // Price per kilogram
-    const pricePerGm =900; // Price per gram
-
-    let weightInKg;
-    if (unit === "kg") {
-        weightInKg = weight;
-    } 
-    else if (unit === "gm") {
-        weightInKg = weight /1000; // Convert grams to kilograms
-    }
-    const price = weightInKg * (unit === "kg" ? pricePerKg : pricePerGm);
-    
-    resultElement.innerHTML = `The price for a ${weight} ${unit} parcel is ${price.toFixed(2)} PKR`;
-}
-
-    </script>
     </div>
   </div>
 </div>
