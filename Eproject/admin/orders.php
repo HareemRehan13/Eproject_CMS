@@ -66,6 +66,8 @@ $run_q = mysqli_query($conn, $select_q);
     <tr>
       <th>Id</th>
       <th>UserId</th>
+      <th>Sender Name</th>
+      <th>Sender Email</th>
       <th>Sender Address</th>
       <th>Sender Phoneno</th>
       <th>Receiver Name</th>
@@ -90,6 +92,8 @@ $run_q = mysqli_query($conn, $select_q);
     <tr>
     <td><?php echo $row['or_id'];?></td>
       <td><?php echo $row['u_id'];?></td>
+      <td><?php echo $row['sender_name'];?></td>
+      <td><?php echo $row['sender_email'];?></td>
       <td><?php echo $row['sender_address'];?></td>
       <td><?php echo $row['sender_phoneno'];?></td>
       <td><?php echo $row['receiver_name'];?></td>
@@ -146,7 +150,7 @@ $run_q = mysqli_query($conn, $select_q);
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="logout.html">Logout</a>
                 </div>
             </div>
         </div>

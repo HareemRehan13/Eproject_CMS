@@ -65,7 +65,7 @@ $run_q = mysqli_query($conn, $select_q);
       <td><?php echo $row2['co_id'];?></td>
       <td><?php echo $row2['total_charges'];?></td>
       <td><?php echo $row2['status'];?></td>
-      <td><a href="assign.php?id=<?php echo $row2['or_id'];?>">Delivered</a></td>
+      <td><a href="assign.php?id=<?php echo $row2['or_id'];?>">Update</a></td>
     </tr>
   <?php } ?>
   </tbody>
@@ -138,7 +138,7 @@ $ru = mysqli_query($conn, $select);
       <td><?php echo $row['co_id'];?></td>
       <td><?php echo $row['total_charges'];?></td>
       <td><?php echo $row['status'];?></td>
-      <td><a href="assign.php?id=<?php echo $row['or_id'];?>">Delivered</a></td>
+      <td><a href="assign.php?id=<?php echo $row['or_id'];?>">Update</a></td>
     </tr>
   <?php } ?>
   </tbody>

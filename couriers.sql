@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2023 at 06:33 AM
+-- Generation Time: Nov 04, 2023 at 06:48 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -161,7 +161,9 @@ CREATE TABLE `tbl_courier` (
 
 CREATE TABLE `tbl_order` (
   `or_id` int(11) NOT NULL,
-  `u_id` int(11) NOT NULL,
+  `u_id` int(11) DEFAULT NULL,
+  `sender_name` varchar(50) NOT NULL,
+  `sender_email` varchar(50) NOT NULL,
   `sender_address` varchar(50) NOT NULL,
   `sender_phoneno` int(20) NOT NULL,
   `receiver_name` varchar(50) NOT NULL,
@@ -175,17 +177,17 @@ CREATE TABLE `tbl_order` (
   `status` varchar(50) NOT NULL,
   `locationfrom` int(11) DEFAULT NULL,
   `location_to` int(11) DEFAULT NULL,
-  `co_id` int(11) NOT NULL,
-  `total_charges` int(11) NOT NULL
+  `co_id` int(11) DEFAULT NULL,
+  `total_charges` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_order`
 --
 
-INSERT INTO `tbl_order` (`or_id`, `u_id`, `sender_address`, `sender_phoneno`, `receiver_name`, `receiver_email`, `receiver_address`, `receiver_phoneno`, `agent_from`, `agent_to`, `order_weight`, `order_distance`, `status`, `locationfrom`, `location_to`, `co_id`, `total_charges`) VALUES
-(1, 3, 'F.B. Area R-12 Block18,Karachi', 15511152, 'battu', 'battu@gmail.com', ' F.B. Area R-12 Block18,peshawar', 4421501221, 2, 1, '4kg', 1600, 'delivered', 3, 3, 2, 2700),
-(3, 3, 'nghngn', 15511152, 'hgnghn', 'nghnghn@gmail.com', ' nhgnf', 67567, 1, 1, '56', 46, 'Assigned', 2, 1, 2, 676);
+INSERT INTO `tbl_order` (`or_id`, `u_id`, `sender_name`, `sender_email`, `sender_address`, `sender_phoneno`, `receiver_name`, `receiver_email`, `receiver_address`, `receiver_phoneno`, `agent_from`, `agent_to`, `order_weight`, `order_distance`, `status`, `locationfrom`, `location_to`, `co_id`, `total_charges`) VALUES
+(1, 3, 'abc', 'abc@gmail.com', 'F.B. Area R-12 Block18,Karachi', 15511152, 'battu', 'battu@gmail.com', ' F.B. Area R-12 Block18,peshawar', 4421501221, 2, 1, '4kg', 1600, 'delivered', 3, 3, 2, 2700),
+(3, 3, 'hello', 'hello@gmail.com', 'nghngn', 15511152, 'hgnghn', 'nghnghn@gmail.com', ' nhgnf', 67567, 1, 1, '56', 46, 'Assigned', 2, 1, 2, 676);
 
 -- --------------------------------------------------------
 
@@ -375,7 +377,7 @@ ALTER TABLE `tbl_courier`
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `or_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `or_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_pricing`
@@ -431,9 +433,9 @@ ALTER TABLE `tbl_order`
   ADD CONSTRAINT `fk10` FOREIGN KEY (`agent_from`) REFERENCES `tbl_agent` (`a_id`),
   ADD CONSTRAINT `fk11` FOREIGN KEY (`agent_to`) REFERENCES `tbl_agent` (`a_id`),
   ADD CONSTRAINT `fk6` FOREIGN KEY (`u_id`) REFERENCES `tbl_user` (`u_id`),
-  ADD CONSTRAINT `fk7` FOREIGN KEY (`co_id`) REFERENCES `tbl_company` (`co_id`),
   ADD CONSTRAINT `fk8` FOREIGN KEY (`locationfrom`) REFERENCES `tbl_city` (`ci_id`),
-  ADD CONSTRAINT `fk9` FOREIGN KEY (`location_to`) REFERENCES `tbl_city` (`ci_id`);
+  ADD CONSTRAINT `fk9` FOREIGN KEY (`location_to`) REFERENCES `tbl_city` (`ci_id`),
+  ADD CONSTRAINT `tbl_order_ibfk_1` FOREIGN KEY (`co_id`) REFERENCES `tbl_company` (`co_id`);
 
 --
 -- Constraints for table `tbl_user`

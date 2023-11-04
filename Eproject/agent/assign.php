@@ -1,18 +1,15 @@
 <?php
 include('connection.php');
-$id = $_GET['id'] ;
-$selected_q = "SELECT * FROM `tbl_agent`";
-$run_q=mysqli_query($conn, $selected_q);
 
+
+$id = $_GET['id'] ;
 $fetch_selected_r = "SELECT * FROM `tbl_order` WHERE or_id = $id";
 $run_query=mysqli_query($conn,$fetch_selected_r);
 
 $row=mysqli_fetch_array($run_query);
 
 if(isset($_POST['assign'])){
-  $a_id = $_POST['agent_name'];
-  $sender_name = $_POST['sender_name'];
-  $sender_email = $_POST['sender_email'];
+  $u_id = $_POST['u_id'];
   $sender_address1 = $_POST['sender_address1'];
   $sender_phoneno = $_POST['sender_phoneno'];
   $receiver_name= $_POST['receiver_name'];
@@ -28,7 +25,7 @@ if(isset($_POST['assign'])){
   $order_charges= $_POST['order_charges'];
   $co_id= $_POST['co_id'];
   $order_status= $_POST['order_status'];
-  $update_q = "UPDATE `tbl_order` SET `u_id`=' $a_id',`sender_name`='$sender_name',`sender_email`='$sender_email',`sender_address`='$sender_address1',`sender_phoneno`='$sender_phoneno',
+  $update_q = "UPDATE `tbl_order` SET `u_id`='$u_id',`sender_address`='$sender_address1',`sender_phoneno`='$sender_phoneno',
   `receiver_name`='$receiver_name',`receiver_email`='$receiver_email',`receiver_address`=' $receiver_address',`receiver_phoneno`='$receiver_phoneno ',
   `agent_from`='$agent_from',`agent_to`='$agent_to',`order_weight`='$order_weight',`order_distance`='$order_distance',
   `locationfrom`='$locationfrom',`location_to`='$location_to',`co_id`='$co_id',`total_charges`='$order_charges',`status`='$order_status' WHERE `or_id` = $id";
@@ -39,6 +36,8 @@ if(isset($_POST['assign'])){
     }
 
 }
+
+
 
 
 
@@ -99,8 +98,8 @@ if(isset($_POST['assign'])){
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Update Order</h1>
-            <a href="orders.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Assign Order</a>
+            <h1 class="h3 mb-0 text-gray-800">Update Users</h1>
+            <a href="orders.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Assign order</a>
           </div>
 
 
@@ -109,26 +108,9 @@ if(isset($_POST['assign'])){
         <div class="container">
 
           <form method="POST" enctype="multipart/form-data">
-          <div class="mb-3">
-    <label  class="form-label">User Name</label>
-    <select class="form-control" name="agent_name">
-    <option selected disabled>select an option</option>
-   <?php while ($data12 = mysqli_fetch_array($run_q)) { ?>
-      <option value="<?php echo $data12['a_id']; ?>"><?php echo $data12['agent_name']; ?></option>
-
-   <?php } ?>
-</select>
-    
-  </div>
             <div class="mb-3">
-              <label class="form-label">Sender Name</label>
-              <input type="text" class="form-control" value="<?php echo $row['sender_name']; ?>"
-                name="sender_name">
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Sender Email</label>
-              <input type="text" class="form-control" value="<?php echo $row['sender_email']; ?>"
-                name="sender_email">
+              <label class="form-label">User id</label>
+              <input type="text" class="form-control" value="<?php echo $row['u_id']; ?>" name="u_id">
             </div>
             <div class="mb-3">
               <label class="form-label">Sender Address</label>
@@ -266,7 +248,7 @@ if(isset($_POST['assign'])){
          <option value="Assigned">
           Assigned
          </option>
-         
+         <option value="delivered">Delivered</option>
          </select>
 
             </div>
