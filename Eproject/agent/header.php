@@ -1,9 +1,12 @@
 <?php
 session_start();
+if(!isset($_SESSION['user_name'])){
+    header('location:../admin/login.php');
+}
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="utf-8">
@@ -11,6 +14,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <title>SB Admin 2 - Dashboard</title>
 
@@ -27,6 +31,7 @@ session_start();
     background-color: #3a3b45;
     background-image: linear-gradient(178deg,#000 10%,#3a3b45 100%);
 }
+
     </style>
 </head>
 
@@ -36,11 +41,10 @@ session_start();
     <div id="wrapper">
 
         <!-- Sidebar -->
-    
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 <!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.php">
 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -65,22 +69,16 @@ session_start();
         <span>Orders</span></a>
 </li>
 
-
-
-
-
-
 </ul>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-
+            
             <!-- Main Content -->
             <div id="content">
 
-                <!-- Topbar -->
-           
+  <!-- Topbar -->
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
 <!-- Sidebar Toggle (Topbar) -->
@@ -88,10 +86,9 @@ session_start();
     <i class="fa fa-bars"></i>
 </button>Courier Management System
 
-
-
 <!-- Topbar Navbar -->
 <ul class="navbar-nav ml-auto">
+
 
     <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -100,7 +97,7 @@ session_start();
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="mr-2 d-none d-lg-inline text-gray-600 small" >
-                <?php echo $_SESSION['user_name'];?>
+            <?php echo $_SESSION['user_name'];?>
             </span>
             <img class="img-profile rounded-circle"
                 src="img/undraw_profile.svg">
@@ -108,12 +105,12 @@ session_start();
         <!-- Dropdown - User Information -->
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
             aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="../admin/login.php">
+            <a class="dropdown-item" href="login.php">
                 <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
               Login
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="../admin/logout.php" data-toggle="modal" data-target="#logoutModal">
+            <a class="dropdown-item" href="logout.php" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                 Logout
             </a>
@@ -123,4 +120,3 @@ session_start();
 </ul>
 
 </nav>
-

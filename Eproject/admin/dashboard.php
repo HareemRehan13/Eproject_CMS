@@ -1,53 +1,44 @@
 <?php
-// if(!isset($_SESSION['user_name'])){
-// echo "<script>window.location.href='login.php';</script>";
-// }
+include('connection.php'); 
+
+$countcompany = "SELECT COUNT(*) as totalcompanies FROM tbl_company";
+$countbranch = "SELECT COUNT(*) as totalbranches FROM tbl_branch";
+$countagent = "SELECT COUNT(*) as totalagents FROM tbl_agent";
+$countuser = "SELECT COUNT(*) as totalusers FROM tbl_user WHERE r_id = '2'";
+$countorder = "SELECT COUNT(*) as totalorders FROM tbl_order";
+$countPendingOrders= "SELECT COUNT(*) as totalPendingOrders FROM tbl_order WHERE status = 'pending'";
+$countShippedOrders= "SELECT COUNT(*) as totalShippedOrders FROM tbl_order WHERE status = 'shipped'";
+$countDeliveredOrders= "SELECT COUNT(*) as totalDeliveredOrders FROM tbl_order WHERE status = 'delivered'";
+
+$q1 = mysqli_query($conn, $countcompany);
+$q2 = mysqli_query($conn, $countbranch);
+$q3 = mysqli_query($conn, $countagent);
+$q4 = mysqli_query($conn, $countuser);
+$q5 = mysqli_query($conn, $countorder); 
+$q6 = mysqli_query($conn, $countPendingOrders);
+$q7 = mysqli_query($conn, $countShippedOrders);
+$q8 = mysqli_query($conn, $countDeliveredOrders);
+
+    $row1 = mysqli_fetch_assoc($q1);
+    $row2 = mysqli_fetch_assoc($q2);
+    $row3 = mysqli_fetch_assoc($q3);
+    $row4 = mysqli_fetch_assoc($q4);
+    $row5 = mysqli_fetch_assoc($q5);
+    $row6 = mysqli_fetch_assoc($q6);
+    $row7 = mysqli_fetch_assoc($q7);
+    $row8 = mysqli_fetch_assoc($q8);
+
+    $totalcompanies = $row1['totalcompanies'];
+    $totalbranches = $row2['totalbranches'];
+    $totalagents= $row3['totalagents'];
+    $totalusers= $row4['totalusers'];
+    $totalorders= $row5['totalorders'];
+    $totalPendingOrders = $row6['totalPendingOrders'];
+    $totalShippedOrders = $row7['totalShippedOrders'];
+    $totalDeliveredOrders = $row8['totalDeliveredOrders'];
 ?>
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>SB Admin 2 - Dashboard</title>
-
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
- <style>
-    .bg-gradient-primary {
-    background-color: #3a3b45;
-    background-image: linear-gradient(178deg,#000 10%,#3a3b45 100%);
-}
-    </style>
-</head>
-
-<body id="page-top">
-
-    <!-- Page Wrapper -->
-    <div id="wrapper">
-
-        <!-- Sidebar -->
-  <?php include('sidebar.php'); ?>
-        <!-- End of Sidebar -->
-
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-
-            <!-- Main Content -->
-            <div id="content">
-
-                <!-- Topbar -->
+     <!-- Topbar -->
 
                 <?php include('topbar.php'); ?>
 
@@ -59,12 +50,28 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                       
                     </div>
 
                     <!-- Content Row -->
                     <div class="row">
+  <!-- Pending Requests Card Example -->
+  <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            <h6>  Companies</h6> </div>
+                                            <div class="h2 mb-0 font-weight-bold text-gray-800"><?php echo $totalcompanies; ?></div>
+                                        </div>
+                                        <div class="col-auto">
+                                        <i class='fas fa-building' style='font-size:36px'></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
@@ -73,11 +80,11 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Earnings (Monthly)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                              <h6> Total Branches</h6></div>
+                                            <div class="h2 mb-0 font-weight-bold text-gray-800"><?php echo $totalbranches; ?></div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        <i class='fas fa-code-branch' style='font-size:36px'></i>
                                         </div>
                                     </div>
                                 </div>
@@ -86,16 +93,16 @@
 
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Earnings (Annual)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                <h6>Total Staff</h6></div>
+                                            <div class="h2 mb-0 font-weight-bold text-gray-800"><?php echo $totalagents; ?></div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        <i class='fas fa-user-cog' style='font-size:36px'></i>
                                         </div>
                                     </div>
                                 </div>
@@ -104,52 +111,111 @@
 
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            <h6> User</h6>
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                                    <div class="h2 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $totalusers; ?></div>
                                                 </div>
-                                                <div class="col">
-                                                    <div class="progress progress-sm mr-2">
-                                                        <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
+                                             
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        <i class='fas fa-users' style='font-size:36px'></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Pending Requests Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
+ 
+ <!-- Pending Requests Card Example -->
+ <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Pending Requests</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            <h6>  Couriers</h6> </div>
+                                            <div class="h2 mb-0 font-weight-bold text-gray-800"><?php echo $totalorders; ?></div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        <i class='fas fa-boxes' style='font-size:36px'></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                  
+  <!-- Earnings (Monthly) Card Example -->
+ <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                              <h6> Pending</h6></div>
+                                            <div class="h2 mb-0 font-weight-bold text-gray-800"><?php echo $totalPendingOrders; ?></div>
+                                        </div>
+                                        <div class="col-auto">
+                                        <i class='fas fa-redo-alt' style='font-size:36px'></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                <h6>Shipped</h6></div>
+                                            <div class="h2 mb-0 font-weight-bold text-gray-800"><?php echo $totalShippedOrders; ?></div>
+                                        </div>
+                                        <div class="col-auto">
+                                        <i class='fas fa-shipping-fast' style='font-size:36px'></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            <h6> Delivered</h6>
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h2 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $totalDeliveredOrders; ?></div>
+                                                </div>
+                                             
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                        <i class='fas fa-handshake' style='font-size:36px'></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                      
+
+
+</div>
                     <!-- Content Row -->
 
                     <div class="row">
@@ -227,6 +293,9 @@
                             </div>
                         </div>
                     </div>
+   <!-- Content Row -->
+ 
+
 
                     <!-- Content Row -->
                     <div class="row">
@@ -273,74 +342,7 @@
                                 </div>
                             </div>
 
-                            <!-- Color System -->
-                            <div class="row">
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-primary text-white shadow">
-                                        <div class="card-body">
-                                            Primary
-                                            <div class="text-white-50 small">#4e73df</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-success text-white shadow">
-                                        <div class="card-body">
-                                            Success
-                                            <div class="text-white-50 small">#1cc88a</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-info text-white shadow">
-                                        <div class="card-body">
-                                            Info
-                                            <div class="text-white-50 small">#36b9cc</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-warning text-white shadow">
-                                        <div class="card-body">
-                                            Warning
-                                            <div class="text-white-50 small">#f6c23e</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-danger text-white shadow">
-                                        <div class="card-body">
-                                            Danger
-                                            <div class="text-white-50 small">#e74a3b</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-secondary text-white shadow">
-                                        <div class="card-body">
-                                            Secondary
-                                            <div class="text-white-50 small">#858796</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-light text-black shadow">
-                                        <div class="card-body">
-                                            Light
-                                            <div class="text-black-50 small">#f8f9fc</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-dark text-white shadow">
-                                        <div class="card-body">
-                                            Dark
-                                            <div class="text-white-50 small">#5a5c69</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                        
                         </div>
 
                         <div class="col-lg-6 mb-4">
@@ -364,20 +366,7 @@
                                 </div>
                             </div>
 
-                            <!-- Approach -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
-                                        CSS bloat and poor page performance. Custom CSS classes are used to create
-                                        custom components and custom utility classes.</p>
-                                    <p class="mb-0">Before working with this theme, you should become familiar with the
-                                        Bootstrap framework, especially the utility classes.</p>
-                                </div>
-                            </div>
-
+                         
                         </div>
                     </div>
 
@@ -391,54 +380,4 @@
            <?php include('footer.php'); ?>
             <!-- End of Footer -->
 
-        </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="logout.php">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
-
-</body>
-
-</html>
+      

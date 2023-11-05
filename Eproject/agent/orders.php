@@ -7,8 +7,7 @@ $q="SELECT * from tbl_user join tbl_agent on tbl_user.u_id=tbl_agent.u_id where 
 $run = mysqli_query($conn, $q);
 $i=mysqli_fetch_array($run);
 $id=$i['a_id'];
-$select_q ="SELECT * FROM `tbl_order` where `agent_to`='$id'";
-$run_q = mysqli_query($conn, $select_q);
+
 ?>
 
                 <!-- Begin Page Content -->
@@ -16,8 +15,7 @@ $run_q = mysqli_query($conn, $select_q);
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">View Users</h1>
-                        <a href="assign.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Add User</a>
+                        <h1 class="h3 mb-0 text-gray-800">Agent To</h1>
                     </div>
 
 <div class="container" style="overflow-x:auto;">
@@ -26,6 +24,8 @@ $run_q = mysqli_query($conn, $select_q);
     <tr>
       <th>Id</th>
       <th>UserId</th>
+      <th>Sender Name</th>
+      <th>Sender Email</th>
       <th>Sender Address</th>
       <th>Sender Phoneno</th>
       <th>Receiver Name</th>
@@ -38,18 +38,23 @@ $run_q = mysqli_query($conn, $select_q);
       <th>Order Distance</th>
       <th>Location From</th>
       <th>Location To</th>
-      <th>Courier Id</th>
+      <th>Company Id</th>
       <th>Total price</th>
       <th>Status</th>
-      <th>Assign</th>
+      <th>Update Status</th>
     </tr>
   </thead>
   <tbody>
-    <?php while($row2 = mysqli_fetch_assoc($run_q)){?>
+    <?php 
+    $select_q ="SELECT * FROM `tbl_order` where `agent_to`='$id'";
+    $run_q = mysqli_query($conn, $select_q);
+    while($row2 = mysqli_fetch_assoc($run_q)){?>
    
     <tr>
     <td><?php echo $row2['or_id'];?></td>
-      <td><?php echo $row2['u_id'];?></td>
+     <td><?php echo $row2['u_id'];?></td>
+      <td><?php echo $row2['sender_name'];?></td>
+      <td><?php echo $row2['sender_email'];?></td>
       <td><?php echo $row2['sender_address'];?></td>
       <td><?php echo $row2['sender_phoneno'];?></td>
       <td><?php echo $row2['receiver_name'];?></td>
@@ -57,7 +62,7 @@ $run_q = mysqli_query($conn, $select_q);
       <td><?php echo $row2['receiver_address'];?></td>
       <td><?php echo $row2['receiver_phoneno'];?></td>
       <td><?php echo $row2['agent_from'];?></td>
-      <td><?php echo $row2['agent_to'];?></td>
+      <td><?php echo $row2['agent_to'],'-',$i['agent_name'];?></td>
       <td><?php echo $row2['order_weight'];?></td>
       <td><?php echo $row2['order_distance'];?></td>
       <td><?php echo $row2['locationfrom'];?></td>
@@ -72,25 +77,18 @@ $run_q = mysqli_query($conn, $select_q);
 </table>
 </div>
                
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
+<br>
+<br>
  
 <?php
 $select ="SELECT * FROM `tbl_order` where `agent_from`='$id'";
 $ru = mysqli_query($conn, $select);
 ?>
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">View Users</h1>
-                        <a href="assign.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Add User</a>
+            
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Agent From</h1>
                     </div>
 
 <div class="container" style="overflow-x:auto;">
@@ -99,6 +97,8 @@ $ru = mysqli_query($conn, $select);
     <tr>
       <th>Id</th>
       <th>UserId</th>
+      <th>Sender Name</th>
+      <th>Sender Email</th>
       <th>Sender Address</th>
       <th>Sender Phoneno</th>
       <th>Receiver Name</th>
@@ -111,10 +111,10 @@ $ru = mysqli_query($conn, $select);
       <th>Order Distance</th>
       <th>Location From</th>
       <th>Location To</th>
-      <th>Courier Id</th>
+      <th>Company Id</th>
       <th>Total price</th>
       <th>Status</th>
-      <th>Assign</th>
+      <th>Update Status</th>
     </tr>
   </thead>
   <tbody>
@@ -122,15 +122,17 @@ $ru = mysqli_query($conn, $select);
    
     <tr>
     <td><?php echo $row['or_id'];?></td>
-      <td><?php echo $row['u_id'];?></td>
+    <td><?php echo $row['u_id'];?></td>
+      <td><?php echo $row['sender_name'];?></td>
+      <td><?php echo $row['sender_email'];?></td>
       <td><?php echo $row['sender_address'];?></td>
       <td><?php echo $row['sender_phoneno'];?></td>
       <td><?php echo $row['receiver_name'];?></td>
       <td><?php echo $row['receiver_email'];?></td>
       <td><?php echo $row['receiver_address'];?></td>
       <td><?php echo $row['receiver_phoneno'];?></td>
-      <td><?php echo $row['agent_from'];?></td>
-      <td><?php echo $row['agent_to'];?></td>
+      <td><?php echo $row['agent_from'],'-',$i['agent_name'];;?></td>
+      <td><?php echo $row['agent_to']?></td>
       <td><?php echo $row['order_weight'];?></td>
       <td><?php echo $row['order_distance'];?></td>
       <td><?php echo $row['locationfrom'];?></td>
@@ -144,28 +146,12 @@ $ru = mysqli_query($conn, $select);
   </tbody>
 </table>
 </div>
-                </div>
+    </div>
                 <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
 
-
-        </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
- 
-
-
-<?php
-include 'footer.php';
-?>
+            <!-- Footer -->
+       <?php include('footer.php')?>
+            <!-- End of Footer -->

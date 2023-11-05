@@ -5,11 +5,5 @@ $password = '';
 $db_name = 'couriers';
 
 $conn = mysqli_connect($servername,$username,$password ,$db_name);
-// if($conn){
-//     echo "connected";
-// }
-// else{
-//     echo "not connected";
 
-// }
 ?>
