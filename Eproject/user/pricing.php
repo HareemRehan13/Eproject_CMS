@@ -34,7 +34,8 @@
 
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="pricing-item">
-              <h3>Free Plan</h3>
+             
+              <h3>overnight</h3>
               <h4><sup>$</sup>0<span> / month</span></h4>
               <ul>
                 <li><i class="bi bi-check"></i> Quam adipiscing vitae proin</li>
@@ -49,7 +50,7 @@
 
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
             <div class="pricing-item featured">
-              <h3>Business Plan</h3>
+              <h3>sameday delivery</h3>
               <h4><sup>$</sup>29<span> / month</span></h4>
               <ul>
                 <li><i class="bi bi-check"></i> Quam adipiscing vitae proin</li>
@@ -64,7 +65,7 @@
 
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
             <div class="pricing-item">
-              <h3>Developer Plan</h3>
+              <h3>DHL</h3>
               <h4><sup>$</sup>49<span> / month</span></h4>
               <ul>
                 <li><i class="bi bi-check"></i> Quam adipiscing vitae proin</li>

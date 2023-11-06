@@ -144,7 +144,6 @@ else{
         $res=mysqli_query($conn,$q);
         while($row=mysqli_fetch_array($res)){
         ?>
-      
 <option value="<?php echo $row['co_id']?>"><?php echo $row['co_name']?></option>
 
         <?php
