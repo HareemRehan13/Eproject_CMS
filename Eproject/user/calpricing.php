@@ -114,6 +114,12 @@ elseif($unit=="gm"){
   $price=$weight*$pergrams;
   echo "<script>alert('Total Price: '+$price);</script>";
 }
+elseif($weight>=1000 and $unit="gm"){
+  echo"<script>alert('please enter weight in kg ');</script>";
+}
+else{
+  echo"<script>alert('please enter values ');</script>";
+}
   }
   ?>   
 <div class="container divcon ">
