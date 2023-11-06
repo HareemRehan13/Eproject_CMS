@@ -40,6 +40,11 @@ h1{
   margin-top:50px;
 
 }
+.div1{
+  text-align: center;
+  vertical-align:middle;
+  justify-content: center;
+}
 </style>
 
   <main id="main">
@@ -81,17 +86,20 @@ if($unit=="kg"){
 $price=$weight*$perkg;
 echo "<script>alert('Total Price: '+$price);</script>";
 }
-else{
- 
+elseif($unit=="grams"){
   $price=$weight*$pergrams;
   echo "<script>alert('Total Price: '+$price);</script>";
+}
+else{
+  $weight>="1000gm";
+  echo "<script>alert('please enter in kg');</script>";
 }
   }
   ?>   
 <div class="container">
   <div class="row">
-    <div  class="col-lg-6">
-    <h1>Courier Price Calculator</h1>
+    <div class="col-lg-4 div1">
+    <h4>Courier Price Calculator</h4>
 </div>
     <div class="col-lg-6">
     <div class="calculator">
