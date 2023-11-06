@@ -110,13 +110,9 @@ if($unit=="kg"){
 $price=$weight*$perkg;
 echo "<script>alert('Total Price: '+$price);</script>";
 }
-elseif($unit=="grams"){
+elseif($unit=="gm"){
   $price=$weight*$pergrams;
   echo "<script>alert('Total Price: '+$price);</script>";
-}
-else{
-  $weight>="1000gm";
-  echo "<script>alert('please enter in kg');</script>";
 }
   }
   ?>   
@@ -132,20 +128,20 @@ else{
         <br>
         <br>
         <select class="select1" id="unit" name="unit">
+        <option selected disabled>Select Unit</option>
             <option  value="kg">Kilograms (kg)</option>
             <option value="gm">Grams (gm)</option>
         </select>
         <br>
         <br>
         <select class="select2" name="comp">
-        <option selected disabled>Select an option</option>
+        <option selected disabled>Select A Service</option>
         <?php
         $q="select * from tbl_company";
         $res=mysqli_query($conn,$q);
         while($row=mysqli_fetch_array($res)){
         ?>
 <option value="<?php echo $row['co_id']?>"><?php echo $row['co_name']?></option>
-
         <?php
         }
         ?>
