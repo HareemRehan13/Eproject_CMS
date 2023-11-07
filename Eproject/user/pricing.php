@@ -54,6 +54,8 @@ $run_q = mysqli_query($conn, $fetch_q);
 }
 .mm{
 color:#0e1d34;
+font-weight: bolder;
+
 }
   </style>
   <main id="main">
@@ -85,7 +87,8 @@ color:#0e1d34;
     <section id="pricing" class=" pt-0">
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2 class="mm">Affordable Pricing Packages</h2>
+          <span>Affordable Pricing Packages</span>
+          <h1 class="mm">Affordable Pricing Packages</h1>
         </div>
         <div class="row" data-aos="fade-up" data-aos-delay="100">
    <?php while($row = mysqli_fetch_array($run_q)){ ?>
@@ -107,15 +110,13 @@ color:#0e1d34;
       </div>
     </section>
    <!-- ======= Horizontal Pricing Section ======= -->
-    <!-- <section id="horizontal-pricing" class="horizontal-pricing pt-0">
+     <!-- <section id="horizontal-pricing" class="horizontal-pricing pt-0">
       <div class="container" data-aos="fade-up">
-
         <div class="section-header">
           <span>Horizontal Pricing</span>
           <h2>Horizontal Pricing</h2>
 
         </div>
-
         <div class="row gy-4 pricing-item" data-aos="fade-up" data-aos-delay="100">
           <div class="col-lg-3 d-flex align-items-center justify-content-center">
             <h3>Free Plan</h3>
@@ -174,9 +175,7 @@ color:#0e1d34;
         </div>
 
       </div>
-    </section>
-  -->
-
+    </section> -->
   </main>
 
   <!-- ======= Footer ======= -->
