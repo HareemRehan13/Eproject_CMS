@@ -115,7 +115,14 @@ if(isset($_POST['assign'])){
                 $select_q = 'SELECT * FROM `tbl_agent` join `tbl_branch` on tbl_agent.b_id=tbl_branch.b_id right join tbl_city on tbl_city.ci_id=tbl_branch.ci_id';
                 $run_q = mysqli_query($conn, $select_q);
                 while ($data = mysqli_fetch_array($run_q)) { ?>
-                  <option value="<?php echo $data['a_id']; ?>">
+                  <option value="<?php echo $data['a_id']; ?>"
+                  <?php
+                  if($data['a_id']==$row['agent_from']){
+                    echo "selected";
+                  }
+                  ?>
+                  
+                  >
                     <?php echo $data['agent_name'] . ',' . $data['ci_name']; ?>
                   </option>
 
@@ -131,7 +138,15 @@ if(isset($_POST['assign'])){
                 $select_q = 'SELECT * FROM `tbl_agent` join `tbl_branch` on tbl_agent.b_id=tbl_branch.b_id right join tbl_city on tbl_city.ci_id=tbl_branch.ci_id';
                 $run_q = mysqli_query($conn, $select_q);
                 while ($data = mysqli_fetch_array($run_q)) { ?>
-                  <option value="<?php echo $data['a_id']; ?>">
+                  <option value="<?php echo $data['a_id']; ?>"
+                  
+                  <?php
+                  if($data['a_id']==$row['agent_to']){
+                    echo "selected";
+                  }
+                  ?>
+                  
+                  >
                     <?php echo $data['agent_name'] . ',' . $data['ci_name']; ?>
                   </option>
 

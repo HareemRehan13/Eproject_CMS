@@ -3,6 +3,9 @@
 include('connection.php');
 
 if(isset($_POST['btnsubmit'])){
+
+
+
   $sender_name = $_POST['sender_name'];
 $sender_email = $_POST['sender_email'];
 $sender_address = $_POST['sender_address'];
@@ -12,16 +15,62 @@ $receiver_email = $_POST['receiver_email'];
 $receiver_address = $_POST['receiver_address'];
 $receiver_phoneno = $_POST['receiver_phoneno'];
 $order_weight = $_POST['order_weight'];
-$order_distance = $_POST['order_distance'];
+
 $locationfrom = $_POST['locationfrom'];
 $location_to = $_POST['location_to'];
+$loc="select * from tbl_city where ci_id='$locationfrom'";
+ $locs=mysqli_query($conn,$loc); 
+ $locss=mysqli_fetch_assoc($locs);
+ $loc_f=$locss['ci_name'];
+ $loc2="select * from tbl_city where ci_id='$location_to'";
+ $locs2=mysqli_query($conn,$loc2); 
+ $locss2=mysqli_fetch_assoc($locs2);
+ $loc_t=$locss2['ci_name'];
+  $api_key = 'AIzaSyAOfoQEnSeEMhNmp8NI6ZZGulHloVCIZUA';
+  $origin = $loc_f.',Pakistan'; // Replace with the first city and country
+  $destination = $loc_t.',Pakistan'; // Replace with the second city and country
+  
+  // Create the API request URL
+  $url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" . urlencode($origin) . "&destinations=" . urlencode($destination) . "&key=AIzaSyAOfoQEnSeEMhNmp8NI6ZZGulHloVCIZUA";
+  
+  // Initialize cURL session
+  $ch = curl_init($url);
+  
+  // Set cURL options
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  
+  // Execute cURL session and get the API response
+  $response = curl_exec($ch);
+  
+  // Close cURL session
+  curl_close($ch);
+  $distance = ''; // Define $distance variable before the if block
+
+if ($response) {
+    $data = json_decode($response, true);
+
+    if (isset($data['rows'][0]['elements'][0]['distance']['text'])) {
+        $distance = $data['rows'][0]['elements'][0]['distance']['text'];
+        echo "<script>alert('Distance: $distance')</script>";
+
+    } else {
+        echo "Distance information not found in the API response.";
+    }
+} else {
+    echo "Error fetching data from the API.";
+}
 
 $insert_q ="INSERT INTO `tbl_order`(`sender_name`, `sender_email`,`sender_address`, `sender_phoneno`, `receiver_name`, `receiver_email`,
  `receiver_address`, `receiver_phoneno`, `order_weight`, `order_distance`,`locationfrom`, `location_to`) 
  VALUES ('$sender_name ','$sender_email','$sender_address ','$sender_phoneno','$receiver_name','$receiver_email','$receiver_address',
- '$receiver_phoneno','$order_weight','$order_distance', '$locationfrom','$location_to')";
+ '$receiver_phoneno','$order_weight','$distance', '$locationfrom','$location_to')";
 
 $run = mysqli_query($conn, $insert_q);
+if($run){
+  echo "<script>alert('Order has been placed, keep track on its status');</script>";
+}
+
+
 }
 ?>
 <!-- ======= Header ======= -->
@@ -48,7 +97,7 @@ $run = mysqli_query($conn, $insert_q);
     <!-- ======= Get a Quote Section ======= -->
     <section id="get-a-quote" class="get-a-quote">
       <div class="container" data-aos="fade-up">
-      <form class="php-email-form" method="POST" enctype="multipart/form-data">
+      <form class="php-email-form" method="POST">
         <div class="row g-0">
         <h2>Place A Parcel Order</h2>
               <p>Vel nobis odio laboriosam et hic voluptatem. Inventore vitae totam. Rerum repellendus enim linead sero park flows.</p>
@@ -128,10 +177,7 @@ $run = mysqli_query($conn, $insert_q);
                   <input type="phone" class="form-control" name="receiver_address" placeholder="Receiver Address" required>
                 </div>
 
-                <div class="col-md-11">
-                <label  class="form-label">Order Distance</label>
-                  <input type="text" class="form-control" name="order_distance" placeholder="Order Distance" required>
-                </div>
+                
 
                  
                 <div class="col-md-11">
