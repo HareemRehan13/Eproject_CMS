@@ -1,7 +1,29 @@
-<!-- ======= Header ======= -->
-  <?php include('navbar.php');?>
-  <!-- End Header -->
 
+<!-- ======= Header ======= -->
+  <?php include('navbar.php');
+  include('connection.php');
+  ?>
+  <link rel="stylesheet" href="#main">
+  <link rel="stylesheet" href="agnet/css/sb-admin-2.min.css">
+
+  <!-- End Header -->
+  <style>
+    .option1{
+      justify-content: center;
+      font-size: large;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      display:block;
+      font-weight: bolder;
+      
+    }
+    .option2{
+    text-align: center;
+    }
+    .opn{
+      text-transform: uppercase;
+      text-align: center;
+    }
+  </style>
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
@@ -29,14 +51,27 @@
     <!-- ======= Pricing Section ======= -->
     <section id="pricing" class="pricing">
       <div class="container" data-aos="fade-up">
-
         <div class="row gy-4">
-
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="pricing-item">
-             
-              <h3>overnight</h3>
-              <h4><sup>$</sup>0<span> / month</span></h4>
+            <div class="pricing-item div1">
+            <?php
+        $q='SELECT * FROM `tbl_company` WHERE co_id= 2';
+        $res=mysqli_query($conn,$q);
+        while($row=mysqli_fetch_array($res)){
+        ?>
+<h5><option class="option2" value="<?php echo $row['co_id']?>">PER KG <?php echo   $row['per_kg'] ?></option></h5>
+<br>
+<h5><option class="option2" value="<?php echo $row['co_id']?>">PER Grams <?php echo $row['per_gram']?></option></h5>
+<br>
+<h3><option class="opn" value="<?php echo $row['co_id']?>"><?php echo $row['co_name']?></option></h3>
+<br>
+ <p><option value="<?php echo $row['co_id']?>"><?php echo $row ['co_desc'] ?></option></p>
+        <?php
+        }
+        ?>  
+
+              <!-- <h3>overnight</h3>
+              <h4><sup>$</sup>0<span> / month</span></h4> -->
               <ul>
                 
               </ul>
@@ -44,7 +79,7 @@
             </div>
           </div><!-- End Pricing Item -->
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <!-- <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
             <div class="pricing-item featured">
               
               <h3>sameday delivery</h3>
@@ -54,7 +89,7 @@
               </ul>
               <a href="#" class="buy-btn">Buy Now</a>
             </div>
-          </div><!-- End Pricing Item -->
+          </div>End Pricing Item
 
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
             <div class="pricing-item">
@@ -65,10 +100,8 @@
               </ul>
               <a href="#" class="buy-btn">Buy Now</a>
             </div>
-          </div><!-- End Pricing Item -->
-
+          </div>End Pricing Item -->
         </div>
-
       </div>
     </section><!-- End Pricing Section -->
 
