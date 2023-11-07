@@ -16,7 +16,9 @@ $run_q = mysqli_query($conn, $fetch_q);
           <div class="row d-flex justify-content-center">
             <div class="col-lg-6 text-center">
               <h2>About</h2>
-              <p>Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p>
+              <p>Unlock the full potential of your delivery business with Courier Manager - the
+game-changing software solution designed to streamline your delivery processes, optimize
+your logistics, and give you a competitive edge!</p>
             </div>
           </div>
         </div>
@@ -43,28 +45,33 @@ $run_q = mysqli_query($conn, $fetch_q);
           <div class="col-lg-6 content order-last  order-lg-first">
             <h3>About Us</h3>
             <p>
-              Dolor iure expedita id fuga asperiores qui sunt consequatur minima. Quidem voluptas deleniti. Sit quia molestiae quia quas qui magnam itaque veritatis dolores. Corrupti totam ut eius incidunt reiciendis veritatis asperiores placeat.
+            Our user-friendly software is tailored to meet the needs of all users and can be customized to suit
+your specific requirements. From e-commerce to large and small courier companies,
+Courier Manager covers every step of the journey from first mile to last.
+
             </p>
             <ul>
               <li data-aos="fade-up" data-aos-delay="100">
-                <i class="bi bi-diagram-3"></i>
+              <i class="bi bi-printer"></i>
                 <div>
-                  <h5>Ullamco laboris nisi ut aliquip consequat</h5>
-                  <p>Magni facilis facilis repellendus cum excepturi quaerat praesentium libre trade</p>
+                  <h5>Your parcel details can be printed</h5>
+                  <p>You can get your complete parcel details in printed form as well from our website and you can also get the details of delivered parcel at your doorsteps.</p>
                 </div>
               </li>
               <li data-aos="fade-up" data-aos-delay="200">
-                <i class="bi bi-fullscreen-exit"></i>
+                <i class="bi bi-diagram-3"></i>
                 <div>
-                  <h5>Magnam soluta odio exercitationem reprehenderi</h5>
-                  <p>Quo totam dolorum at pariatur aut distinctio dolorum laudantium illo direna pasata redi</p>
+                  <h5>Automatically import delivery data
+</h5>
+                  <p>Dispatchers or drivers can add the info required to create a route. Submit complex or simplified route data depending on your needs</p>
                 </div>
               </li>
               <li data-aos="fade-up" data-aos-delay="300">
                 <i class="bi bi-broadcast"></i>
                 <div>
-                  <h5>Voluptatem et qui exercitationem</h5>
-                  <p>Et velit et eos maiores est tempora et quos dolorem autem tempora incidunt maxime veniam</p>
+                  <h5>Track your parcel anytime on our website.</h5>
+                  <p>Trusted by logistic companies, marketplaces and sellers across the world.
+Track more than 1524+ couriers logistics and marketplaces, including UPS, DHL, FedEx, China Post, Alibaba, Ebay, Wish and more, all in one place.</p>
                 </div>
               </li>
             </ul>
@@ -171,7 +178,9 @@ $run_q = mysqli_query($conn, $fetch_q);
                 </div>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                  “Businesses often forget about the culture, and ultimately, they suffer for it because you can’t deliver good service from unhappy employees.”
+
+– Tony Hsieh, CEO of Zappos
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
               </div>
@@ -187,7 +196,7 @@ $run_q = mysqli_query($conn, $fetch_q);
                 </div>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                  “Design is not just what it looks like and feels like. Design is how it works.” — Steve Jobs
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
               </div>
@@ -203,7 +212,9 @@ $run_q = mysqli_query($conn, $fetch_q);
                 </div>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                  “You don't build a business, you build people, then people build the business.”
+
+- Zig Ziglar
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
               </div>
@@ -219,7 +230,9 @@ $run_q = mysqli_query($conn, $fetch_q);
                 </div>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                  “If you’re working on something that you really care about, you don’t have to be pushed. The Vision pulls you.”
+
+— Steve Jobs
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
               </div>
@@ -235,7 +248,7 @@ $run_q = mysqli_query($conn, $fetch_q);
                 </div>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                  “The thing that motivates me is a very common form of motivation. And that is, with other folks counting on me, it’s so easy to be motivated.” - Jeff Bezos
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
               </div>
@@ -267,12 +280,12 @@ $run_q = mysqli_query($conn, $fetch_q);
                 <h3 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
                     <i class="bi bi-question-circle question-icon"></i>
-                    Non consectetur a erat nam at lectus urna duis?
+                    How do you manage a courier?
                   </button>
                 </h3>
                 <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                   <div class="accordion-body">
-                    Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+                  Route planning and optimization: Courier managers need to plan the most efficient routes for delivery. This helps save time, gas, and money. Parcel tracking and tracing: A delivery business needs systems that will track and monitor the progress of each parcel through the whole delivery process.
                   </div>
                 </div>
               </div><!-- # Faq item-->
@@ -281,12 +294,12 @@ $run_q = mysqli_query($conn, $fetch_q);
                 <h3 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
                     <i class="bi bi-question-circle question-icon"></i>
-                    Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?
+                    What are the services of a courier?
                   </button>
                 </h3>
                 <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                   <div class="accordion-body">
-                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                  A courier service is a service that allows someone to send a parcel or consignment from one location to another. They can be booked and paid for online. Senders have the option to have their parcels collected by a courier or drop their parcel off at a nearby location to be picked up later by the courier.
                   </div>
                 </div>
               </div><!-- # Faq item-->
@@ -295,12 +308,15 @@ $run_q = mysqli_query($conn, $fetch_q);
                 <h3 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
                     <i class="bi bi-question-circle question-icon"></i>
-                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi?
+                    What are the stages of parcel delivery?
                   </button>
                 </h3>
                 <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                   <div class="accordion-body">
-                    Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+                  Step 1: Packing the goods. The packaging of the goods you send is entirely your business, ie. ...<br>
+Step 2: Waiting for the means of transport (delivery of the goods for transport)delivery. ...<br>
+Step 3: Tracking parcels. ...<br>
+Step 4: Receiving the package.
                   </div>
                 </div>
               </div><!-- # Faq item-->
@@ -309,13 +325,19 @@ $run_q = mysqli_query($conn, $fetch_q);
                 <h3 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-4">
                     <i class="bi bi-question-circle question-icon"></i>
-                    Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?
+                    How does parcel tracking work?
                   </button>
                 </h3>
                 <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                   <div class="accordion-body">
                     <i class="bi bi-question-circle question-icon"></i>
-                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                    1: Bar Code Generation.<br>
+                    2:Scan Bar Code Details.<br>
+3:Storing the Scanned Data.<br>
+4:Receiving the Product.<br>
+5:Re-scanning the Bar Code.<br>
+6:Out for Delivery.<br>
+7:Product Delivery.
                   </div>
                 </div>
               </div><!-- # Faq item-->
@@ -324,12 +346,12 @@ $run_q = mysqli_query($conn, $fetch_q);
                 <h3 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-5">
                     <i class="bi bi-question-circle question-icon"></i>
-                    Tempus quam pellentesque nec nam aliquam sem et tortor consequat?
+                    Can the order be cancelled?
                   </button>
                 </h3>
                 <div id="faq-content-5" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                   <div class="accordion-body">
-                    Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
+                    No ! your order cannot be cancelled once its place to our website but you can cancle your order from the respective company from which your order has been placed in the given time period which your company provide you.
                   </div>
                 </div>
               </div><!-- # Faq item-->
