@@ -3,7 +3,6 @@
   <?php include('navbar.php');
   include('connection.php');
   ?>
-  <link rel="stylesheet" href="#main">
   <link rel="stylesheet" href="agnet/css/sb-admin-2.min.css">
 
   <!-- End Header -->
@@ -22,7 +21,33 @@
     .opn{
       text-transform: uppercase;
       text-align: center;
+      background-color: #0e1d34;
+      color:azure;
     }
+    .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 10px;
+} 
+
+.grid-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  
+}
+.description {
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  max-width: 100%; 
+  white-space: initial; 
+  text-align: center;
+}
+.div1{
+  background-color: #ccc;
+  padding:20px;
+
+}
   </style>
   <main id="main">
 
@@ -49,23 +74,23 @@
     </div><!-- End Breadcrumbs -->
 
     <!-- ======= Pricing Section ======= -->
-    <section id="pricing" class="pricing">
-      <div class="container" data-aos="fade-up">
-        <div class="row gy-4">
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+    <section id="pricing" >
+      <div class="container" >
+        <div class="row gy-4 ">
+          <div class="col-lg-4" >
             <div class="pricing-item div1">
             <?php
-        $q='SELECT * FROM `tbl_company` WHERE co_id= 2';
+        $q='SELECT * FROM `tbl_company` WHERE co_id= 1';
         $res=mysqli_query($conn,$q);
         while($row=mysqli_fetch_array($res)){
         ?>
-<h5><option class="option2" value="<?php echo $row['co_id']?>">PER KG <?php echo   $row['per_kg'] ?></option></h5>
+<h5><option class="option2" value="<?php echo $row['co_id']?>"> Rupees Per Kg: <?php echo   $row['per_kg'] ?></option></h5>
 <br>
-<h5><option class="option2" value="<?php echo $row['co_id']?>">PER Grams <?php echo $row['per_gram']?></option></h5>
+<h5><option class="option2" value="<?php echo $row['co_id']?>">Rupees Per Grams: <?php echo $row['per_gram']?></option></h5>
 <br>
 <h3><option class="opn" value="<?php echo $row['co_id']?>"><?php echo $row['co_name']?></option></h3>
 <br>
- <p><option value="<?php echo $row['co_id']?>"><?php echo $row ['co_desc'] ?></option></p>
+ <p><option class="description" value="<?php echo $row['co_id']?>"><?php echo $row ['co_desc'] ?></option></p>
         <?php
         }
         ?>  
@@ -73,11 +98,11 @@
               <!-- <h3>overnight</h3>
               <h4><sup>$</sup>0<span> / month</span></h4> -->
               <!-- <ul>
-                
               </ul> -->
               <!-- <a href="#" class="buy-btn">Buy Now</a> -->
             </div>
-          </div><!-- End Pricing Item -->
+          </div>
+   <!-- End Pricing Item -->
 
           <!-- <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
             <div class="pricing-item featured">
@@ -102,9 +127,9 @@
             </div>
           </div>End Pricing Item -->
         </div>
-      </div>
-    </section><!-- End Pricing Section -->
-
+      </div> 
+    </section>
+    <!--  End Pricing Section -->
     <!-- ======= Horizontal Pricing Section ======= -->
     <section id="horizontal-pricing" class="horizontal-pricing pt-0">
       <div class="container" data-aos="fade-up">
