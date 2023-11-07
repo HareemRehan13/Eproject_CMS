@@ -69,6 +69,9 @@ text-align: center;
 .div2{
   background-color: #0e1d34;
 }
+.divho{
+  background-color: #0e1d34;
+}
 </style>
 
   <main id="main">
@@ -111,15 +114,14 @@ $price=$weight*$perkg;
 echo "<script>alert('Total Price: '+$price);</script>";
 }
 elseif($unit=="gm"){
+  if($weight>=1000){
+    echo "<script>alert('Enter weight in kgs');</script>";
+  }
+  else{
   $price=$weight*$pergrams;
-  echo "<script>alert('Total Price: '+$price);</script>";
+  echo "<script>alert('Total Price: '+$price);</script>";}
 }
-elseif($weight>=1000 and $unit="gm"){
-  echo"<script>alert('please enter weight in kg ');</script>";
-}
-else{
-  echo"<script>alert('please enter values ');</script>";
-}
+
   }
   ?>   
 <div class="container divcon ">
@@ -161,75 +163,9 @@ else{
     </div>
   </div>
 </div>
-    <section id="contact" class="contact">
-      <div class="container" data-aos="fade-up">
-
-        <div class="col-lg-12">
-          <iframe style="border:0; width: 100%; height: 340px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
-        </div><!-- End Google Maps -->
-
-        <div class="row gy-4 mt-4">
-
-          <div class="col-lg-4">
-
-            <div class="info-item d-flex">
-              <i class="bi bi-geo-alt flex-shrink-0"></i>
-              <div>
-                <h4>Location:</h4>
-                <p>A108 Adam Street, New York, NY 535022</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex">
-              <i class="bi bi-envelope flex-shrink-0"></i>
-              <div>
-                <h4>Email:</h4>
-                <p>info@example.com</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex">
-              <i class="bi bi-phone flex-shrink-0"></i>
-              <div>
-                <h4>Call:</h4>
-                <p>+1 5589 55488 55</p>
-              </div>
-            </div><!-- End Info Item -->
-
-          </div>
-
-          <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-          </div><!-- End Contact Form -->
-
-        </div>
-
-      </div>
-    </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
-
+<br>
   <!-- ======= Footer ======= -->
   <?php include('footer.php');?>
   <!-- End Footer -->
