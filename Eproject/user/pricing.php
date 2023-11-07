@@ -72,10 +72,10 @@
 
               <!-- <h3>overnight</h3>
               <h4><sup>$</sup>0<span> / month</span></h4> -->
-              <ul>
+              <!-- <ul>
                 
-              </ul>
-              <a href="#" class="buy-btn">Buy Now</a>
+              </ul> -->
+              <!-- <a href="#" class="buy-btn">Buy Now</a> -->
             </div>
           </div><!-- End Pricing Item -->
 
