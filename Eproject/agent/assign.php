@@ -53,7 +53,7 @@ if(isset($_POST['assign'])){
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Update Order</h1>
-            <a href="orders.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Assign Order</a>
+            <a href="orders.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> View Order</a>
           </div>
 
 
@@ -142,20 +142,13 @@ if(isset($_POST['assign'])){
             <div class="mb-3">
               <label class="form-label">Location from</label>
               <select class="form-control" name="locationfrom">
-              <option selected disabled>select an option</option>
                 <?php
-                $select_q = 'SELECT * FROM `tbl_city`';
+                $select_q = 'SELECT * FROM `tbl_order`join `tbl_city` on tbl_order.locationfrom=tbl_city.ci_id';
                 $run_q = mysqli_query($conn, $select_q);
-                while ($data = mysqli_fetch_array($run_q)) { ?>
-                  <option value="<?php echo $data['ci_id']; ?>"
-                  <?php
-                  if($data['ci_id']==$row['locationfrom']){
-                    echo "selected";
-                  }
-                  ?>
-                  
-                  >
-                    <?php echo $data['ci_name']; ?>
+                while ($data_c = mysqli_fetch_array($run_q)) { ?>
+                  <option value="<?php echo $data_c['ci_id']; ?>"
+               >  
+                    <?php echo $data_c['ci_name']; ?>
                   </option>
 
                 <?php } ?>
@@ -165,19 +158,13 @@ if(isset($_POST['assign'])){
             <div class="mb-3">
               <label class="form-label">Location to</label>
               <select class="form-control" name="location_to">
-              <option selected disabled>select an option</option>
-                <?php $select_q = 'SELECT * FROM `tbl_city`';
-                $run_q = mysqli_query($conn, $select_q);
-                while ($data = mysqli_fetch_array($run_q)) { ?>
-                  <option value="<?php echo $data['ci_id']; ?>"
-                  
-                  <?php
-                  if($data['ci_id']==$row['location_to']){
-                    echo "selected";
-                  }
-                  ?>
-                  >
-                    <?php echo $data['ci_name']; ?>
+              <?php
+                $select_q2 = 'SELECT * FROM `tbl_order`join `tbl_city` on tbl_order.location_to=tbl_city.ci_id';
+                $run_q2 = mysqli_query($conn, $select_q2);
+                while ($data_c2 = mysqli_fetch_array($run_q2)) { ?>
+                  <option value="<?php echo $data_c2['ci_id']; ?>"
+               >  
+                    <?php echo $data_c2['ci_name']; ?>
                   </option>
 
                 <?php } ?>

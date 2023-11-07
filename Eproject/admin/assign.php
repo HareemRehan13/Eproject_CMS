@@ -53,7 +53,7 @@ if(isset($_POST['assign'])){
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Update Order</h1>
-            <a href="orders.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Assign Order</a>
+            <a href="orders.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> View Order</a>
           </div>
 
 
