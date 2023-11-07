@@ -5,8 +5,6 @@
   $fetch_q = "SELECT * FROM `tbl_company`";
 $run_q = mysqli_query($conn, $fetch_q);
 ?>
-  <!-- <link rel="stylesheet" href="agnet/css/sb-admin-2.min.css"> -->
-
   <!-- End Header -->
   <style>
     .option1{
@@ -58,6 +56,7 @@ font-weight: bolder;
 
 }
   </style>
+
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->

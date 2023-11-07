@@ -1913,3 +1913,51 @@ section {
 .footer .credits a {
   color: #fff;
 }
+.option1{
+  justify-content: center;
+  font-size: large;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  display:block;
+  font-weight: bolder;
+  
+}
+.option2{
+text-align: center;
+font-weight: bold;
+}
+.opn{
+  text-transform: uppercase;
+  text-align: center;
+  background-color: #0e1d34;
+  color:azure;
+  font-weight: bolder;
+}
+.grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr); 
+gap: 10px;
+} 
+
+.grid-item {
+border: 1px solid #ccc;
+padding: 10px;
+
+}
+.description {
+white-space: nowrap; 
+overflow: hidden;
+text-overflow: ellipsis; 
+max-width: 100%; 
+white-space: initial; 
+text-align: center;
+}
+.div1{
+background-color: #ccc;
+padding:20px;
+
+}
+.mm{
+color:#0e1d34;
+font-weight: bolder;
+
+}
