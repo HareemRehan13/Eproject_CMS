@@ -6,7 +6,8 @@
       <a href="index.html" class="logo d-flex align-items-center">
         <span>Courier</span>
       </a>
-      <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+      <p>CMS revolutionizes deliveries with cutting-edge technology and dedicated experts. We guarantee swift, secure, and reliable services. Choose us for unparalleled precision and customer satisfaction. Experience excellence in every delivery.</p>
+</p>
       <div class="social-links d-flex mt-4">
         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
         <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>

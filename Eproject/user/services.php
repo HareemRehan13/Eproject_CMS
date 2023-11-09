@@ -1,7 +1,28 @@
+<?php
+include('connection.php');
+$fetch_q = "SELECT * FROM `tbl_company`";
+$run_q = mysqli_query($conn, $fetch_q);
+?>
  <!-- ======= Header ======= -->
   <?php include('navbar.php');?>
   <!-- End Header -->
-
+<style>
+   .headings{
+    color: #0e1d34;
+   }
+   .btnlink a{
+  color:white;
+   }
+  .btnlink{
+    background-color: #0e1d34;
+    padding: 8px;
+    margin-left: 80px;
+    margin-right: 80px;
+    border-radius: 70px;
+  
+  }
+ 
+</style>
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
@@ -11,7 +32,8 @@
           <div class="row d-flex justify-content-center">
             <div class="col-lg-6 text-center">
               <h2>Services</h2>
-              <p>Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p>
+              <p>
+CMS revolutionizes deliveries with cutting-edge technology and dedicated experts. We guarantee swift, secure, and reliable services. Choose us for unparalleled precision and customer satisfaction. Experience excellence in every delivery.</p>
             </div>
           </div>
         </div>
@@ -19,7 +41,7 @@
       <nav>
         <div class="container">
           <ol>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="home.php">Home</a></li>
             <li>Services</li>
           </ol>
         </div>
@@ -27,43 +49,44 @@
     </div><!-- End Breadcrumbs -->
 
     <!-- ======= Featured Services Section ======= -->
-    <section id="featured-services" class="featured-services">
-      <div class="container">
+   <br>
+   
+    <section id="team" class="team pt-0">
+   
+      <div class="container" data-aos="fade-up">
 
-        <div class="row gy-4">
+        <div class="section-header">
+         
+        <span> Companies</span>
+          <h2> Companies</h2>
+        </div>
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+   <?php while($row = mysqli_fetch_array($run_q)){ ?>
+      
 
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up">
-            <div class="icon flex-shrink-0"><i class="fa-solid fa-cart-flatbed"></i></div>
-            <div>
-              <h4 class="title">Lorem Ipsum</h4>
-              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-              <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
+          <div class="col-lg-4 col-md-6 d-flex">
+            <div class="member">
+              <br><br>
+              <div class="member-content">
+                <h2 class="headings "><?php echo $row['co_name']; ?></h2>
+              
+                <p>
+                <?php echo $row['co_desc']; ?>
+                </p>
+                <div class="btnlink">
+                  <a  href="pricing.php"> Find Price</a>
+                 
+                </div>
+              </div>
             </div>
           </div>
-          <!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon flex-shrink-0"><i class="fa-solid fa-truck"></i></div>
-            <div>
-              <h4 class="title">Dolor Sitema</h4>
-              <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-              <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon flex-shrink-0"><i class="fa-solid fa-truck-ramp-box"></i></div>
-            <div>
-              <h4 class="title">Sed ut perspiciatis</h4>
-              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-              <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
-
-        </div>
-
+       
+         <?php } ?>
+         </div> 
       </div>
-    </section><!-- End Featured Services Section -->
+    
+    </section>
+    <!-- End Featured Services Section -->
 
     <!-- ======= Services Section ======= -->
     <section id="service" class="services pt-0">
@@ -83,7 +106,7 @@
                 <img src="assets/img/storage-service.jpg" alt="" class="img-fluid">
               </div>
               <h3><a href="service-details.html" class="stretched-link">Storage</a></h3>
-              <p>Cumque eos in qui numquam. Aut aspernatur perferendis sed atque quia voluptas quisquam repellendus temporibus itaqueofficiis odit</p>
+              <p>Our cutting-edge storage ensures your peace of mind. From household items during a move to business inventory, our solutions fit your needs. With top-notch security and climate-controlled units, your valuables are safeguarded. Rest easy, your belongings are in good hands.</p>
             </div>
           </div><!-- End Card Item -->
 
@@ -93,7 +116,8 @@
                 <img src="assets/img/logistics-service.jpg" alt="" class="img-fluid">
               </div>
               <h3><a href="service-details.html" class="stretched-link">Logistics</a></h3>
-              <p>Asperiores provident dolor accusamus pariatur dolore nam id audantium ut et iure incidunt molestiae dolor ipsam ducimus occaecati nisi</p>
+              <p>Our precision-focused logistics optimize your supply chain, reducing costs and enhancing efficiency. We manage transportation intricacies, inventory, and route planning with expertise. Real-time tracking and a dedicated team ensure seamless cargo movement. Elevate your business with us.
+</p>
             </div>
           </div><!-- End Card Item -->
 
@@ -103,7 +127,7 @@
                 <img src="assets/img/cargo-service.jpg" alt="" class="img-fluid">
               </div>
               <h3><a href="service-details.html" class="stretched-link">Cargo</a></h3>
-              <p>Dicta quam similique quia architecto eos nisi aut ratione aut ipsum reiciendis sit doloremque oluptatem aut et molestiae ut et nihil</p>
+              <p>Experience seamless domestic and international shipments. We handle all logistics intricacies—from paperwork to customs clearance—ensuring your cargo arrives safely and on time. Trust us for effortless and reliable cargo services.</p>
             </div>
           </div><!-- End Card Item -->
 
@@ -113,7 +137,7 @@
                 <img src="assets/img/trucking-service.jpg" alt="" class="img-fluid">
               </div>
               <h3><a href="service-details.html" class="stretched-link">Trucking</a></h3>
-              <p>Dicta quam similique quia architecto eos nisi aut ratione aut ipsum reiciendis sit doloremque oluptatem aut et molestiae ut et nihil</p>
+              <p>Count on us for punctual deliveries on any terrain. Our well-maintained fleet and skilled professionals guarantee safe and timely arrivals. Whether urban deliveries or large shipments, we have the perfect vehicle. Safety and efficiency are our focus, ensuring your cargo arrives securely and on schedule. Trust us for worry-free journeys.</p>
             </div>
           </div><!-- End Card Item -->
 
@@ -123,7 +147,7 @@
                 <img src="assets/img/packaging-service.jpg" alt="" class="img-fluid">
               </div>
               <h3><a href="service-details.html" class="stretched-link">Packaging</a></h3>
-              <p>Illo consequuntur quisquam delectus praesentium modi dignissimos facere vel cum onsequuntur maiores beatae consequatur magni voluptates</p>
+              <p>Let us handle the intricacies of packing. Our meticulous team ensures every item, from delicate valuables to substantial furniture, is securely wrapped. Using top-tier materials, we guarantee safe transit. Focus on your journey's excitement while we take care of the packing details, ensuring a stress-free move.</p>
             </div>
           </div><!-- End Card Item -->
 
@@ -133,7 +157,7 @@
                 <img src="assets/img/warehousing-service.jpg" alt="" class="img-fluid">
               </div>
               <h3><a href="service-details.html" class="stretched-link">Warehousing</a></h3>
-              <p>Quas assumenda non occaecati molestiae. In aut earum sed natus eatae in vero. Ab modi quisquam aut nostrum unde et qui est non quo nulla</p>
+              <p>We specialize in customized warehousing solutions, catering to short-term or long-term needs. Our expertise lies in strategic planning, technology integration, real-time tracking, and adaptable storage options. Embrace operational efficiency and cost savings with our dedicated warehousing services.</p>
             </div>
           </div><!-- End Card Item -->
 
@@ -219,8 +243,8 @@
       </div>
     </section><!-- End Features Section -->
 
-    <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials">
+   <!-- ======= Testimonials Section ======= -->
+   <section id="testimonials" class="testimonials">
       <div class="container">
 
         <div class="slides-1 swiper" data-aos="fade-up">
@@ -236,7 +260,9 @@
                 </div>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                  “Businesses often forget about the culture, and ultimately, they suffer for it because you can’t deliver good service from unhappy employees.”
+
+– Tony Hsieh, CEO of Zappos
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
               </div>
@@ -252,7 +278,7 @@
                 </div>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                  “Design is not just what it looks like and feels like. Design is how it works.” — Steve Jobs
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
               </div>
@@ -268,7 +294,9 @@
                 </div>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                  “You don't build a business, you build people, then people build the business.”
+
+- Zig Ziglar
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
               </div>
@@ -284,7 +312,9 @@
                 </div>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                  “If you’re working on something that you really care about, you don’t have to be pushed. The Vision pulls you.”
+
+— Steve Jobs
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
               </div>
@@ -300,7 +330,7 @@
                 </div>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                  “The thing that motivates me is a very common form of motivation. And that is, with other folks counting on me, it’s so easy to be motivated.” - Jeff Bezos
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
               </div>
@@ -313,8 +343,9 @@
       </div>
     </section><!-- End Testimonials Section -->
 
-    <!-- ======= Frequently Asked Questions Section ======= -->
-    <section id="faq" class="faq">
+
+   <!-- ======= Frequently Asked Questions Section ======= -->
+   <section id="faq" class="faq">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
@@ -332,12 +363,12 @@
                 <h3 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
                     <i class="bi bi-question-circle question-icon"></i>
-                    Non consectetur a erat nam at lectus urna duis?
+                    How do you manage a courier?
                   </button>
                 </h3>
                 <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                   <div class="accordion-body">
-                    Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+                  Route planning and optimization: Courier managers need to plan the most efficient routes for delivery. This helps save time, gas, and money. Parcel tracking and tracing: A delivery business needs systems that will track and monitor the progress of each parcel through the whole delivery process.
                   </div>
                 </div>
               </div><!-- # Faq item-->
@@ -346,12 +377,12 @@
                 <h3 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
                     <i class="bi bi-question-circle question-icon"></i>
-                    Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?
+                    What are the services of a courier?
                   </button>
                 </h3>
                 <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                   <div class="accordion-body">
-                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                  A courier service is a service that allows someone to send a parcel or consignment from one location to another. They can be booked and paid for online. Senders have the option to have their parcels collected by a courier or drop their parcel off at a nearby location to be picked up later by the courier.
                   </div>
                 </div>
               </div><!-- # Faq item-->
@@ -360,12 +391,15 @@
                 <h3 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
                     <i class="bi bi-question-circle question-icon"></i>
-                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi?
+                    What are the stages of parcel delivery?
                   </button>
                 </h3>
                 <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                   <div class="accordion-body">
-                    Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+                  Step 1: Packing the goods. The packaging of the goods you send is entirely your business, ie. ...<br>
+Step 2: Waiting for the means of transport (delivery of the goods for transport)delivery. ...<br>
+Step 3: Tracking parcels. ...<br>
+Step 4: Receiving the package.
                   </div>
                 </div>
               </div><!-- # Faq item-->
@@ -374,13 +408,19 @@
                 <h3 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-4">
                     <i class="bi bi-question-circle question-icon"></i>
-                    Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?
+                    How does parcel tracking work?
                   </button>
                 </h3>
                 <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                   <div class="accordion-body">
                     <i class="bi bi-question-circle question-icon"></i>
-                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                    1: Bar Code Generation.<br>
+                    2:Scan Bar Code Details.<br>
+3:Storing the Scanned Data.<br>
+4:Receiving the Product.<br>
+5:Re-scanning the Bar Code.<br>
+6:Out for Delivery.<br>
+7:Product Delivery.
                   </div>
                 </div>
               </div><!-- # Faq item-->
@@ -389,12 +429,12 @@
                 <h3 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-5">
                     <i class="bi bi-question-circle question-icon"></i>
-                    Tempus quam pellentesque nec nam aliquam sem et tortor consequat?
+                    Can the order be cancelled?
                   </button>
                 </h3>
                 <div id="faq-content-5" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                   <div class="accordion-body">
-                    Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
+                    No ! your order cannot be cancelled once its place to our website but you can cancle your order from the respective company from which your order has been placed in the given time period which your company provide you.
                   </div>
                 </div>
               </div><!-- # Faq item-->

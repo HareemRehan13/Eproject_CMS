@@ -1,11 +1,32 @@
-
 <?php
 include('connection.php');
 
 if(isset($_POST['btnsubmit'])){
+    $order_weight = $_POST['order_weight'];
+    $unit = $_POST['unit'];
+    $co_name = $_POST['co_name'];
+    $qqq = "select * from tbl_company WHERE co_id=$co_name";
+    $results = mysqli_query($conn, $qqq);
+    $rows1 = mysqli_fetch_array($results);
+    $perkg = $rows1['per_kg'];
+    $pergrams = $rows1['per_gram'];
+    
+    if($unit == "kg") {
+        $price = $order_weight * $perkg;
+        echo "<script>alert('Total Price: '+$price);</script>";
 
+    } elseif($unit == "gm") {
+        if($order_weight >= 1000) {
+          echo "<script>alert('Enter weight in kgs');</script>";
+        } else {
+            $price = $order_weight * $pergrams;
+            echo "<script>alert('Total Price: '+$price);</script>";}
 
+        }
+    
+// Insert Data
 
+if(isset($price) && $price > 0) {
   $sender_name = $_POST['sender_name'];
 $sender_email = $_POST['sender_email'];
 $sender_address = $_POST['sender_address'];
@@ -15,9 +36,9 @@ $receiver_email = $_POST['receiver_email'];
 $receiver_address = $_POST['receiver_address'];
 $receiver_phoneno = $_POST['receiver_phoneno'];
 $order_weight = $_POST['order_weight'];
-
 $locationfrom = $_POST['locationfrom'];
 $location_to = $_POST['location_to'];
+$co_name = $_POST['co_name'];
 $loc="select * from tbl_city where ci_id='$locationfrom'";
  $locs=mysqli_query($conn,$loc); 
  $locss=mysqli_fetch_assoc($locs);
@@ -61,16 +82,18 @@ if ($response) {
 }
 
 $insert_q ="INSERT INTO `tbl_order`(`sender_name`, `sender_email`,`sender_address`, `sender_phoneno`, `receiver_name`, `receiver_email`,
- `receiver_address`, `receiver_phoneno`, `order_weight`, `order_distance`,`locationfrom`, `location_to`) 
+ `receiver_address`, `receiver_phoneno`, `order_weight`, `order_distance`,`locationfrom`, `location_to`, `co_id`, `total_charges`) 
  VALUES ('$sender_name ','$sender_email','$sender_address ','$sender_phoneno','$receiver_name','$receiver_email','$receiver_address',
- '$receiver_phoneno','$order_weight','$distance', '$locationfrom','$location_to')";
+ '$receiver_phoneno','$order_weight','$distance', '$locationfrom','$location_to','$co_name',$price )";
 
 $run = mysqli_query($conn, $insert_q);
 if($run){
   echo "<script>alert('Order has been placed, keep track on its status');</script>";
 }
-
-
+else {
+  echo "<script>alert('Error calculating price. Please try again.');</script>";
+}
+}
 }
 ?>
 <!-- ======= Header ======= -->
@@ -86,7 +109,7 @@ if($run){
           <div class="row d-flex justify-content-center">
             <div class="col-lg-6 text-center">
               <h2>Order</h2>
-              <p>Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p>
+              <p> Simplify your order processing with CMS. Our user-friendly platform ensures smooth operations, precise tracking, and punctual deliveries. Enjoy seamless order management, enhancing your business's efficiency and customer service.</p>
             </div>
           </div>
         </div>
@@ -97,7 +120,7 @@ if($run){
     <!-- ======= Get a Quote Section ======= -->
     <section id="get-a-quote" class="get-a-quote">
       <div class="container" data-aos="fade-up">
-      <form class="php-email-form" method="POST">
+      <form class="php-email-form"action="" method="POST">
         <div class="row g-0">
         <h2>Place A Parcel Order</h2>
               <p>Vel nobis odio laboriosam et hic voluptatem. Inventore vitae totam. Rerum repellendus enim linead sero park flows.</p>
@@ -128,10 +151,10 @@ if($run){
 
                 <div class="col-md-11">
                 <label  class="form-label">Order Weight</label>
-                  <input type="text" class="form-control" name="order_weight" placeholder="Order Weight" required>
+                  <input type="text" class="form-control" name="order_weight" placeholder="Order Weight In Unit" required>
                 </div>
 
-               
+                
                 <div class="col-md-11">
                 <label  class="form-label">Location To</label>
                    
@@ -147,7 +170,21 @@ if($run){
 </select>
                  
                 </div>
-     
+                <div class="col-md-11">
+                <label  class="form-label">Company</label>
+                   
+    <select class="form-control" name="co_name">
+        <option selected disabled>Select</option>
+   <?php 
+   $select_c ='SELECT * FROM `tbl_company`';
+   $run_c = mysqli_query($conn, $select_c);
+   while ($row3 = mysqli_fetch_array($run_c)) { ?>
+      <option value="<?php echo $row3['co_id']; ?>"><?php echo $row3['co_name']; ?></option>
+
+   <?php } ?>
+</select>
+                 
+                </div>
               </div>
            
           </div>
@@ -176,9 +213,16 @@ if($run){
                 <label  class="form-label">Receiver Address</label>
                   <input type="phone" class="form-control" name="receiver_address" placeholder="Receiver Address" required>
                 </div>
-
+                <div class="col-md-11">
+                <label  class="form-label">Unit</label>
+                <select class="form-control"  name="unit">
+        <option selected disabled>Select Unit</option>
+            <option  value="kg">Kilograms (kg)</option>
+            <option value="gm">Grams (gm)</option>
+        </select>
+                </div>
                 
-
+         
                  
                 <div class="col-md-11">
                 <label  class="form-label">Location From</label>
@@ -187,17 +231,41 @@ if($run){
    <?php 
    $select_qu ='SELECT * FROM `tbl_city`';
    $run_qu = mysqli_query($conn, $select_qu);
-   while ($row1 = mysqli_fetch_array($run_qu)) { ?>
-      <option value="<?php echo $row1['ci_id']; ?>"><?php echo $row1['ci_name']; ?></option>
+   while ($row2 = mysqli_fetch_array($run_qu)) { ?>
+      <option value="<?php echo $row2['ci_id']; ?>"><?php echo $row2['ci_name']; ?></option>
 
    <?php } ?>
 </select>
                 </div>
               </div>
-              <br>
-              <button type="submit" class="btn btn-primary" name="btnsubmit">Place Your Order</button>
+              <br><br><button type="submit" class="btn btn-primary" name="btnsubmit">Place Your Order</button>
+              <!-- Button trigger modal -->
+<!-- Modal -->
+<!-- <button type="submit" class="btn btn-primary"  name="calc" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Place Your Order</button>
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Confirm Your Order</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+    <b>Total Price:</b>  <p id="totalprice"></p>
+</div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" name="btnsubmit">Confirm Order</button>
+
+      </div> -->
+    </div>
+  </div>
+</div>
+             
                
-          
+
+      
           </div><!-- End Quote Form -->
 
         </div>
@@ -211,3 +279,4 @@ if($run){
   <!-- ======= Footer ======= -->
   <?php include('footer.php');?>
   <!-- End Footer -->
+ 
