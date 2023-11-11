@@ -126,7 +126,7 @@ elseif($unit=="gm"){
   ?>   
 <div class="container divcon ">
   <div class="row">
-    <div class="col-lg-6 div1 ">
+    <div class="col-lg-6 div1 divcon ">
     <h1>Courier Price Calculator</h1>
 </div>
     <div class="col-lg-6 div2">
