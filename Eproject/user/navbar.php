@@ -60,8 +60,8 @@
           <li><a href="pricing.php">Pricing</a></li>
           <li><a href="calpricing.php">Calculate Pricing</a></li>
           <li><a href="order.php">Order</a></li>
-          <li><a href="signup.php">Sign Up</a></li>
-          <li><a href="login.php">Log In</a></li>
+          <li><a href="../admin/signup.php">Sign Up</a></li>
+          <li><a href="../admin/login.php">Log In</a></li>
        
         </ul>
       </nav><!-- .navbar -->

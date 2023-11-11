@@ -1,44 +1,24 @@
 <?php
 include('connection.php');
-session_start();
+$fetch_q = "SELECT * FROM `tbl_role`";
+$run_q = mysqli_query($conn, $fetch_q);
 if(isset($_POST['btnlogin'])){
 $u_name = $_POST["u_name"];
+$u_email = $_POST["u_email"];
 $u_pass = $_POST["u_pass"];
-$select_q = "SELECT * FROM `tbl_user` WHERE u_name ='$u_name' and password ='$u_pass'";
-$run_q = mysqli_query($conn, $select_q);
-$roles=mysqli_fetch_assoc($run_q);
-$role=$roles['r_id'];
-$row = mysqli_num_rows($run_q);
 
-if($row>=1){
-		if($role == 1){
-            echo '<script>alert("login successful")</script>'; 
-            $_SESSION['user_name'] = $u_name;
-            $_SESSION['id'] = $roles['u_id'];
-            echo"<script>window.location.href='dashboard.php' </script>";
+$insert_q = "INSERT INTO `tbl_user`( `u_name`, `u_email`,  `r_id`,  `password`) VALUES ('$u_name','$u_email',2,'$u_pass' )";
+$run_q = mysqli_query($conn, $insert_q);
+
+        if($insert_q){
+            echo"<script>window.location.href='login.php' </script>";
+           
 
 		}
-        if($role == 3){
-            echo '<script>alert("login successful")</script>'; 
-            $_SESSION['user_name'] = $u_name;
-            $_SESSION['id'] = $roles['u_id'];
-            echo"<script>window.location.href='../agent/dashboard.php' </script>";
-
-		}
-        else{
-            echo '<script>alert("login successful")</script>'; 
-            $_SESSION['user_name'] = $u_name;
-            $_SESSION['id'] = $roles['u_id'];
-            echo"<script>window.location.href='../user/home.php' </script>";
-
-          
-		}
-
-}
+       
 else{
     echo '<script> alert("login fail")</script>';
-    echo"<script>window.location.href='login.php' </script>";
-
+  
 }
 }
 
@@ -96,7 +76,7 @@ else{
 <body>
 
                                <div class="container">
-                                 <h1 class="heading">ACCOUNT LOGIN</h1>
+                                 <h1 class="heading">SIGN UP</h1>
                                  <br>
                                  <div class="maindiv">
                                     <form method="POST">
@@ -107,11 +87,17 @@ else{
                                                 placeholder="Enter Your Name...">
                                         </div>
                                         <div class="form-group">
+                                        <label >Email</label>
+                                            <input type="text" class="form-control "
+                                                name="u_email" aria-describedby="emailHelp"
+                                                placeholder="Enter Your Name...">
+                                        </div>
+                                        <div class="form-group">
                                         <label>Password</label>
                                             <input type="password" class="form-control "
                                                 name="u_pass" placeholder="Enter Your Password...">
                                         </div>
-
+                                        
                                         <div class="row">
                                         <div class="form-group col-6">
                                             <div class="custom-control custom-checkbox small">
@@ -125,7 +111,7 @@ else{
                                     </div>
                                 </div>
                                         <button type="submit" class="btn btn-primary btn-user btn-block" name="btnlogin" >
-                                          Login</button>
+                                          Sign Up</button>
                                       
                                     </form></div>
            
