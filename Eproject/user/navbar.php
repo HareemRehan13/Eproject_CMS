@@ -1,3 +1,10 @@
+
+<?php
+session_start();
+if(!isset($_SESSION['user_name'])){
+    header('location:../admin/login.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,7 +69,7 @@
           <li><a href="order.php">Order</a></li>
           <li><a href="../admin/signup.php">Sign Up</a></li>
           <li><a href="../admin/login.php">Log In</a></li>
-       
+          <li><a href="../admin/logout.php">Log out</a></li>
         </ul>
       </nav><!-- .navbar -->
 

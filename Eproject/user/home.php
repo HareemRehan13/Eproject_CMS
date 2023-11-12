@@ -1,3 +1,28 @@
+<?php
+include('connection.php');
+
+$or_id = $sender_name = $status = '';
+
+if (isset($_POST['btnsubmit'])) {
+  $order_idInput = $_POST['order_id'];
+  
+  $select_q = "SELECT * FROM `tbl_order` WHERE or_id = '$order_idInput'";
+  $run_q = mysqli_query($conn, $select_q);
+  
+  if ($run_q && mysqli_num_rows($run_q) > 0) {
+      $row = mysqli_fetch_array($run_q);
+      $or_id = $row['or_id'];
+      $sender_name = $row['sender_name'];
+      $status = $row['status'];
+  }
+   else {
+      echo " <script>alert('Order ID not found')</script>";
+  }
+}
+
+?>
+
+
 <!-- ======= Header ======= -->
 <?php include('navbar.php');?>
 
@@ -10,40 +35,36 @@
       <div class="row gy-4 d-flex justify-content-between">
         <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
           <h2 data-aos="fade-up">Your Lightning Fast Delivery Partner</h2>
-          <p data-aos="fade-up" data-aos-delay="100">Facere distinctio molestiae nisi fugit tenetur repellat non praesentium nesciunt optio quis sit odio nemo quisquam. eius quos reiciendis eum vel eum voluptatem eum maiores eaque id optio ullam occaecati odio est possimus vel reprehenderit</p>
+          <p data-aos="fade-up" data-aos-delay="100">Experience seamless and transparent deliveries with our 
+            lightning-fast service. Utilizing advanced tracking technology, we keep you informed in real-time,
+             ensuring a swift and worry-free experience.</p>
 
-          <form action="#" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
-            <input type="text" class="form-control" placeholder="ZIP code or CitY">
-            <button type="submit" class="btn btn-primary">Search</button>
-          </form>
-
+          <form action="#" method="POST" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
+    <input type="text" name="order_id" class="form-control" placeholder="Enter Your Order Id">
+    <button type="submit" name="btnsubmit" class="btn btn-primary">Track</button>
+</form>
           <div class="row gy-4" data-aos="fade-up" data-aos-delay="400">
 
             <div class="col-lg-3 col-6">
               <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Clients</p>
+                <span><?php echo $or_id; ?></span>
+                <p>Order Id</p>
               </div>
             </div><!-- End Stats Item -->
 
             <div class="col-lg-3 col-6">
               <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Projects</p>
+                <span><?php echo $sender_name; ?></span>
+                <p>Sender Name</p>
               </div>
             </div><!-- End Stats Item -->
 
-            <div class="col-lg-3 col-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Support</p>
-              </div>
-            </div><!-- End Stats Item -->
+           
 
             <div class="col-lg-3 col-6">
               <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Workers</p>
+                <span><?php echo $status; ?></span>
+                <p>Status</p>
               </div>
             </div><!-- End Stats Item -->
 

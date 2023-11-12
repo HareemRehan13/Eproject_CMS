@@ -88,7 +88,7 @@ $insert_q ="INSERT INTO `tbl_order`(`sender_name`, `sender_email`,`sender_addres
 
 $run = mysqli_query($conn, $insert_q);
 if($run){
-  echo "<script>alert('Order has been placed, keep track on its status');</script>";
+  echo "<script>alert('Order has been placed, keep track on its status ');</script>";
 }
 else {
   echo "<script>alert('Error calculating price. Please try again.');</script>";

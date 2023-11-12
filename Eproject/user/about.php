@@ -2,6 +2,26 @@
 include('connection.php');
 $fetch_q = "SELECT * FROM `tbl_company`";
 $run_q = mysqli_query($conn, $fetch_q);
+//Count Work
+$countbranch = "SELECT COUNT(*) as totalbranches FROM tbl_branch";
+$countagent = "SELECT COUNT(*) as totalagents FROM tbl_agent";
+$countuser = "SELECT COUNT(*) as totalusers FROM tbl_user WHERE r_id = '2'";
+$countorder = "SELECT COUNT(*) as totalorders FROM tbl_order";
+
+$q1 = mysqli_query($conn, $countbranch);
+$q2 = mysqli_query($conn, $countagent);
+$q3 = mysqli_query($conn, $countuser);
+$q4 = mysqli_query($conn, $countorder); 
+
+$row1 = mysqli_fetch_assoc($q1);
+$row2 = mysqli_fetch_assoc($q2);
+$row3 = mysqli_fetch_assoc($q3);
+$row4 = mysqli_fetch_assoc($q4);
+
+$totalbranches = $row1['totalbranches'];
+$totalagents= $row2['totalagents'];
+$totalusers= $row3['totalusers'];
+$totalorders= $row4['totalorders'];
 ?>
  <!-- ======= Header ======= -->
   <?php include('navbar.php');?>
@@ -89,29 +109,29 @@ Track more than 1524+ couriers logistics and marketplaces, including UPS, DHL, F
 
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Clients</p>
+              <span><?php echo $totalusers; ?></span>
+              <p>Users</p>
             </div>
           </div><!-- End Stats Item -->
 
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Projects</p>
+              <span><?php echo $totalbranches; ?></span>
+              <p>Branchers</p>
             </div>
           </div><!-- End Stats Item -->
 
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Hours Of Support</p>
+              <span><?php echo $totalorders; ?></span>
+              <p>Orders</p>
             </div>
           </div><!-- End Stats Item -->
 
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Workers</p>
+              <span><?php echo $totalagents; ?></span>
+              <p>Agents</p>
             </div>
           </div><!-- End Stats Item -->
 
@@ -126,8 +146,8 @@ Track more than 1524+ couriers logistics and marketplaces, including UPS, DHL, F
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <span>Our Team</span>
-          <h2>Our Team</h2>
+          <span>Our Services</span>
+          <h2>Our Services</h2>
 
         </div>
         <div class="row" data-aos="fade-up" data-aos-delay="100">
