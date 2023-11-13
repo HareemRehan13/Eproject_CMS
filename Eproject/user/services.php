@@ -8,7 +8,7 @@ $run_q = mysqli_query($conn, $fetch_q);
   <!-- End Header -->
 <style>
    .headings{
-    color: #0e1d34;
+    color: #01155e;
    }
    .btnlink a{
   color:white;
@@ -68,7 +68,7 @@ CMS revolutionizes deliveries with cutting-edge technology and dedicated experts
             <div class="member">
               <br><br>
               <div class="member-content">
-                <h2 class="headings "><?php echo $row['co_name']; ?></h2>
+                <h2 class="headings"><?php echo $row['co_name']; ?></h2>
               
                 <p>
                 <?php echo $row['co_desc']; ?>
@@ -176,15 +176,14 @@ CMS revolutionizes deliveries with cutting-edge technology and dedicated experts
             <img src="assets/img/features-1.jpg" class="img-fluid" alt="">
           </div>
           <div class="col-md-7">
-            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+            <h3>Streamlined Packing for Swift Parcel Delivery</h3>
             <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+            Optimize your packing process for efficient parcel delivery. Our user-friendly solutions prioritize security and efficiency, ensuring a smooth and reliable experience. Simplify your packing to streamline the entire delivery journey.
             </p>
             <ul>
-              <li><i class="bi bi-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-              <li><i class="bi bi-check"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-              <li><i class="bi bi-check"></i> Ullam est qui quos consequatur eos accusamus.</li>
+              <li><i class="bi bi-check"></i> Streamline your packing procedures.</li>
+              <li><i class="bi bi-check"></i>Ensure secure and efficient handling. </li>
+              <li><i class="bi bi-check"></i>Optimize for a swift and reliable delivery service.</li>
             </ul>
           </div>
         </div><!-- Features Item -->
@@ -194,16 +193,11 @@ CMS revolutionizes deliveries with cutting-edge technology and dedicated experts
             <img src="assets/img/features-2.jpg" class="img-fluid" alt="">
           </div>
           <div class="col-md-7 order-2 order-md-1">
-            <h3>Corporis temporibus maiores provident</h3>
+            <h3>Efficient Order Fulfillment: Elevating Your Delivery Experience</h3>
             <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
-            </p>
-            <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum
-            </p>
+            Experience flawless parcel deliveries with our cutting-edge courier management system. We prioritize precision, security, and efficiency, ensuring your shipments reach their destination seamlessly. Discover the unmatched convenience of our services for a hassle-free order fulfillment process.<br>
+   </p>
+   <p>  Our advanced tracking system ensures transparency and peace of mind, while our extensive network guarantees timely and careful parcel deliveries. Choose us for an elevated shipping experience marked by excellence in efficiency and security. </p>
           </div>
         </div><!-- Features Item -->
 
@@ -227,121 +221,20 @@ CMS revolutionizes deliveries with cutting-edge technology and dedicated experts
             <img src="assets/img/features-4.jpg" class="img-fluid" alt="">
           </div>
           <div class="col-md-7 order-2 order-md-1">
-            <h3>Quas et necessitatibus eaque impedit ipsum animi consequatur incidunt in</h3>
+            <h3>Ensure Timely and Secure Shipments for Your Orders</h3>
             <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+            At our Courier Management System, we prioritize the swift and secure delivery of your orders. Our advanced tracking system allows you to monitor your shipments in real-time. Experience peace of mind with our reliable shipping services, ensuring your packages reach their destination on time, every time.
             </p>
-            <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum
-            </p>
+            <ul>
+              <li><i class="bi bi-check"></i> Stay informed with live updates on your shipment's location and delivery status.</li>
+              <li><i class="bi bi-check"></i> We prioritize the safety of your packages, ensuring they reach their destination in pristine condition.</li>
+              <li><i class="bi bi-check"></i>Our efficient logistics network guarantees on-time delivery, providing a seamless experience for both senders and recipients.</li>
+            </ul>
           </div>
         </div><!-- Features Item -->
 
       </div>
     </section><!-- End Features Section -->
-
-   <!-- ======= Testimonials Section ======= -->
-   <section id="testimonials" class="testimonials">
-      <div class="container">
-
-        <div class="slides-1 swiper" data-aos="fade-up">
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  “Businesses often forget about the culture, and ultimately, they suffer for it because you can’t deliver good service from unhappy employees.”
-
-– Tony Hsieh, CEO of Zappos
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  “Design is not just what it looks like and feels like. Design is how it works.” — Steve Jobs
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  “You don't build a business, you build people, then people build the business.”
-
-- Zig Ziglar
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  “If you’re working on something that you really care about, you don’t have to be pushed. The Vision pulls you.”
-
-— Steve Jobs
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  “The thing that motivates me is a very common form of motivation. And that is, with other folks counting on me, it’s so easy to be motivated.” - Jeff Bezos
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-    </section><!-- End Testimonials Section -->
 
 
    <!-- ======= Frequently Asked Questions Section ======= -->

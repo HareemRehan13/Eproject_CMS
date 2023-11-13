@@ -47,27 +47,21 @@ else{
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 <style>
     body {
-
     background-image: url(img/img2.png); 
-  
   background-repeat: no-repeat;
   background-size: cover;
-
-  
-
 }
-
 .maindiv{
     background-color: #fff;
       position: relative;
-      width: 45%; 
+      width: 44%; 
       border-radius: 15px;
-    padding: 70px;
+    padding: 60px;
     margin:  auto;
 }
 .heading{
     color:white;
-    margin-top:70px ;
+    margin-top:42px ;
     text-align: center;
 }
 </style>
@@ -97,22 +91,12 @@ else{
                                             <input type="password" class="form-control "
                                                 name="u_pass" placeholder="Enter Your Password...">
                                         </div>
-                                        
-                                        <div class="row">
-                                        <div class="form-group col-6">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-6" style="text-align:right;">
-                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
-                                    </div>
-                                </div>
+                            <br>
                                         <button type="submit" class="btn btn-primary btn-user btn-block" name="btnlogin" >
                                           Sign Up</button>
-                                      
+                                          <br>
+                                          <div style="text-align: center;">Already have an account? <a href="login.php">Login</a></div>
+
                                     </form></div>
            
 </div>

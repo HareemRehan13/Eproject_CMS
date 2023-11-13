@@ -46,7 +46,12 @@ if(!isset($_SESSION['user_name'])){
 
   
 </head>
+<style>
+.userimg{
+  height: 40px;
+}
 
+</style>
 <body>
 <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
@@ -67,9 +72,30 @@ if(!isset($_SESSION['user_name'])){
           <li><a href="pricing.php">Pricing</a></li>
           <li><a href="calpricing.php">Calculate Pricing</a></li>
           <li><a href="order.php">Order</a></li>
-          <li><a href="../admin/signup.php">Sign Up</a></li>
-          <li><a href="../admin/login.php">Log In</a></li>
-          <li><a href="../admin/logout.php">Log out</a></li>
+          <li>
+          <div class="dropdown">
+          <a  href="#" id="userDropdown" role="button">
+          
+            <i><?php echo $_SESSION['user_name'];?></i>
+           
+            <img class="img-profile userimg rounded-circle" src="assets/img/user-icon.png">
+        </a>
+      
+  <ul style="width:50px" class="dropdown-menu" >
+    <li><a class="" href="../admin/login.php"> 
+       <i class="fas fa-list" style="font-size:9px">&nbsp; Log In</i>
+
+</a>
+</li>
+<hr>
+    <li><a class="" href="../admin/logout.php">
+      <i class="fas fa-sign-out-alt " style="font-size:9px">&nbsp; Log out</i>
+     
+    </a>
+  </li>
+  </ul>
+</div>
+</li>
         </ul>
       </nav><!-- .navbar -->
 

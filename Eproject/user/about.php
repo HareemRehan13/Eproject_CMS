@@ -75,7 +75,7 @@ Courier Manager covers every step of the journey from first mile to last.
               <i class="bi bi-printer"></i>
                 <div>
                   <h5>Your parcel details can be printed</h5>
-                  <p>You can get your complete parcel details in printed form as well from our website and you can also get the details of delivered parcel at your doorsteps.</p>
+                  <p class="fst-italic">You can get your complete parcel details in printed form as well from our website and you can also get the details of delivered parcel at your doorsteps.</p>
                 </div>
               </li>
               <li data-aos="fade-up" data-aos-delay="200">
@@ -83,14 +83,14 @@ Courier Manager covers every step of the journey from first mile to last.
                 <div>
                   <h5>Automatically import delivery data
 </h5>
-                  <p>Dispatchers or drivers can add the info required to create a route. Submit complex or simplified route data depending on your needs</p>
+                  <p class="fst-italic">Dispatchers or drivers can add the info required to create a route. Submit complex or simplified route data depending on your needs</p>
                 </div>
               </li>
               <li data-aos="fade-up" data-aos-delay="300">
                 <i class="bi bi-broadcast"></i>
                 <div>
                   <h5>Track your parcel anytime on our website.</h5>
-                  <p>Trusted by logistic companies, marketplaces and sellers across the world.
+                  <p class="fst-italic">Trusted by logistic companies, marketplaces and sellers across the world.
 Track more than 1524+ couriers logistics and marketplaces, including UPS, DHL, FedEx, China Post, Alibaba, Ebay, Wish and more, all in one place.</p>
                 </div>
               </li>
@@ -117,7 +117,7 @@ Track more than 1524+ couriers logistics and marketplaces, including UPS, DHL, F
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
               <span><?php echo $totalbranches; ?></span>
-              <p>Branchers</p>
+              <p>Branches</p>
             </div>
           </div><!-- End Stats Item -->
 

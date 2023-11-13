@@ -87,10 +87,10 @@ $insert_q ="INSERT INTO `tbl_order`(`sender_name`, `sender_email`,`sender_addres
  '$receiver_phoneno','$order_weight','$distance', '$locationfrom','$location_to','$co_name',$price )";
 
 $run = mysqli_query($conn, $insert_q);
-if($run){
-  echo "<script>alert('Order has been placed, keep track on its status ');</script>";
-}
-else {
+if ($run) {
+  $last_inserted_id = mysqli_insert_id($conn);
+  echo "<script>alert('Order has been placed successfully! Your Order ID is: $last_inserted_id. Keep track of its status.');</script>";
+} else {
   echo "<script>alert('Error calculating price. Please try again.');</script>";
 }
 }
@@ -99,7 +99,11 @@ else {
 <!-- ======= Header ======= -->
   <?php include('navbar.php');?>
   <!-- End Header -->
-
+  <style>
+  .heading{
+    color: #01155e;
+   }
+</style>
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
@@ -122,8 +126,8 @@ else {
       <div class="container" data-aos="fade-up">
       <form class="php-email-form"action="" method="POST">
         <div class="row g-0">
-        <h2>Place A Parcel Order</h2>
-              <p>Vel nobis odio laboriosam et hic voluptatem. Inventore vitae totam. Rerum repellendus enim linead sero park flows.</p>
+        <h2 class="heading">Place A Parcel Order</h2>
+              <p class="fst-italic">Effortlessly initiate your parcel journey with a simple click – Place your order now for swift and secure delivery.</p>
             
         <div class="col-lg-6">
             
