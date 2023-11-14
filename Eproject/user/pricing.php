@@ -46,7 +46,7 @@ $run_q = mysqli_query($conn, $fetch_q);
   text-align: center;
 }
 .div1{
-  background-color: #ccc;
+  background-color:#f0f0f0;
   padding:20px;
 
 }
