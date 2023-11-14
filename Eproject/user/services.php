@@ -100,16 +100,7 @@ CMS revolutionizes deliveries with cutting-edge technology and dedicated experts
 
         <div class="row gy-4">
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="card">
-              <div class="card-img">
-                <img src="assets/img/storage-service.jpg" alt="" class="img-fluid">
-              </div>
-              <h3><a href="service-details.html" class="stretched-link">Storage</a></h3>
-              <p>Our cutting-edge storage ensures your peace of mind. From household items during a move to business inventory, our solutions fit your needs. With top-notch security and climate-controlled units, your valuables are safeguarded. Rest easy, your belongings are in good hands.</p>
-            </div>
-          </div><!-- End Card Item -->
-
+          
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="card">
               <div class="card-img">
@@ -148,16 +139,6 @@ CMS revolutionizes deliveries with cutting-edge technology and dedicated experts
               </div>
               <h3><a href="service-details.html" class="stretched-link">Packaging</a></h3>
               <p>Let us handle the intricacies of packing. Our meticulous team ensures every item, from delicate valuables to substantial furniture, is securely wrapped. Using top-tier materials, we guarantee safe transit. Focus on your journey's excitement while we take care of the packing details, ensuring a stress-free move.</p>
-            </div>
-          </div><!-- End Card Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="card">
-              <div class="card-img">
-                <img src="assets/img/warehousing-service.jpg" alt="" class="img-fluid">
-              </div>
-              <h3><a href="service-details.html" class="stretched-link">Warehousing</a></h3>
-              <p>We specialize in customized warehousing solutions, catering to short-term or long-term needs. Our expertise lies in strategic planning, technology integration, real-time tracking, and adaptable storage options. Embrace operational efficiency and cost savings with our dedicated warehousing services.</p>
             </div>
           </div><!-- End Card Item -->
 
@@ -203,25 +184,10 @@ CMS revolutionizes deliveries with cutting-edge technology and dedicated experts
 
         <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
           <div class="col-md-5">
-            <img src="assets/img/features-3.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="col-md-7">
-            <h3>Sunt consequatur ad ut est nulla consectetur reiciendis animi voluptas</h3>
-            <p>Cupiditate placeat cupiditate placeat est ipsam culpa. Delectus quia minima quod. Sunt saepe odit aut quia voluptatem hic voluptas dolor doloremque.</p>
-            <ul>
-              <li><i class="bi bi-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-              <li><i class="bi bi-check"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-              <li><i class="bi bi-check"></i> Facilis ut et voluptatem aperiam. Autem soluta ad fugiat.</li>
-            </ul>
-          </div>
-        </div><!-- Features Item -->
-
-        <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
-          <div class="col-md-5 order-1 order-md-2">
             <img src="assets/img/features-4.jpg" class="img-fluid" alt="">
           </div>
-          <div class="col-md-7 order-2 order-md-1">
-            <h3>Ensure Timely and Secure Shipments for Your Orders</h3>
+          <div class="col-md-7">
+          <h3>Ensure Timely and Secure Shipments for Your Orders</h3>
             <p class="fst-italic">
             At our Courier Management System, we prioritize the swift and secure delivery of your orders. Our advanced tracking system allows you to monitor your shipments in real-time. Experience peace of mind with our reliable shipping services, ensuring your packages reach their destination on time, every time.
             </p>

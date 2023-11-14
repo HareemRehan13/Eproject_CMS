@@ -60,7 +60,7 @@ your logistics, and give you a competitive edge!</p>
         <div class="row gy-4">
           <div class="col-lg-6 position-relative align-self-start order-lg-last order-first">
             <img src="assets/img/about.jpg" class="img-fluid" alt="">
-            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
+            <a href="https://youtu.be/x4hh3Hh4xSk?si=_YOShC0753p8zoTX" class="glightbox play-btn"></a>
           </div>
           <div class="col-lg-6 content order-last  order-lg-first">
             <h3>About Us</h3>
@@ -146,8 +146,8 @@ Track more than 1524+ couriers logistics and marketplaces, including UPS, DHL, F
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <span>Our Services</span>
-          <h2>Our Services</h2>
+          <span>Our Collaboration</span>
+          <h2>Our Collaboration</h2>
 
         </div>
         <div class="row" data-aos="fade-up" data-aos-delay="100">
@@ -156,7 +156,8 @@ Track more than 1524+ couriers logistics and marketplaces, including UPS, DHL, F
 
           <div class="col-lg-4 col-md-6 d-flex">
             <div class="member">
-              <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
+              <br>
+              <img src="assets/img/icon.png" class="img-fluid" alt="">
               <div class="member-content">
                 <h4><?php echo $row['co_name']; ?></h4>
               
@@ -281,111 +282,10 @@ Track more than 1524+ couriers logistics and marketplaces, including UPS, DHL, F
       </div>
     </section><!-- End Testimonials Section -->
 
-    <!-- ======= Frequently Asked Questions Section ======= -->
-    <section id="faq" class="faq">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-          <span>Frequently Asked Questions</span>
-          <h2>Frequently Asked Questions</h2>
-
-        </div>
-
-        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="200">
-          <div class="col-lg-10">
-
-            <div class="accordion accordion-flush" id="faqlist">
-
-              <div class="accordion-item">
-                <h3 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
-                    <i class="bi bi-question-circle question-icon"></i>
-                    How do you manage a courier?
-                  </button>
-                </h3>
-                <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                  <div class="accordion-body">
-                  Route planning and optimization: Courier managers need to plan the most efficient routes for delivery. This helps save time, gas, and money. Parcel tracking and tracing: A delivery business needs systems that will track and monitor the progress of each parcel through the whole delivery process.
-                  </div>
-                </div>
-              </div><!-- # Faq item-->
-
-              <div class="accordion-item">
-                <h3 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
-                    <i class="bi bi-question-circle question-icon"></i>
-                    What are the services of a courier?
-                  </button>
-                </h3>
-                <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                  <div class="accordion-body">
-                  A courier service is a service that allows someone to send a parcel or consignment from one location to another. They can be booked and paid for online. Senders have the option to have their parcels collected by a courier or drop their parcel off at a nearby location to be picked up later by the courier.
-                  </div>
-                </div>
-              </div><!-- # Faq item-->
-
-              <div class="accordion-item">
-                <h3 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
-                    <i class="bi bi-question-circle question-icon"></i>
-                    What are the stages of parcel delivery?
-                  </button>
-                </h3>
-                <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                  <div class="accordion-body">
-                  Step 1: Packing the goods. The packaging of the goods you send is entirely your business, ie. ...<br>
-Step 2: Waiting for the means of transport (delivery of the goods for transport)delivery. ...<br>
-Step 3: Tracking parcels. ...<br>
-Step 4: Receiving the package.
-                  </div>
-                </div>
-              </div><!-- # Faq item-->
-
-              <div class="accordion-item">
-                <h3 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-4">
-                    <i class="bi bi-question-circle question-icon"></i>
-                    How does parcel tracking work?
-                  </button>
-                </h3>
-                <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                  <div class="accordion-body">
-                    <i class="bi bi-question-circle question-icon"></i>
-                    1: Bar Code Generation.<br>
-                    2:Scan Bar Code Details.<br>
-3:Storing the Scanned Data.<br>
-4:Receiving the Product.<br>
-5:Re-scanning the Bar Code.<br>
-6:Out for Delivery.<br>
-7:Product Delivery.
-                  </div>
-                </div>
-              </div><!-- # Faq item-->
-
-              <div class="accordion-item">
-                <h3 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-5">
-                    <i class="bi bi-question-circle question-icon"></i>
-                    Can the order be cancelled?
-                  </button>
-                </h3>
-                <div id="faq-content-5" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                  <div class="accordion-body">
-                    No ! your order cannot be cancelled once its place to our website but you can cancle your order from the respective company from which your order has been placed in the given time period which your company provide you.
-                  </div>
-                </div>
-              </div><!-- # Faq item-->
-
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Frequently Asked Questions Section -->
-
+   
   </main><!-- End #main -->
-
+<br><br>
+<br>
   <!-- ======= Footer ======= -->
   <?php include('footer.php');?>
   <!-- End Footer -->
