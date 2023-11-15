@@ -145,7 +145,8 @@ CMS revolutionizes deliveries with cutting-edge technology and dedicated experts
         </div>
 
       </div>
-    </section><!-- End Services Section -->
+    </section>
+    <!-- End Services Section -->
 
     <!-- ======= Features Section ======= -->
     <section id="features" class="features">

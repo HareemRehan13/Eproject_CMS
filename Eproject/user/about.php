@@ -99,7 +99,8 @@ Track more than 1524+ couriers logistics and marketplaces, including UPS, DHL, F
         </div>
 
       </div>
-    </section><!-- End About Us Section -->
+    </section>
+    <!-- End About Us Section -->
 
     <!-- ======= Stats Counter Section ======= -->
     <section id="stats-counter" class="stats-counter pt-0">
