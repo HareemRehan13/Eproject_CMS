@@ -52,86 +52,48 @@ if(isset($_POST['assign'])){
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Update Order</h1>
-            <a href="orders.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> View Order</a>
+            <h1 class="h3 mb-0 headings">Update Order</h1>
+            <a href="orders.php" class="d-none d-sm-inline-block btn btn-sm btnlink"> View Order</a>
           </div>
-
-
-        </div>
-        <!-- /.container-fluid -->
-        <div class="container">
-
-          <form method="POST" enctype="multipart/form-data">
-          <div class="mb-3">
-    <label  class="form-label">User Name</label>
+          </div>
+                 <!--End Page Heading -->
+                 <div class="maindiv">
+        <!-- Form Start -->
+      <div class="container">
+      <form method="POST" enctype="multipart/form-data">
+        <div class="row g-0">
+          <!-- First column -->
+        <div class="col-lg-6">
+               <div class="row gy-3">
+                <div class="col-md-12">
+                <label  class="form-label">User Name</label>
     <input type="text" class="form-control" value="<?php echo $row['u_id']; ?>"
                 name="u_id">
     
-  </div>
-            <div class="mb-3">
-              <label class="form-label">Sender Name</label>
-              <input type="text" class="form-control" value="<?php echo $row['sender_name']; ?>"
-                name="sender_name">
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Sender Email</label>
+   </div>
+                <div class="col-md-12">
+                <label class="form-label">Sender Email</label>
               <input type="text" class="form-control" value="<?php echo $row['sender_email']; ?>"
                 name="sender_email">
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Sender Address</label>
-              <input type="text" class="form-control" value="<?php echo $row['sender_address']; ?>"
-                name="sender_address1">
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Sender Phone</label>
+ </div>      
+ <div class="col-md-12">
+ <label class="form-label">Sender Phone</label>
               <input type="text" class="form-control" value="<?php echo $row['sender_phoneno']; ?>"
                 name="sender_phoneno">
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Reciever Name</label>
-              <input type="text" class="form-control" value="<?php echo $row['receiver_name']; ?>" name="receiver_name">
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Reciever Email</label>
+    </div>
+
+                <div class="col-md-12">
+                <label class="form-label">Reciever Email</label>
               <input type="email" class="form-control" value="<?php echo $row['receiver_email']; ?>"
                 name="receiver_email">
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Reciever Address</label>
-              <input type="text" class="form-control" value="<?php echo $row['receiver_address']; ?>"
-                name="receiver_address">
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Reciever Phone</label>
+       </div>
+       <div class="col-md-12">
+       <label class="form-label">Reciever Phone</label>
               <input type="text" class="form-control" value="<?php echo $row['receiver_phoneno']; ?>"
                 name="receiver_phoneno">
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Agent from</label>
-              <select class="form-control" name="agent_from">
-                <option selected disabled>select an option</option>
-                <?php
-                $select_q = 'SELECT * FROM `tbl_agent` join `tbl_branch` on tbl_agent.b_id=tbl_branch.b_id right join tbl_city on tbl_city.ci_id=tbl_branch.ci_id';
-                $run_q = mysqli_query($conn, $select_q);
-                while ($data = mysqli_fetch_array($run_q)) { ?>
-                  <option value="<?php echo $data['a_id']; ?>"
-                  <?php
-                  if($data['a_id']==$row['agent_from']){
-                    echo "selected";
-                  }
-                  ?>
-                  
-                  >
-                    <?php echo $data['agent_name'] . ',' . $data['ci_name']; ?>
-                  </option>
-
-                <?php } ?>
-              </select>
-
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Agent to</label>
+       </div>
+       <div class="col-md-12">
+       <label class="form-label">Agent to</label>
               <select class="form-control" name="agent_to">
                 <option selected disabled>select an option</option>
                 <?php
@@ -152,26 +114,9 @@ if(isset($_POST['assign'])){
 
                 <?php } ?>
               </select>
-
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Location from</label>
-              <select class="form-control" name="locationfrom">
-                <?php
-                $select_q = 'SELECT * FROM `tbl_order`join `tbl_city` on tbl_order.locationfrom=tbl_city.ci_id';
-                $run_q = mysqli_query($conn, $select_q);
-                while ($data_c = mysqli_fetch_array($run_q)) { ?>
-                  <option value="<?php echo $data_c['ci_id']; ?>"
-               >  
-                    <?php echo $data_c['ci_name']; ?>
-                  </option>
-
-                <?php } ?>
-              </select>
-
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Location to</label>
+       </div>
+       <div class="col-md-12">
+       <label class="form-label">Location to</label>
               <select class="form-control" name="location_to">
               <?php
                 $select_q2 = 'SELECT * FROM `tbl_order`join `tbl_city` on tbl_order.location_to=tbl_city.ci_id';
@@ -184,32 +129,94 @@ if(isset($_POST['assign'])){
 
                 <?php } ?>
               </select>
-
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Order Weight</label>
-              <input type="text" class="form-control" value="<?php echo $row['order_weight']; ?>" name="order_weight">
-
-            </div>
-
-            <div class="mb-3">
-              <label class="form-label">Order Distance</label>
+       </div>
+       <div class="col-md-12">
+       <label class="form-label">Order Distance</label>
               <input type="text" class="form-control" value="<?php echo $row['order_distance']; ?>"
                 name="order_distance">
-
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Order Charges</label>
-              <input type="text" class="form-control" value="<?php echo $row['total_charges']; ?>" name="order_charges">
-
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Courier Company</label>
+       </div>
+       <div class="col-md-12">
+       <label class="form-label">Courier Company</label>
               <input type="text" class="form-control" value="<?php echo $row['co_id']; ?>" name="co_id">
 
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Order Status</label>
+       </div>
+              </div>
+          </div>
+            <!-- End First column -->
+   <!-- Second column -->
+   <div class="col-lg-6">
+               <div class="row gy-3">
+                <div class="col-md-12">
+                <label class="form-label">Sender Name</label>
+              <input type="text" class="form-control" value="<?php echo $row['sender_name']; ?>"
+                name="sender_name">
+   </div>
+                <div class="col-md-12">
+                <label class="form-label">Sender Address</label>
+              <input type="text" class="form-control" value="<?php echo $row['sender_address']; ?>"
+                name="sender_address1">
+ </div>      
+ <div class="col-md-12">
+ <label class="form-label">Reciever Name</label>
+              <input type="text" class="form-control" value="<?php echo $row['receiver_name']; ?>" name="receiver_name">
+    </div>
+
+                <div class="col-md-12">
+                <label class="form-label">Reciever Address</label>
+              <input type="text" class="form-control" value="<?php echo $row['receiver_address']; ?>"
+                name="receiver_address">
+       </div>
+       <div class="col-md-12">
+       <label class="form-label">Agent from</label>
+              <select class="form-control" name="agent_from">
+                <option selected disabled>select an option</option>
+                <?php
+                $select_q = 'SELECT * FROM `tbl_agent` join `tbl_branch` on tbl_agent.b_id=tbl_branch.b_id right join tbl_city on tbl_city.ci_id=tbl_branch.ci_id';
+                $run_q = mysqli_query($conn, $select_q);
+                while ($data = mysqli_fetch_array($run_q)) { ?>
+                  <option value="<?php echo $data['a_id']; ?>"
+                  <?php
+                  if($data['a_id']==$row['agent_from']){
+                    echo "selected";
+                  }
+                  ?>
+                  
+                  >
+                    <?php echo $data['agent_name'] . ',' . $data['ci_name']; ?>
+                  </option>
+
+                <?php } ?>
+              </select>
+
+
+       </div>
+       <div class="col-md-12">
+       <label class="form-label">Location from</label>
+              <select class="form-control" name="locationfrom">
+                <?php
+                $select_q = 'SELECT * FROM `tbl_order`join `tbl_city` on tbl_order.locationfrom=tbl_city.ci_id';
+                $run_q = mysqli_query($conn, $select_q);
+                while ($data_c = mysqli_fetch_array($run_q)) { ?>
+                  <option value="<?php echo $data_c['ci_id']; ?>"
+               >  
+                    <?php echo $data_c['ci_name']; ?>
+                  </option>
+
+                <?php } ?>
+              </select>
+       </div>
+       <div class="col-md-12">
+       <label class="form-label">Order Weight</label>
+              <input type="text" class="form-control" value="<?php echo $row['order_weight']; ?>" name="order_weight">
+
+       </div>
+       <div class="col-md-12">
+       <label class="form-label">Order Charges</label>
+              <input type="text" class="form-control" value="<?php echo $row['total_charges']; ?>" name="order_charges">
+       </div>
+     
+       <div class="col-md-12">
+       <label class="form-label">Order Status</label><br>
          <select name="order_status" >
          <option selected disabled><?php echo $row['status']; ?></option>
          <option value="shipped">
@@ -219,15 +226,22 @@ if(isset($_POST['assign'])){
          Delivered
          </option>
          </select>
-
+       </div>
+              </div>
+          </div>
+            <!-- End Second column -->
             </div>
-            <button type="submit" class="btn btn-primary" name="assign">Assign</button>
-          </form>
-        </div>
-      </div>
+ <br>
+ <button type="submit" class="btn button" name="assign">Assign</button>
+ </form>
 
 
-      <!-- End of Main Content -->
+    </div> 
+    <!-- End Form -->
+  </div>
+            <!-- End of Main Content -->
+   </div>
+   <br><br>
 
       <!-- Footer -->
       <?php include('footer.php') ?>

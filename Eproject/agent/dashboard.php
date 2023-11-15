@@ -49,7 +49,7 @@ $q8 = mysqli_query($conn, $countDeliveredOrders);
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <h1 class="h3 mb-0 headings">Dashboard</h1>
                        
                     </div>
 
@@ -224,7 +224,7 @@ $q8 = mysqli_query($conn, $countDeliveredOrders);
 
             </div>
             <!-- End of Main Content -->
-
+<br><br>
             <!-- Footer -->
            <?php include('footer.php'); ?>
             <!-- End of Footer -->

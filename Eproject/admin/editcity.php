@@ -29,28 +29,40 @@ if(isset($_POST['btnupdate'])){
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Update City</h1>
-                        <a href="cityadd.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Add City</a>
+                        <h1 class="h3 mb-0 headings">Update City</h1>
+                        <a href="cityadd.php" class="d-none d-sm-inline-block btn btn-sm btnlink"> Add City</a>
                     </div>
-
-
-                </div>
-                <!-- /.container-fluid -->
-                <div class="container">
-
-  <form method="POST" enctype="multipart/form-data">
-    <div class="mb-3">
-        <label  class="form-label">City Name</label>
+                    </div>
+                 <!--End Page Heading -->
+                 <div class="maindiv">
+        <!-- Form Start -->
+      <div class="container">
+      <form method="POST" enctype="multipart/form-data">
+        <div class="row g-0">
+          <!-- First column -->
+        <div class="col-lg-12">
+               <div class="row gy-3">
+                <div class="col-md-12">
+                <label  class="form-label">City Name</label>
         <input type="text" class="form-control" value ="<?php echo $row['ci_name']; ?>" name="ci_name">
-      </div>
-    <button type="submit" class="btn btn-primary" name="btnupdate">Submit</button>
-  </form>
-</div>
+   </div>
+               
+              </div>
+          </div>
+            <!-- End First column -->
+
             </div>
+ <br>
+ <button type="submit" class="btn button" name="btnupdate">Update</button>
+ </form>
 
 
+    </div> 
+    <!-- End Form -->
+  </div>
             <!-- End of Main Content -->
-
+   </div>
+   <br><br>
             <!-- Footer -->
        <?php include('footer.php')?>
             <!-- End of Footer -->

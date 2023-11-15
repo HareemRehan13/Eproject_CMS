@@ -15,15 +15,15 @@ $id=$i['a_id'];
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">To Recieve</h1>
+                        <h1 class="h3 mb-0 headings">To Recieve</h1>
                     </div>
 
-<div class="container" style="overflow-x:auto;">
-<table class="table table-bordered">
+<div class="container maindiv" style="overflow-x:auto;">
+<table class="table">
   <thead>
     <tr>
-      <th>Id</th>
-      <th>UserId</th>
+      <th>#</th>
+      <th>User Id</th>
       <th>Sender Name</th>
       <th>Sender Email</th>
       <th>Sender Address</th>
@@ -32,12 +32,10 @@ $id=$i['a_id'];
       <th>Receiver Email</th>
       <th>Receiver Address</th>
       <th>Receiver Phoneno</th>
-   
       <th>Recieve From</th>
       <th>Order Weight</th>
       <th>Order Distance</th>
       <th>Location From</th>
-     
       <th>Company Id</th>
       <th>Total price</th>
       <th>Status</th>
@@ -61,12 +59,10 @@ $id=$i['a_id'];
       <td><?php echo $row2['receiver_email'];?></td>
       <td><?php echo $row2['receiver_address'];?></td>
       <td><?php echo $row2['receiver_phoneno'];?></td>
-    
       <td><?php echo $row2['agent_name']?></td>
       <td><?php echo $row2['order_weight'];?></td>
       <td><?php echo $row2['order_distance'];?></td>
       <td><?php echo $row2['ci_name'];?></td>
-
       <td><?php echo $row2['co_name'];?></td>
       <td><?php echo $row2['total_charges'];?></td>
       <td><?php echo $row2['status'];?></td>
@@ -77,8 +73,7 @@ $id=$i['a_id'];
 </table>
 </div>
                
-<br>
-<br>
+<br><br>
  
 <?php
 $select ="SELECT * FROM `tbl_order` where `agent_from`='$id'";
@@ -88,15 +83,15 @@ $ru = mysqli_query($conn, $select);
             
   <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">To Deliver</h1>
+                        <h1 class="h3 mb-0 headings">To Deliver</h1>
                     </div>
 
-<div class="container" style="overflow-x:auto;">
-<table class="table table-bordered">
+<div class="container maindiv" style="overflow-x:auto;">
+<table class="table">
   <thead>
     <tr>
-      <th>Id</th>
-      <th>UserId</th>
+      <th>#</th>
+      <th>User Id</th>
       <th>Sender Name</th>
       <th>Sender Email</th>
       <th>Sender Address</th>
@@ -105,11 +100,9 @@ $ru = mysqli_query($conn, $select);
       <th>Receiver Email</th>
       <th>Receiver Address</th>
       <th>Receiver Phoneno</th>
-      
       <th>Deliver To</th>
       <th>Order Weight</th>
       <th>Order Distance</th>
-   
       <th>Location To</th>
       <th>Company Id</th>
       <th>Total price</th>
@@ -134,11 +127,9 @@ $ru = mysqli_query($conn, $select);
       <td><?php echo $row2['receiver_email'];?></td>
       <td><?php echo $row2['receiver_address'];?></td>
       <td><?php echo $row2['receiver_phoneno'];?></td>
-    
       <td><?php echo $row2['agent_name']?></td>
       <td><?php echo $row2['order_weight'];?></td>
       <td><?php echo $row2['order_distance'];?></td>
-   
       <td><?php echo $row2['ci_name'];?></td>
       <td><?php echo $row2['co_name'];?></td>
       <td><?php echo $row2['total_charges'];?></td>
@@ -154,7 +145,7 @@ $ru = mysqli_query($conn, $select);
 
             </div>
             <!-- End of Main Content -->
-
+            <br><br>
             <!-- Footer -->
        <?php include('footer.php')?>
             <!-- End of Footer -->

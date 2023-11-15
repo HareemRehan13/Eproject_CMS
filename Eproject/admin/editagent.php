@@ -39,48 +39,61 @@ $agent_name= $_POST['agent_name'];
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Update Agents</h1>
-                        <a href="useradd.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Add Agent</a>
+                        <h1 class="h3 mb-0 headings">Update Agent</h1>
+                        <a href="useradd.php" class="d-none d-sm-inline-block btn btn-sm btnlink"> Add Agent</a>
                     </div>
-
-
-                </div>
-                <!-- /.container-fluid -->
-                <div class="container">
-
-  <form method="POST" enctype="multipart/form-data">
-    <div class="mb-3">
-        <label  class="form-label">Agent Name</label>
+                    </div>
+                 <!--End Page Heading -->
+                 <div class="maindiv">
+        <!-- Form Start -->
+      <div class="container">
+      <form method="POST" enctype="multipart/form-data">
+        <div class="row g-0">
+          <!-- First column -->
+        <div class="col-lg-12">
+               <div class="row gy-3">
+                <div class="col-md-12">
+                <label  class="form-label">Agent Name</label>
         <input type="text" class="form-control" value ="<?php echo $row['agent_name']; ?>" name="agent_name">
-      </div>
-    <div class="mb-3">
-      <label  class="form-label">Agent Contact</label>
+  
+   </div>
+                <div class="col-md-12">
+                <label  class="form-label">Agent Contact</label>
       <input type="text" class="form-control" value ="<?php echo $row['a_contact']; ?>" name="a_contact">
-    </div>
-    <div class="mb-3">
-    <label  class="form-label">User Id</label>
+ </div>      
+ <div class="col-md-12">
+ <label  class="form-label">User Id</label>
     <select class="form-control" name="u_name">
    <?php while ($row = mysqli_fetch_array($run_q)) { ?>
       <option value="<?php echo $row['u_id']; ?>"><?php echo $row['u_name']; ?></option>
    <?php } ?>
 </select>
-  </div>
-  <div class="mb-3">
-    <label  class="form-label">Branch Id</label>
+    </div>
+
+                <div class="col-md-12">
+                <label  class="form-label">Branch Id</label>
     <select class="form-control" name="b_address">
    <?php while ($data = mysqli_fetch_array($run_q2)) { ?>
       <option value="<?php echo $data['b_id']; ?>"><?php echo $data['b_address']; ?></option>
    <?php } ?>
 </select>
-  </div>
- 
-    <button type="submit" class="btn btn-primary" name="btnupdate">Submit</button>
-  </form>
-</div>
+       </div>
+              </div>
+          </div>
+            <!-- End First column -->
+
             </div>
+ <br>
+ <button type="submit" class="btn button" name="btnupdate">Update</button>
+ </form>
 
 
+    </div> 
+    <!-- End Form -->
+  </div>
             <!-- End of Main Content -->
+   </div>
+   <br><br>
 
             <!-- Footer -->
        <?php include('footer.php')?>

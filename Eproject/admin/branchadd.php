@@ -31,25 +31,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Add Branch</h1>
-                        <a href="branchlist.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Branch List </a>
+                        <h1 class="h3 mb-0 headings">Add Branch</h1>
+                        <a href="branchlist.php" class="d-none d-sm-inline-block btn btn-sm btnlink">Branch List </a>
                     </div>
-
-                
-                <!-- /.container-fluid -->
-
-                    <form method="POST" enctype="multipart/form-data">
-                        <div class="mb-3">
-                            <label class="form-label"> Branch Address </label>
+                    </div>
+                 <!--End Page Heading -->
+                 <div class="maindiv">
+        <!-- Form Start -->
+      <div class="container">
+      <form method="POST" enctype="multipart/form-data">
+        <div class="row g-0">
+          <!-- First column -->
+        <div class="col-lg-12">
+               <div class="row gy-3">
+                <div class="col-md-12">
+                <label class="form-label"> Branch Address </label>
                             <input type="text" class="form-control" name="b_address" required>
-
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Branch Contact</label>
+   </div>
+   <div class="col-md-12">
+                <label class="form-label">Branch Contact</label>
                             <input type="tel" class="form-control" name="b_contact" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">City</label>
+    </div>
+                <div class="col-md-12">
+               <label class="form-label">City</label>
                             <select name="ci_id" id="" class="form-control">
                             <option selected disabled>Select an option</option>
                                 <?php while ($row = mysqli_fetch_array($run_q)) { ?>
@@ -59,17 +63,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <?php } ?>
 
                             </select>
-                        </div>
-                        <button type="submit" name="btnsubmit" class="btn btn-primary">Submit</button>
+ </div>      
+ 
+              </div>
+          </div>
+            <!-- End First column -->
 
-                    </form>
+</div>
+ <br>
+ <button type="submit" class="btn button" name="btnsubmit">Submit</button>
+ </form>
 
-                </div>
-                <!-- /.container-fluid -->
 
-            </div>
-            <!-- End of Main Content -->
-
+    </div> 
+    <!-- End Form -->
+  </div>
+           <!-- End of Main Content -->
+   </div>
+           
+   <br><br>
             <!-- Footer -->
        <?php include('footer.php')?>
             <!-- End of Footer -->

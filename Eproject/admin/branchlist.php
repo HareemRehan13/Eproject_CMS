@@ -14,20 +14,20 @@ $run_q = mysqli_query($conn, $select_q);
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">View Branches</h1>
-                        <a href="branchadd.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Add Branch</a>
+                        <h1 class="h3 mb-0 headings">View Branches</h1>
+                        <a href="branchadd.php" class="d-none d-sm-inline-block btn btn-sm btnlink">Add Branch</a>
                     </div>
 
-<div class="container">
-<table class="table table-bordered">
+<div class="container maindiv">
+<table class="table">
   <thead>
     <tr>
-      <th>Id</th>
+      <th>#</th>
       <th>City</th>
       <th>Address</th>
       <th>ContactNo</th>
-      <th>Edit</th>
-      <th>Delete</th>
+      <th>Actions</th>
+     
     </tr>
   </thead>
   <tbody>
@@ -39,17 +39,9 @@ $run_q = mysqli_query($conn, $select_q);
       <td><?php echo $row['b_address'];?></td>
       <td><?php echo $row['b_contact'];?></td>
 
-      <!-- <td><img src="<?php echo $row['p_img'];?>" width="50" height="50" alt=""></td> -->
-      <div class="mb-3">
- 
-
-
+      <td><a href="editbranch.php?id=<?php echo $row['b_id'];?>" class="btn btn-primary"><i class='fas fa-edit'></i></a>
+      <a href="deletebranch.php?id=<?php echo $row['b_id'];?>" class="btn btn-danger"><i class='fas fa-trash'></i></a></td>
     
-  </div>
-      <td><a href="editbranch.php?id=<?php echo $row['b_id'];?>" class="btn btn-success">Edit</a></td>
-      <td><a href="deletebranch.php?id=<?php echo $row['b_id'];?>" class="btn btn-danger">Delete</a></td>
-    
-
     </tr>
   <?php } ?>
   </tbody>
@@ -60,7 +52,7 @@ $run_q = mysqli_query($conn, $select_q);
 
             </div>
             <!-- End of Main Content -->
-
+            <br><br>
             <!-- Footer -->
        <?php include('footer.php')?>
             <!-- End of Footer -->

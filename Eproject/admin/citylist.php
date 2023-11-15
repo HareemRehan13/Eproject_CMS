@@ -14,18 +14,18 @@ $run_q = mysqli_query($conn, $select_q);
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">View Cities</h1>
-                        <a href="cityadd.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Add City</a>
+                        <h1 class="h3 mb-0 headings">View Cities</h1>
+                        <a href="cityadd.php" class="d-none d-sm-inline-block btn btn-sm btnlink">Add City</a>
                     </div>
 
-<div class="container">
-<table class="table table-bordered">
+<div class="container maindiv">
+<table class="table">
   <thead>
     <tr>
-      <th>Id</th>
+      <th>#</th>
       <th>City</th>
-      <th>Edit</th>
-      <th>Delete</th>
+      <th>Actions</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -34,8 +34,8 @@ $run_q = mysqli_query($conn, $select_q);
     <tr>
     <td><?php echo $row['ci_id'];?></td>
       <td><?php echo $row['ci_name'];?></td>
-      <td><a href="editcity.php?id=<?php echo $row['ci_id'];?>" class="btn btn-success">Edit</a></td>
-      <td><a href="deletecity.php?id=<?php echo $row['ci_id'];?>" class="btn btn-danger">Delete</a></td>
+      <td><a href="editcity.php?id=<?php echo $row['ci_id'];?>" class="btn btn-primary"><i class='fas fa-edit'></i></a>
+      <a href="deletecity.php?id=<?php echo $row['ci_id'];?>" class="btn btn-danger"><i class='fas fa-trash'></i></a></td>
     
 
     </tr>
@@ -48,7 +48,7 @@ $run_q = mysqli_query($conn, $select_q);
 
             </div>
             <!-- End of Main Content -->
-
+            <br><br>
             <!-- Footer -->
        <?php include('footer.php')?>
             <!-- End of Footer -->

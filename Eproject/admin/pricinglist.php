@@ -17,19 +17,19 @@ $run_q = mysqli_query($conn, $select_q);
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">View Pricing</h1>
-                        <a href="pricingadd.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Add Pricing</a>
+                        <h1 class="h3 mb-0 headings">View Pricing</h1>
+                        <a href="pricingadd.php" class="d-none d-sm-inline-block btn btn-sm btnlink"> Add Pricing</a>
                     </div>
 
-<div class="container">
-<table class="table table-bordered">
+<div class="container maindiv">
+<table class="table">
   <thead>
     <tr>
-      <th>Id</th>
+      <th>#</th>
       <th>Parameter</th>
       <th>Price</th>
-      <th>Edit</th>
-      <th>Delete</th>
+      <th>Actions</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -42,8 +42,8 @@ $run_q = mysqli_query($conn, $select_q);
      
       <div class="mb-3"> 
   </div>
-      <td><a href="editpricing.php?id=<?php echo $row['p_id'];?>" class="btn btn-success">Edit</a></td>
-      <td><a href="deletepricing.php?id=<?php echo $row['p_id'];?>" class="btn btn-danger">Delete</a></td>
+      <td><a href="editpricing.php?id=<?php echo $row['p_id'];?>" class="btn btn-primary"><i class='fas fa-edit'></i></a>
+      <a href="deletepricing.php?id=<?php echo $row['p_id'];?>" class="btn btn-danger"><i class='fas fa-trash'></i></a></td>
     
 
     </tr>
@@ -56,7 +56,7 @@ $run_q = mysqli_query($conn, $select_q);
 
             </div>
             <!-- End of Main Content -->
-
+            <br><br>
             <!-- Footer -->
        <?php include('footer.php')?>
             <!-- End of Footer -->

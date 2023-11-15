@@ -14,15 +14,15 @@ $run_q = mysqli_query($conn, $select_q);
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">View Orders</h1>
+                        <h1 class="h3 mb-0 headings">View Orders</h1>
                        
                     </div>
 
-<div class="container" style="overflow-x:auto;">
-<table class="table table-bordered">
+<div class="container maindiv" style="overflow-x:auto;">
+<table class="table">
   <thead>
     <tr>
-      <th>Id</th>
+      <th>#</th>
       <th>UserId</th>
       <th>Sender Name</th>
       <th>Sender Email</th>
@@ -78,7 +78,7 @@ $run_q = mysqli_query($conn, $select_q);
 
             </div>
             <!-- End of Main Content -->
-
+<br><br>
             <!-- Footer -->
        <?php include('footer.php')?>
             <!-- End of Footer -->

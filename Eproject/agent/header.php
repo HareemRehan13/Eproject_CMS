@@ -27,11 +27,38 @@ if(!isset($_SESSION['user_name'])){
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <style>
-    .bg-gradient-primary {
-    background-color: #3a3b45;
-    background-image: linear-gradient(178deg,#000 10%,#3a3b45 100%);
+        .headings {
+    color: #01155e;
+    font-weight:630;
+    font-size: 32px;
 }
-
+    .bg-gradient-primary {
+        background-image: linear-gradient(182deg,#0e1d34 10%,#0e1d34 100%);
+}
+.btnlink {
+    background-color: #0f2547;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 70px;
+}
+.border-left-primary {
+    border-left: 0.25rem solid #0f2547!important;
+}
+.maindiv{
+    background-color: #fff;
+    margin:auto;
+    padding: 40px 15px;
+    width:90%;
+    border-radius:10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.button{
+    background-color: #0f2547;
+     color:white;
+}
+.scroll-to-top {
+    background: rgb(15 24 79 / 74%);
+}
     </style>
 </head>
 
@@ -82,7 +109,7 @@ if(!isset($_SESSION['user_name'])){
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
 <!-- Sidebar Toggle (Topbar) -->
-<button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+<button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3" style="color:#0f2547;">
     <i class="fa fa-bars"></i>
 </button>Courier Management System
 
@@ -97,7 +124,7 @@ if(!isset($_SESSION['user_name'])){
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="mr-2 d-none d-lg-inline text-gray-600 small" >
-            <?php echo $_SESSION['user_name'];?>
+           <i> <?php echo $_SESSION['user_name'];?></i>
             </span>
             <img class="img-profile rounded-circle"
                 src="img/undraw_profile.svg">

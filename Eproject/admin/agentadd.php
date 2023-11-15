@@ -15,6 +15,9 @@ $agent_name= $_POST['agent_name'];
 
 $insert_q ="INSERT INTO `tbl_agent`( `u_id`, `a_contact`, `b_id`, `agent_name`) VALUES ('$u_id','$a_contact','$b_id ','$agent_name')";
 $run = mysqli_query($conn, $insert_q);
+if($run){
+   echo"<script>window.location.href='agentist.php' </script>";
+ }
 }
 ?>
 
@@ -29,28 +32,30 @@ $run = mysqli_query($conn, $insert_q);
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Add Agent</h1>
-                        <a href="agentlist.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">  Agent List</a>
+                        <h1 class="h3 mb-0 headings">Add Agent</h1>
+                        <a href="agentlist.php" class="d-none d-sm-inline-block btn btn-sm btnlink">  Agent List</a>
                     </div>
-
-                
-                <!-- /.container-fluid -->
-
-            </div>
-           <div class="container">
-            <form method="POST" enctype="multipart/form-data">
-  <div class="mb-3">
-    <label  class="form-label">Agent Name</label>
+                    </div>
+                 <!--End Page Heading -->
+                 <div class="maindiv">
+        <!-- Form Start -->
+      <div class="container">
+      <form method="POST" enctype="multipart/form-data">
+        <div class="row g-0">
+          <!-- First column -->
+        <div class="col-lg-12">
+               <div class="row gy-3">
+                <div class="col-md-12">
+                <label  class="form-label">Agent Name</label>
     <input type="text" class="form-control" name="agent_name">
   
-  </div>
-  <div class="mb-3">
-    <label  class="form-label">Agent Contact</label>
+   </div>
+   <div class="col-md-12">
+                <label  class="form-label">Agent Contact</label>
     <input type="text" class="form-control" name="a_contact">
-  </div>
- 
-  <div class="mb-3">
-    <label  class="form-label">User Id</label>
+    </div>
+                <div class="col-md-12">
+                <label  class="form-label">User Id</label>
     
     <select class="form-control" name="u_name">
         <option selected disabled>Select an option</option>
@@ -59,9 +64,11 @@ $run = mysqli_query($conn, $insert_q);
 
    <?php } ?>
 </select>
-  </div>
-  <div class="mb-3">
-    <label  class="form-label">Branch Id</label>
+ </div>      
+ 
+
+                <div class="col-md-12">
+                <label  class="form-label">Branch Id</label>
     
     <select class="form-control" name="b_address">
         <option selected disabled>Select an option</option>
@@ -70,15 +77,24 @@ $run = mysqli_query($conn, $insert_q);
 
    <?php } ?>
 </select>
-  </div>
- 
-  <button type="submit" class="btn btn-primary" name="btnsubmit">Submit</button>
-</form>
-</div>
-                <!-- /.container-fluid -->  
+       </div>
+              </div>
+          </div>
+            <!-- End First column -->
+
+            </div>
+ <br>
+ <button type="submit" class="btn button" name="btnsubmit">Submit</button>
+ </form>
+
+
+    </div> 
+    <!-- End Form -->
   </div>
             <!-- End of Main Content -->
-
+   </div>
+   <br> <br>
+  
             <!-- Footer -->
        <?php include('footer.php')?>
             <!-- End of Footer -->

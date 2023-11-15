@@ -24,30 +24,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Add Role</h1>
-                        < <a href="rolelist.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Role List</a>
+                        <h1 class="h3 mb-0 headings">Add Role</h1>
+                         <a href="rolelist.php" class="d-none d-sm-inline-block btn btn-sm btnlink">Role List</a>
                     </div>
-
-                
-                <!-- /.container-fluid -->
-
-            </div>
-           <div class="container">
-            <form method="POST" enctype="multipart/form-data">
-  <div class="mb-3">
-    <label  class="form-label">Role Name</label>
+                    </div>
+                 <!--End Page Heading -->
+                 <div class="maindiv">
+        <!-- Form Start -->
+      <div class="container">
+      <form method="POST" enctype="multipart/form-data">
+        <div class="row g-0">
+          <!-- First column -->
+        <div class="col-lg-12">
+               <div class="row gy-3">
+                <div class="col-md-12">
+                <label  class="form-label">Role Name</label>
     <input type="text" class="form-control" name="r_name">
-    <br>
-    <button type="submit" class="btn btn-primary" name="btnsubmit">Submit</button>
-  </div>
-</select>
-  </div>
- 
-</form>
-  </div>
+   </div>
+           
+              </div>
+          </div>
+            <!-- End First column -->
 
+</div>
+ <br>
+ <button type="submit" class="btn button" name="btnsubmit">Submit</button>
+ </form>
+
+
+    </div> 
+    <!-- End Form -->
+  </div>
             <!-- End of Main Content -->
-
-            <!-- Footer -->
+   </div>
+   <br><br> 
+   <!-- Footer -->
        <?php include('footer.php')?>
             <!-- End of Footer -->

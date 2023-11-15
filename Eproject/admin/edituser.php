@@ -36,49 +36,59 @@ if(isset($_POST['btnupdate'])){
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Update User</h1>
-                        <a href="useradd.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Add User</a>
+                        <h1 class="h3 mb-0 headings">Update User</h1>
+                        <a href="useradd.php" class="d-none d-sm-inline-block btn btn-sm btnlink"> Add User</a>
                     </div>
-
-
-                </div>
-                <!-- /.container-fluid -->
-                <div class="container">
-
-  <form method="POST" enctype="multipart/form-data">
-    <div class="mb-3">
-        <label  class="form-label">User Name</label>
+                    </div>
+                 <!--End Page Heading -->
+                 <div class="maindiv">
+        <!-- Form Start -->
+      <div class="container">
+      <form method="POST" enctype="multipart/form-data">
+        <div class="row g-0">
+          <!-- First column -->
+        <div class="col-lg-12">
+               <div class="row gy-3">
+                <div class="col-md-12">
+                <label  class="form-label">User Name</label>
         <input type="text" class="form-control" value ="<?php echo $row['u_name']; ?>" name="u_name">
-      </div>
-    <div class="mb-3">
-      <label  class="form-label">User Email</label>
+   </div>
+                <div class="col-md-12">
+                <label  class="form-label">User Email</label>
       <input type="email" class="form-control" value ="<?php echo $row['u_email']; ?>" name="u_email">
-    </div>
-    <div class="mb-3">
-    <label  class="form-label">Role</label>
+ </div>      
+ <div class="col-md-12">
+ <label  class="form-label">Role</label>
     <select class="form-control" name="r_name">
    <?php while ($data = mysqli_fetch_array($run_q)) { ?>
       <option value="<?php echo $data['r_id']; ?>"><?php echo $data['r_name']; ?></option>
 
    <?php } ?>
 </select>
-    
-  </div>
-  <div class="mb-3">
-    <label  class="form-label">Password</label>
+    </div>
+
+                <div class="col-md-12">
+                <label  class="form-label">Password</label>
     <input type="text" class="form-control" value="<?php echo $row['password'];?>" name="u_pass">
     
-  </div>
- 
+       </div>
+              </div>
+          </div>
+            <!-- End First column -->
 
-    <button type="submit" class="btn btn-primary" name="btnupdate">Submit</button>
-  </form>
-</div>
             </div>
+ <br>
+ <button type="submit" class="btn button" name="btnupdate">Update</button>
+ </form>
 
 
+    </div> 
+    <!-- End Form -->
+  </div>
             <!-- End of Main Content -->
-
+   </div>
+   <br><br>
+  
             <!-- Footer -->
        <?php include('footer.php')?>
             <!-- End of Footer -->
