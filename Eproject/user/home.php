@@ -1,3 +1,25 @@
+<?php
+include('connection.php');
+include('navbar.php');
+$or_id = $sender_name = $status = '';
+
+if (isset($_POST['btnsubmit'])) {
+  $order_idInput = $_POST['order_id'];
+  
+  $select_q = "SELECT * FROM `tbl_order` WHERE or_id = '$order_idInput'";
+  $run_q = mysqli_query($conn, $select_q);
+  
+  if ($run_q && mysqli_num_rows($run_q) > 0) {
+      $row = mysqli_fetch_array($run_q);
+      $or_id = $row['or_id'];
+      $sender_name = $row['sender_name'];
+      $status = $row['status'];
+  }
+   else {
+      echo " <script>alert('Order ID not found')</script>";
+  }
+}
+?>
 <style>
   .comp{
   background-color:#fafafa;
@@ -21,43 +43,14 @@ border-radius: 10px;
 }
 .siv1{
   background-color: #fafafa;
-  padding: 50px;
+text-align: center;
+
 }
+.h2a{
+  color:#0e1d34 !important;
+}
+
 </style>
-<?php
-
-
-
-include('connection.php');
-
-$or_id = $sender_name = $status = '';
-
-if (isset($_POST['btnsubmit'])) {
-  $order_idInput = $_POST['order_id'];
-  
-  $select_q = "SELECT * FROM `tbl_order` WHERE or_id = '$order_idInput'";
-  $run_q = mysqli_query($conn, $select_q);
-  
-  if ($run_q && mysqli_num_rows($run_q) > 0) {
-      $row = mysqli_fetch_array($run_q);
-      $or_id = $row['or_id'];
-      $sender_name = $row['sender_name'];
-      $status = $row['status'];
-  }
-   else {
-      echo " <script>alert('Order ID not found')</script>";
-  }
-}
-
-?>
-
-
-<!-- ======= Header ======= -->
-<?php include('navbar.php');?>
-
- 
-  <!-- End Header -->
-
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="hero d-flex align-items-center">
     <div class="container">
@@ -74,14 +67,14 @@ if (isset($_POST['btnsubmit'])) {
 </form>
           <div class="row gy-4" data-aos="fade-up" data-aos-delay="400">
 
-            <div class="col-lg-3 col-6">
+            <div class="col-4 ">
               <div class="stats-item text-center w-100 h-100">
-                <span><?php echo $or_id; ?></span>
+                <span ><?php echo $or_id; ?></span>
                 <p>Order Id</p>
               </div>
             </div><!-- End Stats Item -->
 
-            <div class="col-lg-3 col-6">
+            <div class="col-4 ">
               <div class="stats-item text-center w-100 h-100">
                 <span><?php echo $sender_name; ?></span>
                 <p>Sender Name</p>
@@ -90,7 +83,7 @@ if (isset($_POST['btnsubmit'])) {
 
            
 
-            <div class="col-lg-3 col-6">
+            <div class="col-4 ">
               <div class="stats-item text-center w-100 h-100">
                 <span><?php echo $status; ?></span>
                 <p>Status</p>
@@ -114,9 +107,8 @@ if (isset($_POST['btnsubmit'])) {
    <div class="container" data-aos="fade-up">
 
      <div class="section-header">
-      
      <span>Our Companies</span>
-       <h2>Our Companies</h2>
+       <h2 class="h2a">Our Companies</h2>
      </div>
      <div class="row" data-aos="fade-up" data-aos-delay="100">
       <?php
@@ -126,9 +118,10 @@ if (isset($_POST['btnsubmit'])) {
 <?php while($row = mysqli_fetch_array($run_q1)){ ?>
    
 
-       <div class="col-lg-4 col-md-6 d-flex">
+       <div class="col-lg-4 col-md-12 col-sm-12 ">
          <div class="member">
-           <br><br>
+          <br>
+          <br>
            <div class="member-content">
              <h2 class="headings"><?php echo $row['co_name']; ?></h2>
            
@@ -153,10 +146,10 @@ if (isset($_POST['btnsubmit'])) {
       <div class="container" data-aos="fade-up">
         <div class="section-header">
           <span>Our Services</span>
-          <h2>Our Services</h2>
+          <h2 class="h2a">Our Services</h2>
         </div>
         <div class="row gy-4">
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-4 col-md-12 col-sm-12" data-aos="fade-up" data-aos-delay="200">
             <div class="card">
               <div class="card-img">
                 <img src="assets/img/logistics-service.jpg" alt="" class="img-fluid">
@@ -167,7 +160,7 @@ if (isset($_POST['btnsubmit'])) {
             </div>
           </div><!-- End Card Item -->
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-lg-4 col-md-12 col-sm-12" data-aos="fade-up" data-aos-delay="300">
             <div class="card">
               <div class="card-img">
                 <img src="assets/img/cargo-service.jpg" alt="" class="img-fluid">
@@ -177,7 +170,7 @@ if (isset($_POST['btnsubmit'])) {
             </div>
           </div><!-- End Card Item -->
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="col-lg-4 col-md-12 col-sm-12" data-aos="fade-up" data-aos-delay="400">
             <div class="card">
               <div class="card-img">
                 <img src="assets/img/trucking-service.jpg" alt="" class="img-fluid">
@@ -243,8 +236,6 @@ Track more than 1524+ couriers logistics and marketplaces, including UPS, DHL, F
       </div>
     </section>
   <!-- End About Us Section -->
-
-  
     <!-- ======= Call To Action Section ======= -->
     <section id="call-to-action" class="call-to-action">
       <div class="container" data-aos="zoom-out">
@@ -317,13 +308,11 @@ Track more than 1524+ couriers logistics and marketplaces, including UPS, DHL, F
       </div>
     </section><!-- End Features Section -->
 
-   <!-- ======= Testimonials Section ======= -->
-   <section id="testimonials" class="testimonials">
+     <!-- ======= Testimonials Section ======= -->
+     <section id="testimonials" class="testimonials">
       <div class="container">
-
         <div class="slides-1 swiper" data-aos="fade-up">
           <div class="swiper-wrapper">
-
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
@@ -409,14 +398,11 @@ Track more than 1524+ couriers logistics and marketplaces, including UPS, DHL, F
                 </p>
               </div>
             </div><!-- End testimonial item -->
-
-          </div>
+</div>
           <div class="swiper-pagination"></div>
         </div>
-
       </div>
     </section><!-- End Testimonials Section -->
-
     <!-- ======= Frequently Asked Questions Section ======= -->
     <section id="faq" class="faq">
       <div class="container" data-aos="fade-up">
@@ -519,9 +505,8 @@ Step 4: Receiving the package.
 
       </div>
     </section><!-- End Frequently Asked Questions Section -->
-
-  </main><!-- End #main -->
-
+  </main>
+  <!-- End #main -->
   <!-- ======= Footer ======= -->
   <?php include('footer.php');?>
   <!-- End Footer -->

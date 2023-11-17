@@ -19,11 +19,10 @@
 
 /* Colors */
 :root {
-  --color-default: #0a0d13;
-  --color-primary: #0d42ff;
+  --color-default: #0e1d34;
+  --color-primary: #0e1d34;
   --color-secondary: #0e1d34;
 }
-
 /* Smooth scroll behavior */
 :root {
   scroll-behavior: smooth;
@@ -43,7 +42,7 @@ a {
 }
 
 a:hover {
-  color: #406aff;
+  color: #0e1d34;
   text-decoration: none;
 }
 
@@ -70,13 +69,13 @@ section {
   position: relative;
 }
 
-.section-header h2 {
+.section-header .h2 {
   font-size: 32px;
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 20px;
   padding-bottom: 0;
-  color: #001973;
+  color: #0e1d34;
   position: relative;
   z-index: 2;
   margin-bottom: 20px;
@@ -89,8 +88,8 @@ section {
   position: absolute;
   display: block;
   width: 50px;
-  height: 3px;
-  background: var(--color-primary);
+  height: 100px;
+  background-color: var(--color-primary);
   left: 0;
   right: 0;
   bottom: 0;
