@@ -1,5 +1,8 @@
 <?php
+$currentPage = 'orders';
+
 include('connection.php');
+
 include('header.php');
 
 $idd=$_SESSION['id'];

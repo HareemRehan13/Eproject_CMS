@@ -1,4 +1,6 @@
 <?php
+$currentPage = 'dashboard';
+
 include('connection.php'); 
 
 $countcompany = "SELECT COUNT(*) as totalcompanies FROM tbl_company";

@@ -1,4 +1,6 @@
 <?php
+$currentPage = 'roles';
+
 include('connection.php');
 $id = $_GET['id'];
 

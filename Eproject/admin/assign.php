@@ -1,4 +1,6 @@
 <?php
+$currentPage = 'orders';
+
 include('connection.php');
 $id = $_GET['id'] ;
 $selected_q = "SELECT * FROM `tbl_agent`";
@@ -52,7 +54,7 @@ if(isset($_POST['assign'])){
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 headings">Update Order</h1>
+            <h1 class="h3 mb-0 headings">Assign Order</h1>
             <a href="orders.php" class="d-none d-sm-inline-block btn btn-sm btnlink"> View Order</a>
           </div>
           </div>

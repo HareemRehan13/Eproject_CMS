@@ -1,6 +1,8 @@
 
 <!-- ======= Header ======= -->
  <?php
+ $currentPage = 'calpricing';
+
  include('connection.php');
 include('navbar.php');
 

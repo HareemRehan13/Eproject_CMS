@@ -1,4 +1,6 @@
 <?php
+$currentPage = 'order';
+
 include('connection.php');
 
 if(isset($_POST['btnsubmit'])){

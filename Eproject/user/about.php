@@ -1,4 +1,6 @@
 <?php
+$currentPage = 'about';
+
 include('connection.php');
 $fetch_q = "SELECT * FROM `tbl_company`";
 $run_q = mysqli_query($conn, $fetch_q);

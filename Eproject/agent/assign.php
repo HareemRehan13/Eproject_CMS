@@ -1,4 +1,6 @@
 <?php
+$currentPage = 'orders';
+
 include('connection.php');
 $id = $_GET['id'] ;
 $selected_q = "SELECT * FROM `tbl_agent`";

@@ -1,4 +1,6 @@
 <?php
+$currentPage = 'pricing';
+
 include('connection.php');
 $id = $_GET['id'];
 

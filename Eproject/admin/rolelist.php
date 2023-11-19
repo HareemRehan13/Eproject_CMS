@@ -1,4 +1,6 @@
 <?php
+$currentPage = 'roles';
+
 include('connection.php');
 $select_q ='SELECT * FROM `tbl_role` WHERE status=0';
 $run_q = mysqli_query($conn, $select_q);   

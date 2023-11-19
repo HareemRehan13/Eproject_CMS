@@ -1,4 +1,6 @@
 <?php
+$currentPage = 'orders';
+
 include('connection.php');
 $select_q ='SELECT * FROM `tbl_order`';
 $run_q = mysqli_query($conn, $select_q);

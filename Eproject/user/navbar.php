@@ -4,6 +4,10 @@ session_start();
 if(!isset($_SESSION['user_name'])){
     header('location:../admin/login.php');
 }
+
+function isPageActive($currentPage, $pageName) {
+  return ($currentPage === $pageName) ? 'active' : '';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,12 +71,12 @@ if(!isset($_SESSION['user_name'])){
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="home.php" class="active">Home</a></li>
-          <li><a href="about.php">About</a></li>
-          <li><a href="services.php">Services</a></li>
-          <li><a href="pricing.php">Pricing</a></li>
-          <li><a href="calpricing.php">Calculate Pricing</a></li>
-          <li><a href="order.php">Order</a></li>
+<li><a href="home.php" class=" <?= isPageActive($currentPage, 'home') ?> ">Home</a></li>
+          <li><a href="about.php" class=" <?= isPageActive($currentPage, 'about') ?>">About</a></li>
+          <li><a href="services.php" class=" <?= isPageActive($currentPage, 'services') ?>">Services</a></li>
+          <li><a href="pricing.php" class=" <?= isPageActive($currentPage, 'pricing') ?>">Pricing</a></li>
+          <li><a href="calpricing.php" class=" <?= isPageActive($currentPage, 'calpricing') ?>">Calculate Pricing</a></li>
+          <li><a href="order.php" class="<?= isPageActive($currentPage, 'order') ?>">Order</a></li>
           <li>
           <div class="dropdown">
           <a  href="#" id="userDropdown" role="button">

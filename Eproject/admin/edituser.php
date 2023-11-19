@@ -1,4 +1,6 @@
 <?php
+$currentPage = 'users';
+
 include('connection.php');
 $id = $_GET['id'];
 

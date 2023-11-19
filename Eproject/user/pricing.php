@@ -1,6 +1,9 @@
 
 <!-- ======= Header ======= -->
-  <?php include('navbar.php');
+  <?php
+$currentPage = 'pricing';
+
+  include('navbar.php');
   include('connection.php');
   $fetch_q = "SELECT * FROM `tbl_company`";
 $run_q = mysqli_query($conn, $fetch_q);

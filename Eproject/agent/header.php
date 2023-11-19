@@ -3,6 +3,12 @@ session_start();
 if(!isset($_SESSION['user_name'])){
     header('location:../admin/login.php');
 }
+
+function isPageActive($currentPage, $pageName) {
+    return ($currentPage === $pageName) ? 'active' : '';
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,18 +88,19 @@ if(!isset($_SESSION['user_name'])){
 
 
 <!-- Nav Item - Dashboard -->
-<li class="nav-item active">
+<li class="nav-item <?= isPageActive($currentPage, 'dashboard') ?>">
     <a class="nav-link" href="dashboard.php">
         <i class="fas fa-fw fa-tachometer-alt"></i>
-        <span>Dashboard</span></a>
+        <span>Dashboard</span>
+    </a>
 </li>
 
-<!-- Nav Item - Pages Collapse Menu -->
-
-<li class="nav-item">
+<!-- Nav Item - Orders -->
+<li class="nav-item <?= isPageActive($currentPage, 'orders') ?>">
     <a class="nav-link" href="orders.php">
-    <i class='fas fa-boxes'></i>
-        <span>Orders</span></a>
+        <i class='fas fa-boxes'></i>
+        <span>Orders</span>
+    </a>
 </li>
 
 </ul>

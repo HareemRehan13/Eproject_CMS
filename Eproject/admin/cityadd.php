@@ -1,4 +1,6 @@
 <?php
+$currentPage = 'city';
+
 include('connection.php');
 $fetch_q = "SELECT * FROM `tbl_city`";
 $run_q = mysqli_query($conn, $fetch_q);

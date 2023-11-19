@@ -1,4 +1,6 @@
 <?php
+$currentPage = 'roles';
+
 include('connection.php');
 $fetch_q = "SELECT * FROM `tbl_role`";
 $run_q = mysqli_query($conn, $fetch_q);

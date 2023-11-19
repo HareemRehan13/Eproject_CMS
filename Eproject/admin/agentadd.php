@@ -1,5 +1,6 @@
-
 <?php
+$currentPage = 'agents';
+
 include('connection.php');
 $select_q ='SELECT * FROM `tbl_user`';
 $run_q = mysqli_query($conn, $select_q);

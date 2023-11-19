@@ -1,4 +1,6 @@
 <?php
+$currentPage = 'pricing';
+
 include('connection.php');
 $select_q ='SELECT * FROM `tbl_pricing`';
 $run_q = mysqli_query($conn, $select_q);

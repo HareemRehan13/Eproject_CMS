@@ -1,4 +1,6 @@
 <?php
+$currentPage = 'home';
+
 include('connection.php');
 include('navbar.php');
 $or_id = $sender_name = $status = '';

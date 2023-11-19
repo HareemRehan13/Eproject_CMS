@@ -1,5 +1,6 @@
-
 <?php
+$currentPage = 'pricing';
+
 include('connection.php');
 
 if(isset($_POST['btnsubmit'])){

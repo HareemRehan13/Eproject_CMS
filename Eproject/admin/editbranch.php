@@ -1,4 +1,6 @@
 <?php
+$currentPage = 'branch';
+
 include('connection.php');
 $id = $_GET['id'];
 

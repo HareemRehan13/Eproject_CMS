@@ -1,8 +1,12 @@
-
 <?php
 session_start();
 if(!isset($_SESSION['user_name'])){
     header('location:login.php');
+}
+
+
+function isPageActive($currentPage, $pageName) {
+    return ($currentPage === $pageName) ? 'active' : '';
 }
 ?>
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -19,15 +23,16 @@ if(!isset($_SESSION['user_name'])){
 
 
 <!-- Nav Item - Dashboard -->
-<li class="nav-item active">
+<li class="nav-item <?= isPageActive($currentPage, 'dashboard') ?>">
     <a class="nav-link" href="dashboard.php">
         <i class="fas fa-fw fa-tachometer-alt"></i>
-        <span>Dashboard</span></a>
+        <span>Dashboard</span>
+    </a>
 </li>
 
 <!-- Nav Item - Pages Collapse Menu -->
 
-<li class="nav-item">
+<li class="nav-item <?= isPageActive($currentPage, 'users') ?>">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class='fas fa-user-circle'></i>
@@ -44,7 +49,7 @@ if(!isset($_SESSION['user_name'])){
 
 
 
-<li class="nav-item">
+<li class="nav-item <?= isPageActive($currentPage, 'agents') ?>" >
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="true" aria-controls="collapseTwo">
         <i class='fas fa-user-alt'></i>
@@ -61,7 +66,7 @@ if(!isset($_SESSION['user_name'])){
 
 
 
-<li class="nav-item">
+<li class="nav-item <?= isPageActive($currentPage, 'roles') ?>" >
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class='fas fa-th-list'></i>
@@ -75,7 +80,7 @@ if(!isset($_SESSION['user_name'])){
                 </div>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item <?= isPageActive($currentPage, 'city') ?>">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsecity"
                     aria-expanded="true" aria-controls="collapsecity">
                     <i class='fas fa-th-list'></i>
@@ -90,7 +95,7 @@ if(!isset($_SESSION['user_name'])){
             </li>
 
 
-<li class="nav-item">
+<li class="nav-item <?= isPageActive($currentPage, 'branch') ?>" >
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsebranch"
                     aria-expanded="true" aria-controls="collapsebranch">
                     <i class='fas fa-code-branch'></i>
@@ -106,7 +111,7 @@ if(!isset($_SESSION['user_name'])){
             </li>
 
 
-            <li class="nav-item">
+            <li class="nav-item <?= isPageActive($currentPage, 'pricing') ?>">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsepricing"
                     aria-expanded="true" aria-controls="collapsepricing">
                     <i class='fas fa-th-list'></i>
@@ -123,7 +128,7 @@ if(!isset($_SESSION['user_name'])){
 
 
 
-<li class="nav-item">
+<li class="nav-item <?= isPageActive($currentPage, 'orders') ?>">
     <a class="nav-link" href="orders.php">
     <i class='fas fa-boxes'></i>
         <span>Orders</span></a>

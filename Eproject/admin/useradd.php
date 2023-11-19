@@ -1,5 +1,6 @@
-
 <?php
+$currentPage = 'users';
+
 include('connection.php');
 $select_q ='SELECT * FROM `tbl_role`';
 $run_q = mysqli_query($conn, $select_q);
