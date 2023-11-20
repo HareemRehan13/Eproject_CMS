@@ -28,7 +28,6 @@ $totalorders= $row4['totalorders'];
  <!-- ======= Header ======= -->
   <?php include('navbar.php');?>
   <!-- End Header -->
-
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
