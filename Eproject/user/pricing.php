@@ -55,7 +55,7 @@ $run_q = mysqli_query($conn, $fetch_q);
 }
 .mm{
 color:#0e1d34;
-font-weight: bolder;
+font-weight:bold ;
 
 }
   </style>
