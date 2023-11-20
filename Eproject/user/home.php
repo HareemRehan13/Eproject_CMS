@@ -48,7 +48,7 @@ border-radius: 10px;
 text-align: center;
 
 }
-.h2a{
+.h2 a{
   color:#0e1d34 !important;
 }
 
