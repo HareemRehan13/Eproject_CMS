@@ -28,6 +28,11 @@ $totalorders= $row4['totalorders'];
  <!-- ======= Header ======= -->
   <?php include('navbar.php');?>
   <!-- End Header -->
+  <style>
+    .h3a{
+      color:#0e1d34 !important;
+    }
+  </style>
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
@@ -64,7 +69,7 @@ your logistics, and give you a competitive edge!</p>
             <a href="https://youtu.be/x4hh3Hh4xSk?si=_YOShC0753p8zoTX" class="glightbox play-btn"></a>
           </div>
           <div class="col-lg-6 content order-last  order-lg-first">
-            <h3>About Us</h3>
+            <h3 class="h3a">About Us</h3>
             <p>
             Our user-friendly software is tailored to meet the needs of all users and can be customized to suit
 your specific requirements. From e-commerce to large and small courier companies,

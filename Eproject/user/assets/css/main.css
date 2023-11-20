@@ -187,7 +187,7 @@ section {
 .breadcrumbs nav ol li+li::before {
   display: inline-block;
   padding-right: 10px;
-  color: #4278cc;
+  color: #0e1d34;
   content: "/";
 }
 
@@ -366,7 +366,7 @@ section {
   .navbar .get-a-quote:hover,
   .navbar .get-a-quote:focus:hover {
     color: #fff;
-    background: #2756ff;
+    background: #0e1d34;
   }
 
   .navbar .dropdown ul {
@@ -521,7 +521,7 @@ section {
     padding: 10px 0;
     margin: 10px 20px;
     transition: all 0.5s ease-in-out;
-    border: 1px solid #19335c;
+    border: 1px solid #0e1d34;
   }
 
   .navbar .dropdown>.dropdown-active,
@@ -582,7 +582,7 @@ section {
 }
 
 .featured-services .service-item .icon i {
-  color: #001f8d;
+  color: #0e1d34;
   font-size: 48px;
   transition: 0.3s;
 }
@@ -635,7 +635,7 @@ section {
   font-weight: 700;
   font-size: 32px;
   font-family: var(--font-secondary);
-  color: #001f8d;
+  color: #0e1d34;
 }
 
 .about .content ul {
@@ -661,7 +661,7 @@ section {
 .about .content ul h5 {
   font-size: 18px;
   font-weight: 700;
-  color: #19335c;
+  color: #0e1d34;
 }
 
 .about .content ul p {
