@@ -48,9 +48,6 @@ border-radius: 10px;
 text-align: center;
 
 }
-.h2 a{
-  color:#0e1d34 !important;
-}
 
 </style>
   <!-- ======= Hero Section ======= -->
@@ -105,12 +102,12 @@ text-align: center;
 
   <main id="main">
   <section id="team " class="team pt-0 comp">
-   
+   <br>
    <div class="container" data-aos="fade-up">
 
      <div class="section-header">
      <span>Our Companies</span>
-       <h2 class="h2a">Our Companies</h2>
+       <h2 class="mm">Our Companies</h2>
      </div>
      <div class="row" data-aos="fade-up" data-aos-delay="100">
       <?php
@@ -131,9 +128,9 @@ text-align: center;
              <?php echo $row['co_desc']; ?>
              </p>
              <div class="btnlink">
-             <button class="btn1">  <a class="btna"  href="pricing.php">Find Price</a></button>
-              
-             </div>
+                  <a  href="pricing.php"> Find Price</a>
+                 
+                </div>
            </div>
          </div>
        </div>
@@ -148,7 +145,7 @@ text-align: center;
       <div class="container" data-aos="fade-up">
         <div class="section-header">
           <span>Our Services</span>
-          <h2 class="h2a">Our Services</h2>
+          <h2 class="mm">Our Services</h2>
         </div>
         <div class="row gy-4">
           <div class="col-lg-4 col-md-12 col-sm-12" data-aos="fade-up" data-aos-delay="200">
@@ -191,7 +188,7 @@ text-align: center;
       <div class="container" data-aos="fade-up">
       <div class="section-header">
           <span>About Us</span>
-          <h2>About Us</h2>
+          <h2 class="mm">About Us</h2>
         </div>
         <div class="row gy-4">
           <div class="col-lg-6 position-relative align-self-start order-lg-last order-first">
@@ -411,7 +408,7 @@ Track more than 1524+ couriers logistics and marketplaces, including UPS, DHL, F
 
         <div class="section-header">
           <span>Frequently Asked Questions</span>
-          <h2>Frequently Asked Questions</h2>
+          <h2 class="mm">Frequently Asked Questions</h2>
 
         </div>
 

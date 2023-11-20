@@ -90,15 +90,16 @@ text-align: center;
         </div>
       </div>
       <nav>
+       
         <div class="container">
           <ol>
-            <li><a  href="index.html">Home</a></li>
-            <li>Contact</li>
+            <li><a href="home.php">Home</a></li>
+            <li>Calculate Pricing</li>
           </ol>
         </div>
       </nav>
     </div><!-- End Breadcrumbs -->
-
+ <br><br>
     <!-- ======= Contact Section ======= -->
   <?php
   if(isset($_POST['calc'])){
@@ -167,7 +168,7 @@ elseif($unit=="gm"){
 </div>
 
   </main><!-- End #main -->
-<br>
+<br><br>
   <!-- ======= Footer ======= -->
   <?php include('footer.php');?>
   <!-- End Footer -->

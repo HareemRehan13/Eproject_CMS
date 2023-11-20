@@ -55,13 +55,40 @@ function isPageActive($currentPage, $pageName) {
 .userimg{
   height: 40px;
 }
+.btnlink a{
+  color:white;
+   }
+  .btnlink{
+    background-color: #0e1d34;
+    padding: 8px;
+    margin-left: 80px;
+    margin-right: 80px;
+    border-radius: 70px;
+  
+  }
+  .scroll-top {
+    background: rgb(15 24 79 / 74%);
+}
+.mm{
+  color:#0b2c62;
+font-weight:bold ;
 
+}
+.get-a-quote .php-email-form {
+    background: #f0f0f0;
+}
+.headings{
+    color: #01155e;
+   }
+   .breadcrumbs nav ol {
+    color: #133568;
+}
 </style>
 <body>
 <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="home.php" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1>Courier</h1>

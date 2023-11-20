@@ -28,11 +28,7 @@ $totalorders= $row4['totalorders'];
  <!-- ======= Header ======= -->
   <?php include('navbar.php');?>
   <!-- End Header -->
-  <style>
-    .h3a{
-      color:#0e1d34 !important;
-    }
-  </style>
+
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
@@ -52,7 +48,7 @@ your logistics, and give you a competitive edge!</p>
       <nav>
         <div class="container">
           <ol>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="home.php">Home</a></li>
             <li>About</li>
           </ol>
         </div>
@@ -69,7 +65,7 @@ your logistics, and give you a competitive edge!</p>
             <a href="https://youtu.be/x4hh3Hh4xSk?si=_YOShC0753p8zoTX" class="glightbox play-btn"></a>
           </div>
           <div class="col-lg-6 content order-last  order-lg-first">
-            <h3 class="h3a">About Us</h3>
+            <h2 class="mm">About Us</h2>
             <p>
             Our user-friendly software is tailored to meet the needs of all users and can be customized to suit
 your specific requirements. From e-commerce to large and small courier companies,
@@ -146,48 +142,6 @@ Track more than 1524+ couriers logistics and marketplaces, including UPS, DHL, F
 
       </div>
     </section><!-- End Stats Counter Section -->
-
-    <!-- ======= Our Team Section ======= -->
-    <section id="team" class="team pt-0">
-   
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-          <span>Our Collaboration</span>
-          <h2>Our Collaboration</h2>
-
-        </div>
-        <div class="row" data-aos="fade-up" data-aos-delay="100">
-   <?php while($row = mysqli_fetch_array($run_q)){ ?>
-      
-
-          <div class="col-lg-4 col-md-6 d-flex">
-            <div class="member">
-              <br>
-              <img src="assets/img/icon.png" class="img-fluid" alt="">
-              <div class="member-content">
-                <h4><?php echo $row['co_name']; ?></h4>
-              
-                <p>
-                <?php echo $row['co_desc']; ?>
-                </p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          
-       
-         <?php } ?>
-         </div> 
-      </div>
-    
-    </section><!-- End Our Team Section -->
 
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials">
@@ -289,8 +243,50 @@ Track more than 1524+ couriers logistics and marketplaces, including UPS, DHL, F
       </div>
     </section><!-- End Testimonials Section -->
   </main><!-- End #main -->
-<br><br>
+  <br><br>
+   <!-- ======= Our Team Section ======= -->
+   <section id="team" class="team pt-0">
+   
+   <div class="container" data-aos="fade-up">
+
+     <div class="section-header">
+       <span>Our Collaboration</span>
+       <h2 class="mm">Our Collaboration</h2>
+
+     </div>
+     <div class="row" data-aos="fade-up" data-aos-delay="100">
+<?php while($row = mysqli_fetch_array($run_q)){ ?>
+   
+
+       <div class="col-lg-4 col-md-6 d-flex">
+         <div class="member">
+           <br>
+           <img src="assets/img/icon.png" class="img-fluid" alt="">
+           <div class="member-content">
+             <h4><?php echo $row['co_name']; ?></h4>
+           
+             <p>
+             <?php echo $row['co_desc']; ?>
+             </p>
+             <div class="social">
+               <a href=""><i class="bi bi-twitter"></i></a>
+               <a href=""><i class="bi bi-facebook"></i></a>
+               <a href=""><i class="bi bi-instagram"></i></a>
+               <a href=""><i class="bi bi-linkedin"></i></a>
+             </div>
+           </div>
+         </div>
+       </div><!-- End Team Member -->
+
+       
+    
+      <?php } ?>
+      </div> 
+   </div>
+ 
+ </section><!-- End Our Team Section -->
 <br>
+
   <!-- ======= Footer ======= -->
   <?php include('footer.php');?>
   <!-- End Footer -->

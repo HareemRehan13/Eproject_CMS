@@ -120,10 +120,17 @@ if ($run) {
           </div>
         </div>
       </div>
-    
+      <nav>
+       
+        <div class="container">
+          <ol>
+            <li><a  href="home.php">Home</a></li>
+            <li>Order</li>
+          </ol>
+        </div>
+      </nav>
     </div><!-- End Breadcrumbs -->
-
-    <!-- ======= Get a Quote Section ======= -->
+  <!-- ======= Get a Quote Section ======= -->
     <section id="get-a-quote" class="get-a-quote">
       <div class="container" data-aos="fade-up">
       <form class="php-email-form"action="" method="POST">

@@ -8,23 +8,7 @@ $run_q = mysqli_query($conn, $fetch_q);
  <!-- ======= Header ======= -->
   <?php include('navbar.php');?>
   <!-- End Header -->
-<style>
-   .headings{
-    color: #01155e;
-   }
-   .btnlink a{
-  color:white;
-   }
-  .btnlink{
-    background-color: #0e1d34;
-    padding: 8px;
-    margin-left: 80px;
-    margin-right: 80px;
-    border-radius: 70px;
-  
-  }
- 
-</style>
+
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
@@ -60,7 +44,7 @@ CMS revolutionizes deliveries with cutting-edge technology and dedicated experts
         <div class="section-header">
          
         <span> Companies</span>
-          <h2> Companies</h2>
+          <h2 class="mm"> Companies</h2>
         </div>
         <div class="row" data-aos="fade-up" data-aos-delay="100">
    <?php while($row = mysqli_fetch_array($run_q)){ ?>
@@ -96,7 +80,7 @@ CMS revolutionizes deliveries with cutting-edge technology and dedicated experts
 
         <div class="section-header">
           <span>Our Services</span>
-          <h2>Our Services</h2>
+          <h2 class="mm">Our Services</h2>
 
         </div>
 
@@ -108,7 +92,7 @@ CMS revolutionizes deliveries with cutting-edge technology and dedicated experts
               <div class="card-img">
                 <img src="assets/img/logistics-service.jpg" alt="" class="img-fluid">
               </div>
-              <h3><a href="service-details.html" class="stretched-link">Logistics</a></h3>
+              <h3><a href="#" class="stretched-link">Logistics</a></h3>
               <p>Our precision-focused logistics optimize your supply chain, reducing costs and enhancing efficiency. We manage transportation intricacies, inventory, and route planning with expertise. Real-time tracking and a dedicated team ensure seamless cargo movement. Elevate your business with us.
 </p>
             </div>
@@ -119,7 +103,7 @@ CMS revolutionizes deliveries with cutting-edge technology and dedicated experts
               <div class="card-img">
                 <img src="assets/img/cargo-service.jpg" alt="" class="img-fluid">
               </div>
-              <h3><a href="service-details.html" class="stretched-link">Cargo</a></h3>
+              <h3><a href="#" class="stretched-link">Cargo</a></h3>
               <p>Experience seamless domestic and international shipments. We handle all logistics intricacies—from paperwork to customs clearance—ensuring your cargo arrives safely and on time. Trust us for effortless and reliable cargo services.</p>
             </div>
           </div><!-- End Card Item -->
@@ -129,20 +113,21 @@ CMS revolutionizes deliveries with cutting-edge technology and dedicated experts
               <div class="card-img">
                 <img src="assets/img/trucking-service.jpg" alt="" class="img-fluid">
               </div>
-              <h3><a href="service-details.html" class="stretched-link">Trucking</a></h3>
+              <h3><a href="#" class="stretched-link">Trucking</a></h3>
               <p>Count on us for punctual deliveries on any terrain. Our well-maintained fleet and skilled professionals guarantee safe and timely arrivals. Whether urban deliveries or large shipments, we have the perfect vehicle. Safety and efficiency are our focus, ensuring your cargo arrives securely and on schedule. Trust us for worry-free journeys.</p>
             </div>
           </div><!-- End Card Item -->
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+          <!-- <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
             <div class="card">
               <div class="card-img">
                 <img src="assets/img/packaging-service.jpg" alt="" class="img-fluid">
               </div>
-              <h3><a href="service-details.html" class="stretched-link">Packaging</a></h3>
+              <h3><a href="#" class="stretched-link">Packaging</a></h3>
               <p>Let us handle the intricacies of packing. Our meticulous team ensures every item, from delicate valuables to substantial furniture, is securely wrapped. Using top-tier materials, we guarantee safe transit. Focus on your journey's excitement while we take care of the packing details, ensuring a stress-free move.</p>
             </div>
-          </div><!-- End Card Item -->
+          </div> -->
+          <!-- End Card Item -->
 
         </div>
 
@@ -212,7 +197,7 @@ CMS revolutionizes deliveries with cutting-edge technology and dedicated experts
 
         <div class="section-header">
           <span>Frequently Asked Questions</span>
-          <h2>Frequently Asked Questions</h2>
+          <h2 class="mm">Frequently Asked Questions</h2>
 
         </div>
 
