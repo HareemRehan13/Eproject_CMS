@@ -8,9 +8,9 @@ $countbranch = "SELECT COUNT(*) as totalbranches FROM tbl_branch";
 $countagent = "SELECT COUNT(*) as totalagents FROM tbl_agent";
 $countuser = "SELECT COUNT(*) as totalusers FROM tbl_user WHERE r_id = '2'";
 $countorder = "SELECT COUNT(*) as totalorders FROM tbl_order";
-$countPendingOrders= "SELECT COUNT(*) as totalPendingOrders FROM tbl_order WHERE status = 'pending'";
-$countShippedOrders= "SELECT COUNT(*) as totalShippedOrders FROM tbl_order WHERE status = 'shipped'";
-$countDeliveredOrders= "SELECT COUNT(*) as totalDeliveredOrders FROM tbl_order WHERE status = 'delivered'";
+$countPendingOrders= "SELECT COUNT(*) as totalPendingOrders FROM tbl_order WHERE stat = 'pending'";
+$countShippedOrders= "SELECT COUNT(*) as totalShippedOrders FROM tbl_order WHERE stat = 'shipped'";
+$countDeliveredOrders= "SELECT COUNT(*) as totalDeliveredOrders FROM tbl_order WHERE stat = 'delivered'";
 
 $q1 = mysqli_query($conn, $countcompany);
 $q2 = mysqli_query($conn, $countbranch);

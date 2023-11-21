@@ -33,7 +33,7 @@ if(isset($_POST['assign'])){
   $update_q = "UPDATE `tbl_order` SET `u_id`=' $u_id',`sender_name`='$sender_name',`sender_email`='$sender_email',`sender_address`='$sender_address1',`sender_phoneno`='$sender_phoneno',
   `receiver_name`='$receiver_name',`receiver_email`='$receiver_email',`receiver_address`=' $receiver_address',`receiver_phoneno`='$receiver_phoneno ',
   `agent_from`='$agent_from',`agent_to`='$agent_to',`order_weight`='$order_weight',`order_distance`='$order_distance',
-  `locationfrom`='$locationfrom',`location_to`='$location_to',`co_id`='$co_id',`total_charges`='$order_charges',`status`='$order_status' WHERE `or_id` = $id";
+  `locationfrom`='$locationfrom',`location_to`='$location_to',`co_id`='$co_id',`total_charges`='$order_charges',`stat`='$order_status' WHERE `or_id` = $id";
   $run = mysqli_query($conn, $update_q);
 
   if($run){
@@ -220,7 +220,7 @@ if(isset($_POST['assign'])){
        <div class="col-md-12">
        <label class="form-label">Order Status</label><br>
          <select name="order_status" >
-         <option selected disabled><?php echo $row['status']; ?></option>
+         <option selected disabled><?php echo $row['stat']; ?></option>
          <option value="shipped">
         Shipped
          </option>

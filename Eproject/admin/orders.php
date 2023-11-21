@@ -68,7 +68,7 @@ $run_q = mysqli_query($conn, $select_q);
       <td><?php echo $row['location_to'];?></td>
       <td><?php echo $row['co_id'];?></td>
       <td><?php echo $row['total_charges'];?></td>
-      <td><?php echo $row['status'];?></td>
+      <td><?php echo $row['stat'];?></td>
       <td><a href="assign.php?id=<?php echo $row['or_id'];?>">Assign</a></td>
     </tr>
   <?php } ?>
