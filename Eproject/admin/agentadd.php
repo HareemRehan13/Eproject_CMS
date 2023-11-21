@@ -17,7 +17,7 @@ $agent_name= $_POST['agent_name'];
 $insert_q ="INSERT INTO `tbl_agent`( `u_id`, `a_contact`, `b_id`, `agent_name`) VALUES ('$u_id','$a_contact','$b_id ','$agent_name')";
 $run = mysqli_query($conn, $insert_q);
 if($run){
-   echo"<script>window.location.href='agentist.php' </script>";
+   echo"<script>window.location.href='agentlist.php' </script>";
  }
 }
 ?>

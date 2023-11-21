@@ -68,7 +68,7 @@ $id=$i['a_id'];
       <td><?php echo $row2['ci_name'];?></td>
       <td><?php echo $row2['co_name'];?></td>
       <td><?php echo $row2['total_charges'];?></td>
-      <td><?php echo $row2['status'];?></td>
+      <td><?php echo $row2['stat'];?></td>
       <td><a href="assign.php?id=<?php echo $row2['or_id'];?>">Update</a></td>
     </tr>
   <?php } ?>
@@ -136,7 +136,7 @@ $ru = mysqli_query($conn, $select);
       <td><?php echo $row2['ci_name'];?></td>
       <td><?php echo $row2['co_name'];?></td>
       <td><?php echo $row2['total_charges'];?></td>
-      <td><?php echo $row2['status'];?></td>
+      <td><?php echo $row2['stat'];?></td>
       <td><a href="assign.php?id=<?php echo $row2['or_id'];?>">Update</a></td>
     </tr>
   <?php } ?>
