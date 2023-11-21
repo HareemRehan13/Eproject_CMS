@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2023 at 06:17 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Nov 21, 2023 at 06:38 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,7 +34,7 @@ CREATE TABLE `tbl_agent` (
   `b_id` int(11) NOT NULL,
   `status` int(11) NOT NULL,
   `agent_name` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_agent`
@@ -58,7 +58,7 @@ CREATE TABLE `tbl_branch` (
   `b_address` varchar(50) NOT NULL,
   `b_contact` int(11) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_branch`
@@ -80,7 +80,7 @@ CREATE TABLE `tbl_city` (
   `ci_id` int(11) NOT NULL,
   `ci_name` varchar(50) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_city`
@@ -105,7 +105,7 @@ CREATE TABLE `tbl_company` (
   `co_name` varchar(50) NOT NULL,
   `status` int(11) NOT NULL,
   `per_gram` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_company`
@@ -115,47 +115,6 @@ INSERT INTO `tbl_company` (`co_id`, `co_desc`, `per_kg`, `co_name`, `status`, `p
 (1, 'This service delivers the shipments the day after CMS receives them.', 900, 'overnight', 0, 50),
 (2, 'The company will sent you the parcel on the same day through air frieghts', 1000, 'same day delivery', 0, 100),
 (3, 'This service will sent you the parcel as per companies avalability.', 800, 'DHL', 0, 30);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_contact`
---
-
-CREATE TABLE `tbl_contact` (
-  `con_id` int(11) NOT NULL,
-  `u_id` int(11) NOT NULL,
-  `con_msg` varchar(50) NOT NULL,
-  `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_courier`
---
-
-CREATE TABLE `tbl_courier` (
-  `cou_id` int(11) NOT NULL,
-  `b_id` int(11) NOT NULL,
-  `shipment_date` int(11) NOT NULL,
-  `sender_name` varchar(50) NOT NULL,
-  `sender_city` varchar(50) NOT NULL,
-  `sender_address` varchar(50) NOT NULL,
-  `sender_phoneno` bigint(20) NOT NULL,
-  `sender_email` varchar(50) NOT NULL,
-  `receiver_name` varchar(50) NOT NULL,
-  `receiver_city` varchar(50) NOT NULL,
-  `receiver_address` varchar(50) NOT NULL,
-  `receiver_phoneno` bigint(20) NOT NULL,
-  `receiver_email` varchar(50) NOT NULL,
-  `num_of_parcel` bigint(20) NOT NULL,
-  `parcel_weight` bigint(20) NOT NULL,
-  `cou_desc` varchar(100) NOT NULL,
-  `delivery_charges` bigint(20) NOT NULL,
-  `total_charges` bigint(20) NOT NULL,
-  `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -183,7 +142,7 @@ CREATE TABLE `tbl_order` (
   `location_to` int(11) DEFAULT NULL,
   `co_id` int(11) DEFAULT NULL,
   `total_charges` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_order`
@@ -204,7 +163,7 @@ CREATE TABLE `tbl_pricing` (
   `p_parameter` varchar(50) NOT NULL,
   `p_price` int(20) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_pricing`
@@ -224,7 +183,7 @@ CREATE TABLE `tbl_role` (
   `r_id` int(11) NOT NULL,
   `r_name` varchar(50) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_role`
@@ -248,19 +207,19 @@ CREATE TABLE `tbl_user` (
   `r_id` int(11) NOT NULL,
   `password` varchar(20) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`u_id`, `u_name`, `u_email`, `r_id`, `password`, `status`) VALUES
-(1, 'admin12', 'admin@gmail.com', 1, 'kuchbhi', 0),
-(2, 'ilyas', 'kapoorr@gmail.com', 3, 'bohathiachay', 0),
-(3, 'ibrahim', 'ibrahim@gmail.com', 2, 'kesayhnnaabsb', 0),
-(4, 'Ali', 'Ali@gmail.com', 3, 'Ali123', 0),
-(5, 'Faiz', 'Faiz@gmail.com', 3, 'F1234', 0),
-(6, 'maria ', 'maa@gmail.com', 3, '41534564', 1);
+(1, 'admin12', 'admin@gmail.com', 1, 'admin12', 0),
+(2, 'ilyas', 'kapoorr@gmail.com', 3, 'ilyas12', 0),
+(3, 'ibrahim', 'ibrahim@gmail.com', 2, 'ibrahim12', 0),
+(4, 'Ali', 'Ali@gmail.com', 3, 'Ali12', 0),
+(5, 'Faiz', 'Faiz@gmail.com', 3, 'faiz12', 0),
+(6, 'maria ', 'maa@gmail.com', 3, 'maria12', 1);
 
 --
 -- Indexes for dumped tables
@@ -292,20 +251,6 @@ ALTER TABLE `tbl_city`
 --
 ALTER TABLE `tbl_company`
   ADD PRIMARY KEY (`co_id`);
-
---
--- Indexes for table `tbl_contact`
---
-ALTER TABLE `tbl_contact`
-  ADD PRIMARY KEY (`con_id`),
-  ADD KEY `fk3` (`u_id`);
-
---
--- Indexes for table `tbl_courier`
---
-ALTER TABLE `tbl_courier`
-  ADD PRIMARY KEY (`cou_id`),
-  ADD KEY `fk5` (`b_id`);
 
 --
 -- Indexes for table `tbl_order`
@@ -367,18 +312,6 @@ ALTER TABLE `tbl_company`
   MODIFY `co_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tbl_contact`
---
-ALTER TABLE `tbl_contact`
-  MODIFY `con_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `tbl_courier`
---
-ALTER TABLE `tbl_courier`
-  MODIFY `cou_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
@@ -418,18 +351,6 @@ ALTER TABLE `tbl_agent`
 --
 ALTER TABLE `tbl_branch`
   ADD CONSTRAINT `fk2` FOREIGN KEY (`ci_id`) REFERENCES `tbl_city` (`ci_id`);
-
---
--- Constraints for table `tbl_contact`
---
-ALTER TABLE `tbl_contact`
-  ADD CONSTRAINT `fk3` FOREIGN KEY (`u_id`) REFERENCES `tbl_user` (`u_id`);
-
---
--- Constraints for table `tbl_courier`
---
-ALTER TABLE `tbl_courier`
-  ADD CONSTRAINT `fk5` FOREIGN KEY (`b_id`) REFERENCES `tbl_branch` (`b_id`);
 
 --
 -- Constraints for table `tbl_order`
