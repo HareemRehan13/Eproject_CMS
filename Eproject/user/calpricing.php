@@ -36,7 +36,7 @@ button {
 
 }
 h1{
-  color:#0e1d34 ;
+  color:white;
   margin-top:50px;
   align-items: center;
 vertical-align: middle;
@@ -65,14 +65,11 @@ text-align: center;
 
 }
 .divcon{
-  /* background-color:#0e1d34;  */
-  background-color:white!important;
+  background-color:#0e1d34; 
   
 }
 .div2{
-  /* background-color: #0e1d34; */
-  
-
+  background-color: #0e1d34;
 }
 .divho{
   background-color: #0e1d34;
@@ -130,12 +127,12 @@ elseif($unit=="gm"){
 
   }
   ?>   
-<div class="container ">
+<div class="container divcon">
   <div class="row">
-    <div class="col-lg-6 div1 divcon ">
+    <div class="col-lg-6 div1 divcon">
     <h1>Courier Price Calculator</h1>
 </div>
-    <div class="col-lg-6 div2">
+    <div class="col-lg-6 div2 ">
     <div class="calculator">
       <form action="" method="POST">
         <input class="input1"  type="number" id="weight" name="weight" placeholder="Enter Weight">
