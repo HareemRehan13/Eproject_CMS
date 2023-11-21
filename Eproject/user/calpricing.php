@@ -66,6 +66,7 @@ text-align: center;
 }
 .divcon{
   background-color:#0e1d34; 
+
   
 }
 .div2{
@@ -74,6 +75,7 @@ text-align: center;
 .divho{
   background-color: #0e1d34;
 }
+
 </style>
 
   <main id="main">
@@ -127,7 +129,7 @@ elseif($unit=="gm"){
 
   }
   ?>   
-<div class="container divcon">
+<div class="container divcon ">
   <div class="row">
     <div class="col-lg-6 div1 divcon">
     <h1>Courier Price Calculator</h1>
@@ -159,7 +161,7 @@ elseif($unit=="gm"){
         </select>
         <br>
         <br>
-        <button type="submit" name="calc">Calculate Price</button>
+        <button class="btnsub" type="submit" name="calc">Calculate Price</button>
         </form>
         <p id="result"></p>
     </div>
