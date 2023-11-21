@@ -15,7 +15,7 @@ if (isset($_POST['btnsubmit'])) {
       $row = mysqli_fetch_array($run_q);
       $or_id = $row['or_id'];
       $sender_name = $row['sender_name'];
-      $status = $row['status'];
+      $status = $row['stat'];
   }
    else {
       echo " <script>alert('Order ID not found')</script>";
