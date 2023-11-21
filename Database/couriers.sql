@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2023 at 06:38 AM
+-- Generation Time: Nov 21, 2023 at 06:41 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -137,7 +137,7 @@ CREATE TABLE `tbl_order` (
   `agent_to` int(20) DEFAULT NULL,
   `order_weight` varchar(20) NOT NULL,
   `order_distance` int(20) NOT NULL,
-  `status` varchar(50) NOT NULL,
+  `stat` varchar(50) NOT NULL,
   `locationfrom` int(11) DEFAULT NULL,
   `location_to` int(11) DEFAULT NULL,
   `co_id` int(11) DEFAULT NULL,
@@ -148,7 +148,7 @@ CREATE TABLE `tbl_order` (
 -- Dumping data for table `tbl_order`
 --
 
-INSERT INTO `tbl_order` (`or_id`, `u_id`, `sender_name`, `sender_email`, `sender_address`, `sender_phoneno`, `receiver_name`, `receiver_email`, `receiver_address`, `receiver_phoneno`, `agent_from`, `agent_to`, `order_weight`, `order_distance`, `status`, `locationfrom`, `location_to`, `co_id`, `total_charges`) VALUES
+INSERT INTO `tbl_order` (`or_id`, `u_id`, `sender_name`, `sender_email`, `sender_address`, `sender_phoneno`, `receiver_name`, `receiver_email`, `receiver_address`, `receiver_phoneno`, `agent_from`, `agent_to`, `order_weight`, `order_distance`, `stat`, `locationfrom`, `location_to`, `co_id`, `total_charges`) VALUES
 (1, 3, 'abc', 'abc@gmail.com', 'F.B. Area R-12 Block18,Karachi', 15511152, 'battu', 'battu@gmail.com', '       F.B. Area R-12 Block18,peshawar', 4421501221, 1, 4, '4kg', 1600, 'delivered', 3, 3, 2, 2700),
 (3, 3, 'hello', 'hello@gmail.com', 'nghngn', 15511152, 'hgnghn', 'nghnghn@gmail.com', 'nhgnf', 67567, 2, 1, '56', 46, 'shipped', 2, 1, 2, 676);
 
