@@ -105,6 +105,10 @@ if ($run) {
   .heading{
     color: #01155e;
    }
+   .button{
+    background-color: #0e1d34 !important;
+    color: #fff !important;
+   }
 </style>
   <main id="main">
 
@@ -251,7 +255,7 @@ if ($run) {
 </select>
                 </div>
               </div>
-              <br><br><button type="submit" class="btn btn-primary" name="btnsubmit">Place Your Order</button>
+              <br><br><button type="submit" class="btn btn-primary button" name="btnsubmit">Place Your Order</button>
               <!-- Button trigger modal -->
 <!-- Modal -->
 <!-- <button type="submit" class="btn btn-primary"  name="calc" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Place Your Order</button>

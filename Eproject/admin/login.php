@@ -75,29 +75,36 @@ else{
   background-size: cover;
 }
 .maindiv{
+    margin-top:110px !important;
     background-color: #fff;
-      position: relative;
-      width: 44%; 
-      border-radius: 15px;
-    padding: 60px;
-    margin:  auto;
+    padding: 50px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 470px;
+    margin: auto;
 }
 .heading{
-    color:white;
-    margin-top:60px ;
+    padding-bottom:10px;
+    color:  #112646 ;    
+    font-weight: bold;
     text-align: center;
 }
+.button{
+    background-color: #0e1d34 !important;
+    color: #fff !important;
+}
+
 </style>
 </head>
 
 <body>
 
-                               <div class="container">
-                                 <h1 class="heading">ACCOUNT LOGIN</h1>
-                                 <br>
                                  <div class="maindiv">
+                                 <h2 class="heading"> LOGIN</h2>
                                     <form method="POST">
+                                    
                                         <div class="form-group">
+
                                         <label >Username</label>
                                             <input type="text" class="form-control "
                                                 name="u_name" aria-describedby="emailHelp"
@@ -109,7 +116,7 @@ else{
                                                 name="u_pass" placeholder="Enter Your Password...">
                                         </div>
 <br>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block" name="btnlogin" >
+                                        <button type="submit" class="btn btn-user btn-block button" name="btnlogin" >
                                           Login</button>
                                           <br>
                                       <div style="text-align: center;">Don't have an account? <a href="signup.php">Sign up</a></div>
