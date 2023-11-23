@@ -3,6 +3,14 @@ session_start();
 if(!isset($_SESSION['user_name'])){
     header('location:../admin/login.php');
 }
+else{
+    echo "<style>
+    #login_tag{
+        display:none;
+      }
+    </style>";
+}
+
 
 function isPageActive($currentPage, $pageName) {
     return ($currentPage === $pageName) ? 'active' : '';
@@ -139,11 +147,11 @@ function isPageActive($currentPage, $pageName) {
         <!-- Dropdown - User Information -->
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
             aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="login.php">
+            <a id="login_tag"  class="dropdown-item" href="login.php">
                 <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
               Login
             </a>
-            <div class="dropdown-divider"></div>
+            <!-- <div class="dropdown-divider"></div> -->
             <a class="dropdown-item" href="logout.php" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                 Logout

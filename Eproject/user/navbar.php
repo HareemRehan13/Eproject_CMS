@@ -4,6 +4,17 @@ session_start();
 if(!isset($_SESSION['user_name'])){
     header('location:../admin/login.php');
 }
+else{
+    echo "<style>
+    #login_tag{
+        display:none;
+      }
+      hr{
+        display:none;
+      }
+    </style>";
+}
+
 
 function isPageActive($currentPage, $pageName) {
   return ($currentPage === $pageName) ? 'active' : '';
@@ -114,7 +125,7 @@ font-weight:bold ;
         </a>
       
   <ul style="width:50px" class="dropdown-menu" >
-    <li><a class="" href="../admin/login.php"> 
+    <li id="login_tag"><a class="" href="../admin/login.php"> 
        <i class="fas fa-list" style="font-size:9px">&nbsp; Log In</i>
 
 </a>
