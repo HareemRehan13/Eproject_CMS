@@ -1,3 +1,4 @@
+<?php include('navbar.php');?>
 <?php
 $currentPage = 'order';
 
@@ -82,10 +83,10 @@ if ($response) {
 } else {
     echo "Error fetching data from the API.";
 }
-
-$insert_q ="INSERT INTO `tbl_order`(`sender_name`, `sender_email`,`sender_address`, `sender_phoneno`, `receiver_name`, `receiver_email`,
+$u_id = $_SESSION['id'];
+$insert_q ="INSERT INTO `tbl_order`(`u_id`,`sender_name`, `sender_email`,`sender_address`, `sender_phoneno`, `receiver_name`, `receiver_email`,
  `receiver_address`, `receiver_phoneno`, `order_weight`, `order_distance`,`locationfrom`, `location_to`, `co_id`, `total_charges`) 
- VALUES ('$sender_name ','$sender_email','$sender_address ','$sender_phoneno','$receiver_name','$receiver_email','$receiver_address',
+ VALUES ('$u_id','$sender_name ','$sender_email','$sender_address ','$sender_phoneno','$receiver_name','$receiver_email','$receiver_address',
  '$receiver_phoneno','$order_weight','$distance', '$locationfrom','$location_to','$co_name',$price )";
 
 $run = mysqli_query($conn, $insert_q);
@@ -99,7 +100,7 @@ if ($run) {
 }
 ?>
 <!-- ======= Header ======= -->
-  <?php include('navbar.php');?>
+
   <!-- End Header -->
   <style>
   .heading{
